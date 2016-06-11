@@ -1,0 +1,14 @@
+<?php
+
+namespace Developer;
+
+use Coder;
+use Coder2;
+use Human\Person;
+use SomeTrait;
+use SomeTrait2;
+class Senior extends Person implements Coder, Coder2
+{
+    use SomeTrait;
+    use SomeTrait2;
+}

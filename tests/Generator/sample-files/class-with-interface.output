@@ -1,0 +1,8 @@
+<?php
+
+namespace Developer;
+
+use Coder;
+class Senior implements Coder
+{
+}

@@ -1,0 +1,50 @@
+<?php
+
+declare (strict_types = 1);
+namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
+
+use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+
+class DeserializeMethodSpec extends ObjectBehavior
+{
+    public function let(ClassType $className)
+    {
+        $className->getName()->willReturn('SomeClass');
+        $this->beConstructedWith($className, $properties = []);
+    }
+
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod');
+        $this->shouldHaveType(Method::class);
+    }
+
+    public function it_knows_its_public()
+    {
+        $this->getVisibility()->shouldReturn('public');
+    }
+
+    public function it_knows_its_static_type()
+    {
+        $this->isStatic()->shouldReturn(true);
+    }
+
+    public function it_can_return_method_name()
+    {
+        $this->getMethodName()->shouldReturn('deserialize');
+    }
+
+    public function it_can_return_method_parameters()
+    {
+        $this->getMethodParameters()->shouldHaveCount(1);
+    }
+
+    public function it_has_return_type_defined()
+    {
+        $this->hasMethodReturnType()->shouldReturn(true);
+        $this->getMethodReturnType()->shouldReturn('SomeClass');
+    }
+}

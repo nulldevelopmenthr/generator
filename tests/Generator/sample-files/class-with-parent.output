@@ -1,0 +1,8 @@
+<?php
+
+namespace Developer;
+
+use Human\Person;
+class Senior extends Person
+{
+}

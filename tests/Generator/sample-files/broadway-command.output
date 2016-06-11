@@ -1,0 +1,25 @@
+<?php
+
+namespace MyShop\Command;
+
+use Ramsey\Uuid\Uuid;
+class CreateProduct
+{
+    /** @var Uuid */
+    private $productId;
+    /** @var string */
+    private $title;
+    public function __construct(Uuid $productId, string $title)
+    {
+        $this->productId = $productId;
+        $this->title = $title;
+    }
+    public function getProductId() : Uuid
+    {
+        return $this->productId;
+    }
+    public function getTitle() : string
+    {
+        return $this->title;
+    }
+}
