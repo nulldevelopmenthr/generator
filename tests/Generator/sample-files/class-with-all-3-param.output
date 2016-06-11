@@ -1,0 +1,38 @@
+<?php
+
+namespace Developer;
+
+use Coder;
+use FirstName;
+use LastName;
+use Human\Person;
+use SomeTrait;
+use HR\Finances\Wage;
+class Senior extends Person implements Coder
+{
+    use SomeTrait;
+    /** @var FirstName */
+    private $firstName;
+    /** @var LastName */
+    private $lastName;
+    /** @var Wage */
+    private $amount;
+    public function __construct(FirstName $firstName, LastName $lastName, Wage $amount)
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->amount = $amount;
+    }
+    public function getFirstName() : FirstName
+    {
+        return $this->firstName;
+    }
+    public function getLastName() : LastName
+    {
+        return $this->lastName;
+    }
+    public function getAmount() : Wage
+    {
+        return $this->amount;
+    }
+}

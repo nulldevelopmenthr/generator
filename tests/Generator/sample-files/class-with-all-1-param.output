@@ -1,0 +1,22 @@
+<?php
+
+namespace Developer;
+
+use Coder;
+use FirstName;
+use Human\Person;
+use SomeTrait;
+class Senior extends Person implements Coder
+{
+    use SomeTrait;
+    /** @var FirstName */
+    private $firstName;
+    public function __construct(FirstName $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+    public function getFirstName() : FirstName
+    {
+        return $this->firstName;
+    }
+}

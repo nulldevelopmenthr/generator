@@ -1,0 +1,38 @@
+{
+    "name": "nulldevelopmenthr/generator",
+    "description": "generator",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "NullDev\\Skeleton\\": "src/",
+            "spec\\NullDev\\Skeleton\\": "spec/",
+            "tests\\NullDev\\Skeleton\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "nikic/php-parser": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit":                          "~5",
+        "mockery/mockery":                          "~0.9",
+        "phpspec/phpspec":                          "~2.0",
+        "henrikbjorn/phpspec-code-coverage":        "~2.0",
+        "coduo/phpspec-data-provider-extension":    "^1.0",
+        "ciaranmcnulty/phpspec-typehintedmethods":  "~1.1",
+        "rmiller/exemplify-extension":              "~0.2",
+        "phpmd/phpmd":                              "~2.1",
+        "squizlabs/php_codesniffer":                "2.*",
+        "friendsofphp/php-cs-fixer":                "~1.5",
+        "satooshi/php-coveralls":                   "^1",
+        "codeclimate/php-test-reporter":            "^0.3"
+    },
+    "scripts": {
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+    }
+}

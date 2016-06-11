@@ -1,0 +1,56 @@
+<?php
+
+namespace MyShop\Event;
+
+use DateTime;
+use Broadway\Serializer\SerializableInterface;
+use Ramsey\Uuid\Uuid;
+class ProductCreated implements SerializableInterface
+{
+    /** @var Uuid */
+    private $productId;
+    /** @var string */
+    private $title;
+    /** @var int */
+    private $quantity;
+    /** @var array */
+    private $locationsAvailable;
+    /** @var DateTime */
+    private $createdAt;
+    public function __construct(Uuid $productId, string $title, int $quantity, array $locationsAvailable, DateTime $createdAt)
+    {
+        $this->productId = $productId;
+        $this->title = $title;
+        $this->quantity = $quantity;
+        $this->locationsAvailable = $locationsAvailable;
+        $this->createdAt = $createdAt;
+    }
+    public function getProductId() : Uuid
+    {
+        return $this->productId;
+    }
+    public function getTitle() : string
+    {
+        return $this->title;
+    }
+    public function getQuantity() : int
+    {
+        return $this->quantity;
+    }
+    public function getLocationsAvailable() : array
+    {
+        return $this->locationsAvailable;
+    }
+    public function getCreatedAt() : DateTime
+    {
+        return $this->createdAt;
+    }
+    public function serialize() : array
+    {
+        return ['productId' => (string) $this->productId, 'title' => $this->title, 'quantity' => $this->quantity, 'locationsAvailable' => $this->locationsAvailable, 'createdAt' => $this->createdAt->format('c')];
+    }
+    public static function deserialize(array $data) : ProductCreated
+    {
+        return new self(new Uuid($data['productId']), $data['title'], $data['quantity'], $data['locationsAvailable'], new DateTime($data['createdAt']));
+    }
+}
