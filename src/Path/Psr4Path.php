@@ -22,6 +22,21 @@ class Psr4Path
         $this->classBase = $classBase;
     }
 
+    public function isSourceCode() : bool
+    {
+        return true;
+    }
+
+    public function isSpecCode() : bool
+    {
+        return false;
+    }
+
+    public function isTestsCode() : bool
+    {
+        return false;
+    }
+
     /**
      * @return string
      */

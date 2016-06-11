@@ -19,6 +19,13 @@ class Psr0PathSpec extends ObjectBehavior
         $this->shouldHaveType('NullDev\Skeleton\Path\Psr0Path');
     }
 
+    public function it_returns_its_source_code_path()
+    {
+        $this->isSourceCode()->shouldReturn(true);
+        $this->isSpecCode()->shouldReturn(false);
+        $this->isTestsCode()->shouldReturn(false);
+    }
+
     public function it_handles_when_no_class_base_defined()
     {
         $this->beConstructedWith($pathBase = '/var/www/something/src/', $classBase = '');
