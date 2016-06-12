@@ -19,6 +19,7 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
+use NullDev\Skeleton\SourceFactory\Broadway\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
 use PhpParser\PrettyPrinter;
@@ -58,6 +59,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             [$this->provideSourceForBroadwayCommand(), 'broadway-command'],
             [$this->provideSourceForBroadwayEvent(), 'broadway-event'],
             [$this->provideSourceForBroadwayModel(), 'broadway-model'],
+            [$this->provideSourceForBroadwayModelRepository(), 'broadway-model-repository'],
 
         ];
     }
@@ -203,6 +205,16 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         $parameter = new Parameter('productId', ClassType::createFromFullyQualified('MyShop\\Model\\ProductUuid'));
 
         $factory = new EventSourcedAggregateRootSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType, $parameter);
+    }
+
+    private function provideSourceForBroadwayModelRepository() : ImprovedClassSource
+    {
+        $classType = ClassType::create('MyShop\\Model\\ProductModelRepository');
+        $parameter = new Parameter('productId', ClassType::create('MyShop\\Model\\ProductModel'));
+
+        $factory = new EventSourcingRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameter);
     }

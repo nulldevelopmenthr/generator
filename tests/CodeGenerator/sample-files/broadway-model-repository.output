@@ -1,0 +1,15 @@
+<?php
+
+namespace MyShop\Model;
+
+use Broadway\EventHandling\EventBusInterface;
+use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
+use Broadway\EventSourcing\EventSourcingRepository;
+use Broadway\EventStore\EventStoreInterface;
+class ProductModelRepository extends EventSourcingRepository
+{
+    public function __construct(EventStoreInterface $eventStore, EventBusInterface $eventBus, array $eventStreamDecorators = array())
+    {
+        parent::__construct($eventStore, $eventBus, ProductModel::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
+    }
+}
