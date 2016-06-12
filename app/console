@@ -5,14 +5,32 @@
 set_time_limit(0);
 
 /* Optional. It’s better to do it in the php.ini file */
-date_default_timezone_set('America/Los_Angeles'); 
+date_default_timezone_set('America/Los_Angeles');
 
 // include the composer autoloader
-require_once __DIR__ . '/../vendor/autoload.php'; 
+$autoload = require_once __DIR__.'/../vendor/autoload.php';
 
-// import the Symfony Console Application 
-use Symfony\Component\Console\Application; 
+// import the Symfony Console Application
+use Symfony\Component\Console\Application;
+
+use NullDev\Skeleton\Command\UuidIdentityCommand;
+use NullDev\Skeleton\Path\Psr0Path;
+use NullDev\Skeleton\Path\SpecPsr4Path;
+use NullDev\Skeleton\Path\TestPsr4Path;
+use NullDev\Skeleton\Path\Psr4Path;
+
+$paths = [
+    new Psr4Path(realpath(__DIR__.'/../src').'/', "NullDev\\Skeleton\\"),
+    new SpecPsr4Path(realpath(__DIR__.'/../spec').'/', "spec\\NullDev\\Skeleton\\"),
+    new TestPsr4Path(realpath(__DIR__.'/../tests').'/', "tests\\NullDev\\Skeleton\\"),
+    new Psr0Path(realpath(__DIR__.'/../lib').'/', ""),
+];
+
+$uuidIdentityCommand = new UuidIdentityCommand();
+$uuidIdentityCommand->setPaths($paths);
+$uuidIdentityCommand->setAutoloader($autoload);
 
 $app = new Application();
+$app->add($uuidIdentityCommand);
 $app->run();
-?>
+
