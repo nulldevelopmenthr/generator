@@ -3,7 +3,6 @@
 declare (strict_types = 1);
 namespace NullDev\Skeleton\Definition\PHP\Types;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
@@ -16,7 +15,7 @@ class TypeFactory
     {
         $name = str_replace('/', '\\', $name);
 
-        if (empty($name)) {
+        if ('' === $name) {
             throw new \Exception('ERR 34145234: Params without classes are not supported yet!');
         }
 

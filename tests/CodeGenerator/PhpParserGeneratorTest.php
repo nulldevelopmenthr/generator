@@ -4,15 +4,7 @@ declare (strict_types = 1);
 namespace tests\NullDev\Skeleton\Output\PHP;
 
 use Mockery as m;
-use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -27,7 +19,6 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
-use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\PrettyPrinter;
 
@@ -43,21 +34,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
      */
     public function outputClass(ImprovedClassSource $classSource, string $outputName)
     {
-        $generator = new PhpParserGenerator(
-            new BuilderFactory(),
-            new ClassGenerator(
-                new BuilderFactory()
-            ),
-            new MethodFactory(
-                new ConstructorGenerator(new BuilderFactory()),
-                new DeserializeGenerator(new BuilderFactory()),
-                new GetterGenerator(new BuilderFactory()),
-                new SerializeGenerator(new BuilderFactory()),
-                new ToStringGenerator(new BuilderFactory()),
-                new UuidCreateGenerator(new BuilderFactory())
-            ),
-            new PrettyPrinter\Standard()
-        );
+        $generator = PhpParserGeneratorFactory::create();
 
         $this->assertSame($this->getFileContent($outputName), $generator->getOutput($classSource));
     }
@@ -83,84 +60,83 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    public function provideSourceWithParent()
+    public function provideSourceWithParent() : ImprovedClassSource
     {
         $source = new ImprovedClassSource($this->provideClassType());
 
         return $source->addParent($this->provideParentClassType());
     }
 
-    public function provideSourceWithInterface()
+    public function provideSourceWithInterface() : ImprovedClassSource
     {
         $source = new ImprovedClassSource($this->provideClassType());
 
         return $source->addInterface($this->provideInterfaceType1());
     }
 
-    public function provideSourceWithTrait()
+    public function provideSourceWithTrait() : ImprovedClassSource
     {
         $source = new ImprovedClassSource($this->provideClassType());
 
         return $source->addTrait($this->provideTraitType1());
     }
 
-    public function provideSourceWithAll()
+    public function provideSourceWithAll() : ImprovedClassSource
     {
         return $this->provideSourceWithParent()
             ->addInterface($this->provideInterfaceType1())
             ->addTrait($this->provideTraitType1());
     }
 
-    public function provideSourceWithAllMulti()
+    public function provideSourceWithAllMulti() : ImprovedClassSource
     {
         return $this->provideSourceWithAll()
             ->addInterface($this->provideInterfaceType2())
             ->addTrait($this->provideTraitType2());
     }
 
-    public function provideSourceWithOneParamConstructor()
+    public function provideSourceWithOneParamConstructor() : ImprovedClassSource
     {
         return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1Parameters());
     }
 
-    public function provideSourceWithTwoParamConstructor()
+    public function provideSourceWithTwoParamConstructor() : ImprovedClassSource
     {
         return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith2Parameters());
     }
 
-    public function provideSourceWithThreeParamConstructor()
+    public function provideSourceWithThreeParamConstructor() : ImprovedClassSource
     {
         return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith3Parameters());
     }
 
-    public function provideSourceWithOneClasslessParamConstructor()
+    public function provideSourceWithOneClasslessParamConstructor() : ImprovedClassSource
     {
         return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1ClasslessParameters());
     }
 
-    public function provideSourceWithOneTypeDeclarationParamConstructor()
+    public function provideSourceWithOneTypeDeclarationParamConstructor() : ImprovedClassSource
     {
-        return $this->provideSourceWithAll()->addConstructorMethod(
-            $this->provideConstructorWith1ScalarTypesParameters()
-        );
+        return $this->provideSourceWithAll()
+            ->addConstructorMethod($this->provideConstructorWith1ScalarTypesParameters());
     }
 
-    private function provideConstructorWith1Parameters()
+    private function provideConstructorWith1Parameters() : ConstructorMethod
     {
         return new ConstructorMethod([new Parameter('firstName', new ClassType('FirstName'))]);
     }
 
-    private function provideConstructorWith1ClasslessParameters()
+    private function provideConstructorWith1ClasslessParameters() : ConstructorMethod
     {
         return new ConstructorMethod([new Parameter('firstName')]);
     }
 
-    protected function provideConstructorWith1ScalarTypesParameters()
+    protected function provideConstructorWith1ScalarTypesParameters() : ConstructorMethod
     {
         return new ConstructorMethod([new Parameter('firstName', new StringType())]);
     }
 
-    private function provideConstructorWith2Parameters()
+    private function provideConstructorWith2Parameters() : ConstructorMethod
     {
         $params = [
             new Parameter('firstName', new ClassType('FirstName')),
@@ -170,7 +146,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         return new ConstructorMethod($params);
     }
 
-    private function provideConstructorWith3Parameters()
+    private function provideConstructorWith3Parameters() : ConstructorMethod
     {
         $params = [
             new Parameter('firstName', new ClassType('FirstName')),
@@ -181,7 +157,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         return new ConstructorMethod($params);
     }
 
-    private function provideSourceForUuidIdentifier()
+    private function provideSourceForUuidIdentifier() : ImprovedClassSource
     {
         $classType = new ClassType('SomeClass', 'SomeNamespace');
 
@@ -190,7 +166,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    private function provideSourceForBroadwayCommand()
+    private function provideSourceForBroadwayCommand() : ImprovedClassSource
     {
         $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
         $parameters = [
@@ -203,7 +179,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    private function provideSourceForBroadwayEvent()
+    private function provideSourceForBroadwayEvent() : ImprovedClassSource
     {
         $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
         $parameters = [
@@ -219,37 +195,37 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    private function provideClassType()
+    private function provideClassType() : ClassType
     {
         return new ClassType('Senior', 'Developer');
     }
 
-    private function provideParentClassType()
+    private function provideParentClassType() : ClassType
     {
         return new ClassType('Person', 'Human');
     }
 
-    private function provideInterfaceType1()
+    private function provideInterfaceType1() : InterfaceType
     {
         return new InterfaceType('Coder');
     }
 
-    private function provideInterfaceType2()
+    private function provideInterfaceType2() : InterfaceType
     {
         return new InterfaceType('Coder2');
     }
 
-    private function provideTraitType1()
+    private function provideTraitType1() : TraitType
     {
         return new TraitType('SomeTrait');
     }
 
-    private function provideTraitType2()
+    private function provideTraitType2() : TraitType
     {
         return new TraitType('SomeTrait2');
     }
 
-    private function getFileContent(string $fileName)
+    private function getFileContent(string $fileName) : string
     {
         return file_get_contents(__DIR__.'/sample-files/'.$fileName.'.output');
     }

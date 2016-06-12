@@ -16,9 +16,7 @@ use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
-use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
 use PhpSpec\Exception\Example\PendingException;
 use Sensio\Bundle\GeneratorBundle\Command\GeneratorCommand;
@@ -103,11 +101,6 @@ class BroadwayEventCliCommand extends GeneratorCommand
 
         $fields = [];
 
-        //
-        //START  : FIELDS
-        //
-        //
-
         $existingClasses = $this->getExistingClasses();
 
         while (true) {
@@ -133,10 +126,6 @@ class BroadwayEventCliCommand extends GeneratorCommand
 
             $fields[] = new Parameter($parameterName, $parameterClassType);
         }
-        //
-        //
-        //  END  : FIELDS
-        //
 
         $classType = ClassType::create($className);
 
