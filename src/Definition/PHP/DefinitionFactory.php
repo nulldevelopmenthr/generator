@@ -11,6 +11,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
+use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class DefinitionFactory
 {
@@ -24,9 +25,9 @@ class DefinitionFactory
         return new ConstructorMethod($params);
     }
 
-    public function createDeserializeMethod(ClassType $classType, array $parameters) : DeserializeMethod
+    public function createDeserializeMethod(ImprovedClassSource $classSource) : DeserializeMethod
     {
-        return new DeserializeMethod($classType, $parameters);
+        return new DeserializeMethod($classSource);
     }
 
     public function createGetterMethod(Parameter $parameter) : GetterMethod
@@ -34,9 +35,9 @@ class DefinitionFactory
         return new GetterMethod($parameter);
     }
 
-    public function createSerializeMethod(array $parameters) : SerializeMethod
+    public function createSerializeMethod(ImprovedClassSource $classSource) : SerializeMethod
     {
-        return new SerializeMethod($parameters);
+        return new SerializeMethod($classSource);
     }
 
     public function createToStringMethod(Parameter $parameter) : ToStringMethod

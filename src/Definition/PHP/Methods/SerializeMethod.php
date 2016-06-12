@@ -3,21 +3,20 @@
 declare (strict_types = 1);
 namespace NullDev\Skeleton\Definition\PHP\Methods;
 
+use NullDev\Skeleton\Source\ImprovedClassSource;
+
 class SerializeMethod implements Method
 {
-    private $properties;
+    private $classSource;
 
-    public function __construct(array $properties)
+    public function __construct(ImprovedClassSource $classSource)
     {
-        $this->properties = $properties;
+        $this->classSource = $classSource;
     }
 
-    /**
-     * @return array
-     */
     public function getProperties() : array
     {
-        return $this->properties;
+        return $this->classSource->getProperties();
     }
 
     public function getVisibility() : string

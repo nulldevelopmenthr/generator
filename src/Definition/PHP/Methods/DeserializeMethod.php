@@ -6,24 +6,20 @@ namespace NullDev\Skeleton\Definition\PHP\Methods;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
+use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class DeserializeMethod implements Method
 {
-    private $classType;
-    private $properties;
+    private $classSource;
 
-    public function __construct(ClassType $classType, array $properties)
+    public function __construct(ImprovedClassSource $classSource)
     {
-        $this->classType  = $classType;
-        $this->properties = $properties;
+        $this->classSource = $classSource;
     }
 
-    /**
-     * @return array
-     */
     public function getProperties() : array
     {
-        return $this->properties;
+        return $this->classSource->getProperties();
     }
 
     public function getVisibility() : string
@@ -53,6 +49,6 @@ class DeserializeMethod implements Method
 
     public function getMethodReturnType() : string
     {
-        return $this->classType->getName();
+        return $this->classSource->getName();
     }
 }
