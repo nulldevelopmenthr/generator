@@ -47,6 +47,11 @@ class ImprovedClassSource
         return $this->classType;
     }
 
+    public function hasNamespace() : bool
+    {
+        return $this->classType->hasNamespace();
+    }
+
     public function getNamespace() : string
     {
         return $this->classType->getNamespace();
