@@ -5,6 +5,7 @@ namespace tests\NullDev\Skeleton\Output\PHP;
 
 use Mockery as m;
 use NullDev\Skeleton\Definition\PHP\Methods\Constructor;
+use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
@@ -121,42 +122,42 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function provideSourceWithOneParamConstructor()
     {
-        return $this->provideSourceWithAll()->addConstructor($this->provideConstructorWith1Parameters());
+        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1Parameters());
     }
 
     public function provideSourceWithTwoParamConstructor()
     {
-        return $this->provideSourceWithAll()->addConstructor($this->provideConstructorWith2Parameters());
+        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith2Parameters());
     }
 
     public function provideSourceWithThreeParamConstructor()
     {
-        return $this->provideSourceWithAll()->addConstructor($this->provideConstructorWith3Parameters());
+        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith3Parameters());
     }
 
     public function provideSourceWithOneClasslessParamConstructor()
     {
-        return $this->provideSourceWithAll()->addConstructor($this->provideConstructorWith1ClasslessParameters());
+        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1ClasslessParameters());
     }
 
     public function provideSourceWithOneTypeDeclarationParamConstructor()
     {
-        return $this->provideSourceWithAll()->addConstructor($this->provideConstructorWith1ScalarTypesParameters());
+        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1ScalarTypesParameters());
     }
 
     private function provideConstructorWith1Parameters()
     {
-        return new Constructor([new Parameter('firstName', new ClassType('FirstName'))]);
+        return new ConstructorMethod([new Parameter('firstName', new ClassType('FirstName'))]);
     }
 
     private function provideConstructorWith1ClasslessParameters()
     {
-        return new Constructor([new Parameter('firstName')]);
+        return new ConstructorMethod([new Parameter('firstName')]);
     }
 
     protected function provideConstructorWith1ScalarTypesParameters()
     {
-        return new Constructor([new Parameter('firstName', new StringType())]);
+        return new ConstructorMethod([new Parameter('firstName', new StringType())]);
     }
 
     private function provideConstructorWith2Parameters()
@@ -166,7 +167,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             new Parameter('lastName', new ClassType('LastName')),
         ];
 
-        return new Constructor($params);
+        return new ConstructorMethod($params);
     }
 
     private function provideConstructorWith3Parameters()
@@ -177,7 +178,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             new Parameter('amount', new ClassType('Wage', 'HR\\Finances')),
         ];
 
-        return new Constructor($params);
+        return new ConstructorMethod($params);
     }
 
     private function provideSourceForUuidIdentifier()
