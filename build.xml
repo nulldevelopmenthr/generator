@@ -44,7 +44,9 @@
     </target>
 
     <target name="phpunit" description="">
-        <exec executable="bin/phpunit" failonerror="false" resultproperty="phpunitresult" outputproperty="phpunitout"/>
+        <exec executable="bin/phpunit" failonerror="false" resultproperty="phpunitresult" outputproperty="phpunitout">
+            <arg value="--fail-on-warning"/>
+        </exec>
         <fail message="${phpunitout}">
             <condition>
                 <isfailure code="${phpunitresult}"/>

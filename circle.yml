@@ -13,7 +13,7 @@ dependencies:
     - "bin"
 test:
   override:
-    - ./bin/phpunit
+    - ./bin/phpunit --fail-on-warning
     - ./bin/phpspec run --no-interaction
     - ant php-cs-fixer-check
     - ant phpcs-task

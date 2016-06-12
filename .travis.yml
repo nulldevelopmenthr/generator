@@ -28,7 +28,7 @@ before_script:
   - mkdir build/logs -p
 script:
   - if [[ $coverage == 'phpunit' ]]; then sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
-  - php -d 'xdebug.max_nesting_level=500' bin/phpunit
+  - php -d 'xdebug.max_nesting_level=500' bin/phpunit --fail-on-warning
   - if [[ $coverage == 'phpunit' ]]; then sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
   - if [[ $coverage == 'phpspec' ]]; then sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
   - ./bin/phpspec run --no-interaction
