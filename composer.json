@@ -4,6 +4,9 @@
     "license": "proprietary",
     "type": "project",
     "autoload": {
+        "psr-0": {
+            "": "lib/"
+        },
         "psr-4": {
             "NullDev\\Skeleton\\": "src/",
             "spec\\NullDev\\Skeleton\\": "spec/",
