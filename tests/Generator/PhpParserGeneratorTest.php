@@ -32,7 +32,6 @@ use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter;
 
 /**
- * @covers \NullDev\Skeleton\Output\PHP\FileOutput
  * @group  FullCoverage
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
