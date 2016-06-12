@@ -4,12 +4,10 @@ declare (strict_types = 1);
 namespace NullDev\Skeleton\Command;
 
 use Mockery as m;
-use NullDev\Skeleton\Definition\PHP\Methods\Constructor;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Generator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Popular\UuidFactory;
-use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\Node;
 use PhpSpec\Exception\Example\PendingException;
 use Sensio\Bundle\GeneratorBundle\Command\GeneratorCommand;
