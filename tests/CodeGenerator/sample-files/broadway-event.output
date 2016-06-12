@@ -2,8 +2,8 @@
 
 namespace MyShop\Event;
 
-use DateTime;
 use Broadway\Serializer\SerializableInterface;
+use DateTime;
 use Ramsey\Uuid\Uuid;
 class ProductCreated implements SerializableInterface
 {

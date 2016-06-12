@@ -5,12 +5,14 @@ namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -24,7 +26,8 @@ class MethodFactorySpec extends ObjectBehavior
         ToStringGenerator $toStringGenerator,
         UuidCreateGenerator $uuidCreateGenerator,
         CreateGenerator $createGenerator,
-        AggregateRootIdGetterGenerator $aggregateRootIdGetterGenerator
+        AggregateRootIdGetterGenerator $aggregateRootIdGetterGenerator,
+        RepositoryConstructorGenerator $repositoryConstructorGenerator
     ) {
         $this->beConstructedWith(
             $constructorGenerator,
@@ -34,7 +37,8 @@ class MethodFactorySpec extends ObjectBehavior
             $toStringGenerator,
             $uuidCreateGenerator,
             $createGenerator,
-            $aggregateRootIdGetterGenerator
+            $aggregateRootIdGetterGenerator,
+            $repositoryConstructorGenerator
         );
     }
 

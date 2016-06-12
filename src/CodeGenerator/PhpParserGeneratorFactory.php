@@ -7,6 +7,7 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
@@ -36,7 +37,8 @@ class PhpParserGeneratorFactory
                 new ToStringGenerator(new BuilderFactory()),
                 new UuidCreateGenerator(new BuilderFactory()),
                 new CreateGenerator(new BuilderFactory()),
-                new AggregateRootIdGetterGenerator(new BuilderFactory())
+                new AggregateRootIdGetterGenerator(new BuilderFactory()),
+                new RepositoryConstructorGenerator(new BuilderFactory())
             ),
             new PrettyPrinter\Standard()
         );

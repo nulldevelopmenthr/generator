@@ -64,8 +64,8 @@ class ImprovedClassSourceSpec extends ObjectBehavior
 
     public function it_will_show_interfaces_in_imports(InterfaceType $interface1, InterfaceType $interface2)
     {
-        $interface1->getName()->willReturn('InterfaceType1');
-        $interface2->getName()->willReturn('InterfaceType2');
+        $interface1->getFullName()->willReturn('InterfaceType1');
+        $interface2->getFullName()->willReturn('InterfaceType2');
 
         $this->addInterface($interface1)->shouldReturn($this);
         $this->addInterface($interface2)->shouldReturn($this);
@@ -86,8 +86,8 @@ class ImprovedClassSourceSpec extends ObjectBehavior
 
     public function it_will_show_traits_in_imports(TraitType $trait1, TraitType $trait2)
     {
-        $trait1->getName()->willReturn('TraitType1');
-        $trait2->getName()->willReturn('TraitType2');
+        $trait1->getFullName()->willReturn('TraitType1');
+        $trait2->getFullName()->willReturn('TraitType2');
 
         $this->addTrait($trait1)->shouldReturn($this);
         $this->addTrait($trait2)->shouldReturn($this);

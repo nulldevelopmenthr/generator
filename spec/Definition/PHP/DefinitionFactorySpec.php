@@ -5,6 +5,7 @@ namespace spec\NullDev\Skeleton\Definition\PHP;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -70,5 +71,11 @@ class DefinitionFactorySpec extends ObjectBehavior
     {
         $this->createBroadwayModelAggregateRootIdGetterMethod($parameter)
             ->shouldReturnAnInstanceOf(AggregateRootIdGetterMethod::class);
+    }
+
+    public function it_will_create_broadway_model_repository_constructor_method(ClassType $classType)
+    {
+        $this->createBroadwayModelRepositoryConstructorMethod($classType)
+            ->shouldReturnAnInstanceOf(RepositoryConstructorMethod::class);
     }
 }
