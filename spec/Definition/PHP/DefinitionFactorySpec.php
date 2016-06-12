@@ -12,6 +12,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
+use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -32,9 +33,9 @@ class DefinitionFactorySpec extends ObjectBehavior
         $this->createConstructorMethod([])->shouldReturnAnInstanceOf(ConstructorMethod::class);
     }
 
-    public function it_will_create_deserialize_method(ClassType $classType, Parameter $parameter)
+    public function it_will_create_deserialize_method(ImprovedClassSource $classSource)
     {
-        $this->createDeserializeMethod($classType, [$parameter])->shouldReturnAnInstanceOf(DeserializeMethod::class);
+        $this->createDeserializeMethod($classSource)->shouldReturnAnInstanceOf(DeserializeMethod::class);
     }
 
     public function it_will_create_getter_method(Parameter $parameter)
@@ -42,9 +43,9 @@ class DefinitionFactorySpec extends ObjectBehavior
         $this->createGetterMethod($parameter)->shouldReturnAnInstanceOf(GetterMethod::class);
     }
 
-    public function it_will_create_serialize_method(Parameter $parameter)
+    public function it_will_create_serialize_method(ImprovedClassSource $classSource)
     {
-        $this->createSerializeMethod([$parameter])->shouldReturnAnInstanceOf(SerializeMethod::class);
+        $this->createSerializeMethod($classSource)->shouldReturnAnInstanceOf(SerializeMethod::class);
     }
 
     public function it_will_create_to_string_method(Parameter $parameter)

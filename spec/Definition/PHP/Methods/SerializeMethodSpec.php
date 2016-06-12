@@ -4,14 +4,17 @@ declare (strict_types = 1);
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class SerializeMethodSpec extends ObjectBehavior
 {
-    public function let()
+    public function let(ImprovedClassSource $classSource)
     {
-        $this->beConstructedWith($properties = []);
+        $classSource->getProperties()->willReturn([]);
+
+        $this->beConstructedWith($classSource);
     }
 
     public function it_is_initializable()
