@@ -248,12 +248,10 @@ class ImprovedClassSource
     public function getImports()
     {
         $sorter = function ($first, $second) {
-            return $first->getName() <=> $second->getName();
+            return $first->getFullName() <=> $second->getFullName();
         };
         usort($this->imports, $sorter);
 
         return $this->imports;
     }
-
-    //###################
 }

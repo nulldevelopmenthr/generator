@@ -4,10 +4,10 @@ namespace Developer;
 
 use Coder;
 use FirstName;
-use LastName;
-use Human\Person;
-use SomeTrait;
 use HR\Finances\Wage;
+use Human\Person;
+use LastName;
+use SomeTrait;
 class Senior extends Person implements Coder
 {
     use SomeTrait;
