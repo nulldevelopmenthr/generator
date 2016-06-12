@@ -1,0 +1,22 @@
+<?php
+
+declare (strict_types = 1);
+namespace spec\NullDev\Skeleton\Source;
+
+use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Source\ImprovedClassSource;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+
+class SourceFactorySpec extends ObjectBehavior
+{
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType('NullDev\Skeleton\Source\SourceFactory');
+    }
+
+    public function it_will_create_class_source_from_given_class_type(ClassType $classType)
+    {
+        $this->create($classType)->shouldReturnAnInstanceOf(ImprovedClassSource::class);
+    }
+}
