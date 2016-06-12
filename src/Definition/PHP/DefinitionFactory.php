@@ -5,6 +5,7 @@ namespace NullDev\Skeleton\Definition\PHP;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -15,6 +16,11 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
+/**
+ * @see DefinitionFactorySpec
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+ */
 class DefinitionFactory
 {
     public function createParameter(string $name, Type $type) : Parameter
@@ -60,5 +66,11 @@ class DefinitionFactory
     public function createBroadwayModelAggregateRootIdGetterMethod(Parameter $parameter) : AggregateRootIdGetterMethod
     {
         return new AggregateRootIdGetterMethod($parameter);
+    }
+
+    public function createBroadwayModelRepositoryConstructorMethod(
+        ClassType $classType
+    ) : RepositoryConstructorMethod {
+        return new RepositoryConstructorMethod($classType);
     }
 }
