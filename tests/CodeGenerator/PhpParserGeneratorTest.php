@@ -22,8 +22,8 @@ use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
+use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\Source\SourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
@@ -185,7 +185,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $classType = new ClassType('SomeClass', 'SomeNamespace');
 
-        $factory = new UuidIdentitySourceFactory(new SourceFactory(), new DefinitionFactory());
+        $factory = new UuidIdentitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType);
     }
@@ -198,7 +198,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             new Parameter('title', new StringType()),
         ];
 
-        $factory = new CommandSourceFactory(new SourceFactory(), new DefinitionFactory());
+        $factory = new CommandSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
     }
@@ -214,7 +214,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             new Parameter('createdAt', ClassType::create('DateTime')),
         ];
 
-        $factory = new EventSourceFactory(new SourceFactory(), new DefinitionFactory());
+        $factory = new EventSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
     }

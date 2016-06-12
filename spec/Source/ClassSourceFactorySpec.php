@@ -8,11 +8,11 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class SourceFactorySpec extends ObjectBehavior
+class ClassSourceFactorySpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Source\SourceFactory');
+        $this->shouldHaveType('NullDev\Skeleton\Source\ClassSourceFactory');
     }
 
     public function it_will_create_class_source_from_given_class_type(ClassType $classType)

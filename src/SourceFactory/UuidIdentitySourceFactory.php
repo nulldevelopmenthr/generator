@@ -6,16 +6,16 @@ namespace NullDev\Skeleton\SourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
-use NullDev\Skeleton\Source\SourceFactory;
+use NullDev\Skeleton\Source\ClassSourceFactory;
 
-class UuidIdentitySourceFactory
+class UuidIdentitySourceFactory implements SourceFactory
 {
-    /** @var SourceFactory */
+    /** @var ClassSourceFactory */
     private $sourceFactory;
     /** @var DefinitionFactory */
     private $definitionFactory;
 
-    public function __construct(SourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
+    public function __construct(ClassSourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
     {
         $this->sourceFactory     = $sourceFactory;
         $this->definitionFactory = $definitionFactory;
