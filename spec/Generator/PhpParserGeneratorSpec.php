@@ -3,7 +3,6 @@
 declare (strict_types = 1);
 namespace spec\NullDev\Skeleton\Generator;
 
-use NullDev\Skeleton\Definition\PHP\ClassSource;
 use NullDev\Skeleton\Generator\PhpParser\ClassGenerator;
 use NullDev\Skeleton\Generator\PhpParser\MethodFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
