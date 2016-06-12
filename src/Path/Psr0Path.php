@@ -5,7 +5,7 @@ namespace NullDev\Skeleton\Path;
 
 use Exception;
 
-class Psr0Path
+class Psr0Path implements Path
 {
     private $pathBase;
     private $classBase;
