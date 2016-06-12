@@ -11,8 +11,6 @@ use NullDev\Skeleton\Generator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\Generator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\Generator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\Generator\PhpParser\Methods\UuidCreateGenerator;
-use NullDev\Skeleton\Generator\PhpParserGenerator;
-use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
 use PhpParser\PrettyPrinter;
 
