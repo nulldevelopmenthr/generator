@@ -123,7 +123,7 @@ class UuidIdentityCommand extends GeneratorCommand
 
         $source = $factory->getSource();
 
-        return $this->getFileGenerator($source)->getOutput();
+        return $this->getFileGenerator()->getOutput($source);
     }
 
     protected function getFilePath(string $className) : string
@@ -156,8 +156,8 @@ class UuidIdentityCommand extends GeneratorCommand
         throw new PendingException();
     }
 
-    private function getFileGenerator(ImprovedClassSource $source)
+    private function getFileGenerator()
     {
-        return PhpParserGeneratorFactory::create($source);
+        return PhpParserGeneratorFactory::create();
     }
 }
