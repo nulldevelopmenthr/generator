@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types = 1);
-namespace spec\NullDev\Skeleton\Generator\PhpParser\Methods;
+namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use PhpParser\BuilderFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class UuidCreateGeneratorSpec extends ObjectBehavior
+class DeserializeGeneratorSpec extends ObjectBehavior
 {
     public function let(BuilderFactory $builderFactory)
     {
@@ -15,6 +15,6 @@ class UuidCreateGeneratorSpec extends ObjectBehavior
     }
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Generator\PhpParser\Methods\UuidCreateGenerator');
+        $this->shouldHaveType('NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator');
     }
 }

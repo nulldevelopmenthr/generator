@@ -4,8 +4,8 @@ declare (strict_types = 1);
 namespace NullDev\Skeleton\Command;
 
 use Mockery as m;
+use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Generator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Popular\UuidFactory;
 use PhpParser\Node;

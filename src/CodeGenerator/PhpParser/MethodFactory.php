@@ -1,8 +1,14 @@
 <?php
 
 declare (strict_types = 1);
-namespace NullDev\Skeleton\Generator\PhpParser;
+namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -10,12 +16,6 @@ use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
-use NullDev\Skeleton\Generator\PhpParser\Methods\ConstructorGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\DeserializeGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\GetterGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\SerializeGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\ToStringGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\UuidCreateGenerator;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 

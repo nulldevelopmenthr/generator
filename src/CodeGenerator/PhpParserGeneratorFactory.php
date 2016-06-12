@@ -1,16 +1,16 @@
 <?php
 
 declare (strict_types = 1);
-namespace NullDev\Skeleton\Generator;
+namespace NullDev\Skeleton\CodeGenerator;
 
-use NullDev\Skeleton\Generator\PhpParser\ClassGenerator;
-use NullDev\Skeleton\Generator\PhpParser\MethodFactory;
-use NullDev\Skeleton\Generator\PhpParser\Methods\ConstructorGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\DeserializeGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\GetterGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\SerializeGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\ToStringGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\UuidCreateGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\PrettyPrinter;
 

@@ -1,10 +1,10 @@
 <?php
 
 declare (strict_types = 1);
-namespace NullDev\Skeleton\Generator;
+namespace NullDev\Skeleton\CodeGenerator;
 
-use NullDev\Skeleton\Generator\PhpParser\ClassGenerator;
-use NullDev\Skeleton\Generator\PhpParser\MethodFactory;
+use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;

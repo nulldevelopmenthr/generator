@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types = 1);
-namespace NullDev\Skeleton\Generator\PhpParser;
+namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;

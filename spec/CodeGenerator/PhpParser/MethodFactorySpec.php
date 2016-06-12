@@ -1,14 +1,14 @@
 <?php
 
 declare (strict_types = 1);
-namespace spec\NullDev\Skeleton\Generator\PhpParser;
+namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
-use NullDev\Skeleton\Generator\PhpParser\Methods\ConstructorGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\DeserializeGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\GetterGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\SerializeGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\ToStringGenerator;
-use NullDev\Skeleton\Generator\PhpParser\Methods\UuidCreateGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -34,6 +34,6 @@ class MethodFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Generator\PhpParser\MethodFactory');
+        $this->shouldHaveType('NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory');
     }
 }
