@@ -26,35 +26,32 @@ class PhpParserGenerator
     private $classGenerator;
     private $methodFactory;
     private $printer;
-    private $classSource;
 
     public function __construct(
         BuilderFactory $builderFactory,
         ClassGenerator $classGenerator,
         MethodFactory $methodFactory,
-        PrettyPrinterAbstract $printer,
-        ImprovedClassSource $classSource
+        PrettyPrinterAbstract $printer
     ) {
         $this->builderFactory = $builderFactory;
         $this->classGenerator = $classGenerator;
         $this->methodFactory  = $methodFactory;
         $this->printer        = $printer;
-        $this->classSource    = $classSource;
     }
 
-    public function getNode()
+    public function getNode(ImprovedClassSource $classSource)
     {
         //Namespace
-        $code = $this->builderFactory->namespace($this->classSource->getNamespace());
+        $code = $this->builderFactory->namespace($classSource->getNamespace());
 
         //Adds use to header of file
-        foreach ($this->classSource->getImports() as $import) {
+        foreach ($classSource->getImports() as $import) {
             $code->addStmt($this->builderFactory->use($import->getFullName()));
         }
 
-        $classCode = $this->classGenerator->generate($this->classSource);
+        $classCode = $this->classGenerator->generate($classSource);
 
-        foreach ($this->classSource->getMethods() as $method) {
+        foreach ($classSource->getMethods() as $method) {
             $result = $this->methodFactory->generate($method);
 
             $classCode->addStmt($result);
@@ -65,8 +62,8 @@ class PhpParserGenerator
         return $code->getNode();
     }
 
-    public function getOutput()
+    public function getOutput(ImprovedClassSource $classSource) : string
     {
-        return $this->printer->prettyPrintFile([$this->getNode()]);
+        return $this->printer->prettyPrintFile([$this->getNode($classSource)]);
     }
 }

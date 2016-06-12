@@ -17,10 +17,9 @@ class PhpParserGeneratorSpec extends ObjectBehavior
         BuilderFactory $builderFactory,
         ClassGenerator $classGenerator,
         MethodFactory $methodFactory,
-        PrettyPrinterAbstract $printer,
-        ImprovedClassSource $classSource
+        PrettyPrinterAbstract $printer
     ) {
-        $this->beConstructedWith($builderFactory, $classGenerator, $methodFactory, $printer, $classSource);
+        $this->beConstructedWith($builderFactory, $classGenerator, $methodFactory, $printer);
     }
 
     public function it_is_initializable()
