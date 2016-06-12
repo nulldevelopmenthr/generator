@@ -6,16 +6,17 @@ namespace NullDev\Skeleton\SourceFactory\Broadway;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
-use NullDev\Skeleton\Source\SourceFactory;
+use NullDev\Skeleton\Source\ClassSourceFactory;
+use NullDev\Skeleton\SourceFactory\SourceFactory;
 
-class EventSourceFactory
+class EventSourceFactory implements SourceFactory
 {
-    /** @var SourceFactory */
+    /** @var ClassSourceFactory */
     private $sourceFactory;
     /** @var DefinitionFactory */
     private $definitionFactory;
 
-    public function __construct(SourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
+    public function __construct(ClassSourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
     {
         $this->sourceFactory     = $sourceFactory;
         $this->definitionFactory = $definitionFactory;

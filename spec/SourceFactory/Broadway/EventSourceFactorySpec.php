@@ -9,14 +9,14 @@ use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\Source\SourceFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class EventSourceFactorySpec extends ObjectBehavior
 {
-    public function let(SourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
+    public function let(ClassSourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
     {
         $this->beConstructedWith($sourceFactory, $definitionFactory);
     }
@@ -27,7 +27,7 @@ class EventSourceFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(
-        SourceFactory $sourceFactory,
+        ClassSourceFactory $sourceFactory,
         DefinitionFactory $definitionFactory,
         ClassType $classType,
         ImprovedClassSource $classSource,
