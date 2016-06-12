@@ -5,7 +5,6 @@ namespace tests\NullDev\Skeleton\Output\PHP;
 
 use Mockery as m;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
-use NullDev\Skeleton\Definition\PHP\Methods\Constructor;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -23,9 +22,6 @@ use NullDev\Skeleton\Generator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\Generator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\Generator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Generator\PhpParserGenerator;
-use NullDev\Skeleton\Popular\Broadway\CommandFactory;
-use NullDev\Skeleton\Popular\Broadway\EventFactory;
-use NullDev\Skeleton\Popular\UuidFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Source\SourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
@@ -33,7 +29,6 @@ use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
-use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter;
 
 /**

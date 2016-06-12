@@ -4,14 +4,13 @@ declare (strict_types = 1);
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class DeserializeMethodSpec extends ObjectBehavior
 {
-    public function let(ImprovedClassSource $classSource, ClassType $classType)
+    public function let(ImprovedClassSource $classSource)
     {
         $classSource->getName()->willReturn('SomeClass');
         $classSource->getProperties()->willReturn([]);

@@ -5,7 +5,6 @@ namespace NullDev\Skeleton\SourceFactory\Broadway;
 
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\SourceFactory;
 
 class CommandSourceFactory
