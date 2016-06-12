@@ -62,6 +62,11 @@ class ImprovedClassSource
         return $this->classType->getName();
     }
 
+    public function getFullName() : string
+    {
+        return $this->classType->getFullName();
+    }
+
     //
     //-----     Parent     -----
     //
