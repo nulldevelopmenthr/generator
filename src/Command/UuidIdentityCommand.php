@@ -5,9 +5,15 @@ namespace NullDev\Skeleton\Command;
 
 use Mockery as m;
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
+use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\File\FileFactory;
+use NullDev\Skeleton\File\FileGenerator;
+use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
-use NullDev\Skeleton\Popular\UuidFactory;
+use NullDev\Skeleton\Source\ClassSourceFactory;
+use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
 use PhpSpec\Exception\Example\PendingException;
 use Sensio\Bundle\GeneratorBundle\Command\GeneratorCommand;
@@ -19,9 +25,11 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 /**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class UuidIdentityCommand extends GeneratorCommand
 {
@@ -88,7 +96,12 @@ class UuidIdentityCommand extends GeneratorCommand
             $className = str_replace('/', '\\', $input->getOption('className'));
         }
 
-        if ($this->autoloader->findFile($className)) {
+        $classType = ClassType::create($className);
+
+        $classSource  = $this->getSource($classType);
+        $fileResource = $this->getFileResource($classSource);
+
+        if ($fileResource->fileExists()) {
             $question = new ConfirmationQuestion('File exists, overwrite?', false);
 
             if (!$questionHelper->ask($input, $output, $question)) {
@@ -96,53 +109,31 @@ class UuidIdentityCommand extends GeneratorCommand
             }
         }
 
-        $fileContent = $this->getContentOutput($className);
-        $filePath    = $this->getFilePath($className);
-
-        $this->createFile($filePath, $fileContent);
+        $this->createFile($fileResource);
     }
 
-    protected function createFile(string $fileName, string $fileContent) : bool
+    private function getSource(ClassType $classType) : ImprovedClassSource
     {
-        $fileDir = dirname($fileName);
-        if (!is_dir($fileDir)) {
-            mkdir($fileDir, 0777, true);
-        }
+        $factory = new UuidIdentitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
-        file_put_contents($fileName, $fileContent);
-
-        return true;
+        return $factory->create($classType);
     }
 
-    protected function getContentOutput(string $className) : string
+    private function getFileResource(ImprovedClassSource $classSource) : FileResource
     {
-        $classType = ClassType::create($className);
-        $factory   = new UuidFactory($classType);
+        $factory = new FileFactory($this->autoloader, $this->paths);
 
-        $source = $factory->getSource();
-
-        return $this->getFileGenerator()->getOutput($source);
+        return $factory->create($classSource);
     }
 
-    protected function getFilePath(string $className) : string
+    private function createFile(FileResource $fileResource)
     {
-        $path = $this->getPathItBelongsTo($className);
+        $fileGenerator = new FileGenerator(new Filesystem(), PhpParserGeneratorFactory::create());
 
-        return $path->getFileNameFor($className);
+        $fileGenerator->create($fileResource);
     }
 
-    protected function getPathItBelongsTo(string $className)
-    {
-        foreach ($this->paths as $path) {
-            if ($path->belongsTo($className)) {
-                return $path;
-            }
-        }
-
-        throw new \Exception('Err 233523523: Cant find path that "'.$className.'" would belong to!');
-    }
-
-    protected function getExistingPaths() : array
+    private function getExistingPaths() : array
     {
         $sourceCodePathReader = new SourceCodePathReader();
 
@@ -152,10 +143,5 @@ class UuidIdentityCommand extends GeneratorCommand
     protected function createGenerator()
     {
         throw new PendingException();
-    }
-
-    private function getFileGenerator()
-    {
-        return PhpParserGeneratorFactory::create();
     }
 }
