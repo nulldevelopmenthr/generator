@@ -4,6 +4,7 @@ declare (strict_types = 1);
 namespace tests\NullDev\Skeleton\Output\PHP;
 
 use Mockery as m;
+use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\Constructor;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -26,6 +27,10 @@ use NullDev\Skeleton\Popular\Broadway\CommandFactory;
 use NullDev\Skeleton\Popular\Broadway\EventFactory;
 use NullDev\Skeleton\Popular\UuidFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDev\Skeleton\Source\SourceFactory;
+use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
+use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
+use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\ParserFactory;
@@ -140,7 +145,9 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function provideSourceWithOneTypeDeclarationParamConstructor()
     {
-        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1ScalarTypesParameters());
+        return $this->provideSourceWithAll()->addConstructorMethod(
+            $this->provideConstructorWith1ScalarTypesParameters()
+        );
     }
 
     private function provideConstructorWith1Parameters()
@@ -181,28 +188,29 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
 
     private function provideSourceForUuidIdentifier()
     {
-        $className   = new ClassType('SomeClass', 'SomeNamespace');
-        $uuidFactory = new UuidFactory($className);
+        $classType = new ClassType('SomeClass', 'SomeNamespace');
 
-        return $uuidFactory->getSource();
+        $factory = new UuidIdentitySourceFactory(new SourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType);
     }
 
     private function provideSourceForBroadwayCommand()
     {
-        $className  = new ClassType('CreateProduct', 'MyShop\\Command');
+        $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
         $parameters = [
             new Parameter('productId', ClassType::createFromFullyQualified('Ramsey\\Uuid\\Uuid')),
             new Parameter('title', new StringType()),
         ];
 
-        $factory = new CommandFactory($className, $parameters);
+        $factory = new CommandSourceFactory(new SourceFactory(), new DefinitionFactory());
 
-        return $factory->getSource();
+        return $factory->create($classType, $parameters);
     }
 
     private function provideSourceForBroadwayEvent()
     {
-        $className  = new ClassType('ProductCreated', 'MyShop\\Event');
+        $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
         $parameters = [
             new Parameter('productId', ClassType::createFromFullyQualified('Ramsey\\Uuid\\Uuid')),
             new Parameter('title', new StringType()),
@@ -211,9 +219,9 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             new Parameter('createdAt', ClassType::create('DateTime')),
         ];
 
-        $factory = new EventFactory($className, $parameters);
+        $factory = new EventSourceFactory(new SourceFactory(), new DefinitionFactory());
 
-        return $factory->getSource();
+        return $factory->create($classType, $parameters);
     }
 
     private function provideClassType()
