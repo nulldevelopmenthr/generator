@@ -17,6 +17,7 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
+use NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
@@ -56,6 +57,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             [$this->provideSourceForUuidIdentifier(), 'uuid-identifier'],
             [$this->provideSourceForBroadwayCommand(), 'broadway-command'],
             [$this->provideSourceForBroadwayEvent(), 'broadway-event'],
+            [$this->provideSourceForBroadwayModel(), 'broadway-model'],
 
         ];
     }
@@ -193,6 +195,16 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         $factory = new EventSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
+    }
+
+    private function provideSourceForBroadwayModel() : ImprovedClassSource
+    {
+        $classType = new ClassType('ProductModel', 'MyShop\\Model');
+        $parameter = new Parameter('productId', ClassType::createFromFullyQualified('MyShop\\Model\\ProductUuid'));
+
+        $factory = new EventSourcedAggregateRootSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType, $parameter);
     }
 
     private function provideClassType() : ClassType

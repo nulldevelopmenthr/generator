@@ -3,12 +3,16 @@
 declare (strict_types = 1);
 namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -37,6 +41,10 @@ class MethodFactory
     private $toStringGenerator;
     /** @var UuidCreateGenerator */
     private $uuidCreateGenerator;
+    /** @var CreateGenerator */
+    private $createGenerator;
+    /** @var AggregateRootIdGetterGenerator */
+    private $aggregateRootIdGetterGenerator;
 
     public function __construct(
         ConstructorGenerator $constructorGenerator,
@@ -44,14 +52,18 @@ class MethodFactory
         GetterGenerator $getterGenerator,
         SerializeGenerator $serializeGenerator,
         ToStringGenerator $toStringGenerator,
-        UuidCreateGenerator $uuidCreateGenerator
+        UuidCreateGenerator $uuidCreateGenerator,
+        CreateGenerator $createGenerator,
+        AggregateRootIdGetterGenerator $aggregateRootIdGetterGenerator
     ) {
-        $this->constructorGenerator = $constructorGenerator;
-        $this->deserializeGenerator = $deserializeGenerator;
-        $this->getterGenerator      = $getterGenerator;
-        $this->serializeGenerator   = $serializeGenerator;
-        $this->toStringGenerator    = $toStringGenerator;
-        $this->uuidCreateGenerator  = $uuidCreateGenerator;
+        $this->constructorGenerator           = $constructorGenerator;
+        $this->deserializeGenerator           = $deserializeGenerator;
+        $this->getterGenerator                = $getterGenerator;
+        $this->serializeGenerator             = $serializeGenerator;
+        $this->toStringGenerator              = $toStringGenerator;
+        $this->uuidCreateGenerator            = $uuidCreateGenerator;
+        $this->createGenerator                = $createGenerator;
+        $this->aggregateRootIdGetterGenerator = $aggregateRootIdGetterGenerator;
     }
 
     public function generate(Method $method)
@@ -68,6 +80,10 @@ class MethodFactory
             return $this->serializeGenerator->generate($method);
         } elseif ($method instanceof DeserializeMethod) {
             return $this->deserializeGenerator->generate($method);
+        } elseif ($method instanceof CreateMethod) {
+            return $this->createGenerator->generate($method);
+        } elseif ($method instanceof AggregateRootIdGetterMethod) {
+            return $this->aggregateRootIdGetterGenerator->generate($method);
         } else {
             throw new \Exception('ERR 12431999: Unhandled method:'.get_class($method));
         }

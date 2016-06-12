@@ -1,0 +1,18 @@
+<?php
+
+namespace MyShop\Model;
+
+use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use MyShop\Model\ProductUuid;
+class ProductModel extends EventSourcedAggregateRoot
+{
+    /** @var ProductUuid */
+    private $productId;
+    public static function create(ProductUuid $productId) : ProductModel
+    {
+    }
+    public function getAggregateRootId() : ProductUuid
+    {
+        return $this->productId;
+    }
+}

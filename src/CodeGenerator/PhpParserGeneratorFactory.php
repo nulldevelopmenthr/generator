@@ -5,6 +5,8 @@ namespace NullDev\Skeleton\CodeGenerator;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
@@ -14,6 +16,9 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\PrettyPrinter;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class PhpParserGeneratorFactory
 {
     public static function create() : PhpParserGenerator
@@ -29,7 +34,9 @@ class PhpParserGeneratorFactory
                 new GetterGenerator(new BuilderFactory()),
                 new SerializeGenerator(new BuilderFactory()),
                 new ToStringGenerator(new BuilderFactory()),
-                new UuidCreateGenerator(new BuilderFactory())
+                new UuidCreateGenerator(new BuilderFactory()),
+                new CreateGenerator(new BuilderFactory()),
+                new AggregateRootIdGetterGenerator(new BuilderFactory())
             ),
             new PrettyPrinter\Standard()
         );
