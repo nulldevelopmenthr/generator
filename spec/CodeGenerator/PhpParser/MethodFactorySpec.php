@@ -3,6 +3,8 @@
 declare (strict_types = 1);
 namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
@@ -20,7 +22,9 @@ class MethodFactorySpec extends ObjectBehavior
         GetterGenerator $getterGenerator,
         SerializeGenerator $serializeGenerator,
         ToStringGenerator $toStringGenerator,
-        UuidCreateGenerator $uuidCreateGenerator
+        UuidCreateGenerator $uuidCreateGenerator,
+        CreateGenerator $createGenerator,
+        AggregateRootIdGetterGenerator $aggregateRootIdGetterGenerator
     ) {
         $this->beConstructedWith(
             $constructorGenerator,
@@ -28,7 +32,9 @@ class MethodFactorySpec extends ObjectBehavior
             $getterGenerator,
             $serializeGenerator,
             $toStringGenerator,
-            $uuidCreateGenerator
+            $uuidCreateGenerator,
+            $createGenerator,
+            $aggregateRootIdGetterGenerator
         );
     }
 

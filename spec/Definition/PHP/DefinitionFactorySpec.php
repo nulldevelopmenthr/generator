@@ -3,6 +3,8 @@
 declare (strict_types = 1);
 namespace spec\NullDev\Skeleton\Definition\PHP;
 
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -56,5 +58,17 @@ class DefinitionFactorySpec extends ObjectBehavior
     public function it_will_create_uuid_create_method(ClassType $classType)
     {
         $this->createUuidCreateMethod($classType)->shouldReturnAnInstanceOf(UuidCreateMethod::class);
+    }
+
+    public function it_will_create_broadway_model_create_method(ClassType $classType, Parameter $parameter)
+    {
+        $this->createBroadwayModelCreateMethod($classType, [$parameter])
+            ->shouldReturnAnInstanceOf(CreateMethod::class);
+    }
+
+    public function it_will_create_broadway_model_aggregate_root_id_getter_method(Parameter $parameter)
+    {
+        $this->createBroadwayModelAggregateRootIdGetterMethod($parameter)
+            ->shouldReturnAnInstanceOf(AggregateRootIdGetterMethod::class);
     }
 }

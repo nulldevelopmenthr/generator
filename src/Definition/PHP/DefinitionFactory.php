@@ -3,6 +3,8 @@
 declare (strict_types = 1);
 namespace NullDev\Skeleton\Definition\PHP;
 
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -48,5 +50,15 @@ class DefinitionFactory
     public function createUuidCreateMethod(ClassType $classType) : UuidCreateMethod
     {
         return new UuidCreateMethod($classType);
+    }
+
+    public function createBroadwayModelCreateMethod(ClassType $classType, array  $parameters) : CreateMethod
+    {
+        return new CreateMethod($classType, $parameters);
+    }
+
+    public function createBroadwayModelAggregateRootIdGetterMethod(Parameter $parameter) : AggregateRootIdGetterMethod
+    {
+        return new AggregateRootIdGetterMethod($parameter);
     }
 }
