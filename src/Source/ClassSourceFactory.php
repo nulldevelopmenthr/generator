@@ -5,7 +5,7 @@ namespace NullDev\Skeleton\Source;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 
-class SourceFactory
+class ClassSourceFactory
 {
     public function create(ClassType $classType)
     {
