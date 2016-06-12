@@ -25,7 +25,7 @@ class EventSourcedAggregateRootSourceFactorySpec extends ObjectBehavior
         $this->shouldHaveType('NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFactory');
     }
 
-    public function it_will_create_source_from_given_class_type_and_constructor_params(
+    public function it_will_create_source_from_given_class_type_and_aggregate_root_id_param(
         ClassSourceFactory $sourceFactory,
         DefinitionFactory $definitionFactory,
         ClassType $classType,
