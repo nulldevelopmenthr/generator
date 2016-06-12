@@ -117,7 +117,7 @@ class ImprovedClassSource
 
     public function hasInterfaces()
     {
-        if (empty($this->interfaces)) {
+        if (0 === count($this->interfaces)) {
             return false;
         }
 
@@ -143,7 +143,7 @@ class ImprovedClassSource
 
     public function hasTraits()
     {
-        if (empty($this->traits)) {
+        if (0 === count($this->traits)) {
             return false;
         }
 

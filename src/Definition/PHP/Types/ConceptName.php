@@ -48,7 +48,7 @@ abstract class ConceptName implements Importable, Type
 
     public static function create(string $fullName)
     {
-        return self::createFromFullyQualified($fullName);
+        return static::createFromFullyQualified($fullName);
     }
 
     public static function createFromFullyQualified(string $fullName)
@@ -58,7 +58,7 @@ abstract class ConceptName implements Importable, Type
 
         $namespace = null;
 
-        if (false === empty($parts)) {
+        if (count($parts) > 0) {
             $namespace = implode(self::NAMESPACE_SEPARATOR, $parts);
         }
 

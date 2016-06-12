@@ -14,6 +14,8 @@ $autoload = require_once __DIR__.'/../vendor/autoload.php';
 use Symfony\Component\Console\Application;
 
 use NullDev\Skeleton\Command\UuidIdentityCommand;
+use NullDev\Skeleton\Command\BroadwayCommandCliCommand;
+use NullDev\Skeleton\Command\BroadwayEventCliCommand;
 use NullDev\Skeleton\Path\Psr0Path;
 use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
@@ -30,7 +32,17 @@ $uuidIdentityCommand = new UuidIdentityCommand();
 $uuidIdentityCommand->setPaths($paths);
 $uuidIdentityCommand->setAutoloader($autoload);
 
+$broadwayCommandCliCommand = new BroadwayCommandCliCommand();
+$broadwayCommandCliCommand->setPaths($paths);
+$broadwayCommandCliCommand->setAutoloader($autoload);
+
+$broadwayEventCliCommand = new BroadwayEventCliCommand();
+$broadwayEventCliCommand->setPaths($paths);
+$broadwayEventCliCommand->setAutoloader($autoload);
+
 $app = new Application();
 $app->add($uuidIdentityCommand);
+$app->add($broadwayCommandCliCommand);
+$app->add($broadwayEventCliCommand);
 $app->run();
 
