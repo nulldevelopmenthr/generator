@@ -56,11 +56,10 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
                 new ToStringGenerator(new BuilderFactory()),
                 new UuidCreateGenerator(new BuilderFactory())
             ),
-            new PrettyPrinter\Standard(),
-            $classSource
+            new PrettyPrinter\Standard()
         );
 
-        $this->assertSame($this->getFileContent($outputName), $generator->getOutput());
+        $this->assertSame($this->getFileContent($outputName), $generator->getOutput($classSource));
     }
 
     public function provideTestRenderData()

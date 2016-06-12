@@ -18,7 +18,7 @@ use PhpParser\PrettyPrinter;
 
 class PhpParserGeneratorFactory
 {
-    public static function create(ImprovedClassSource $source) : PhpParserGenerator
+    public static function create() : PhpParserGenerator
     {
         $generator = new PhpParserGenerator(
             new BuilderFactory(),
@@ -33,8 +33,7 @@ class PhpParserGeneratorFactory
                 new ToStringGenerator(new BuilderFactory()),
                 new UuidCreateGenerator(new BuilderFactory())
             ),
-            new PrettyPrinter\Standard(),
-            $source
+            new PrettyPrinter\Standard()
         );
 
         return $generator;
