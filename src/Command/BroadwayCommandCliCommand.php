@@ -3,7 +3,6 @@
 declare (strict_types = 1);
 namespace NullDev\Skeleton\Command;
 
-use Mockery as m;
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;

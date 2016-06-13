@@ -21,7 +21,7 @@ class EventSourcingRepositorySourceFactory
         $this->definitionFactory = $definitionFactory;
     }
 
-    public function create(ClassType $classType, Parameter $parameter)
+    public function create(ClassType $classType, ClassType $modelClassType)
     {
         $source = $this->sourceFactory->create($classType);
 
@@ -40,7 +40,7 @@ class EventSourcingRepositorySourceFactory
         //Add aggregate root id as property.
         //Add constructor which calls parent constructor method.
         $source->addMethod(
-            $this->definitionFactory->createBroadwayModelRepositoryConstructorMethod($parameter->getClassType())
+            $this->definitionFactory->createBroadwayModelRepositoryConstructorMethod($modelClassType)
         );
 
         return $source;
