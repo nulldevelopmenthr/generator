@@ -217,12 +217,12 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
 
     private function provideSourceForBroadwayModelRepository() : ImprovedClassSource
     {
-        $classType = ClassType::create('MyShop\\Model\\ProductModelRepository');
-        $parameter = new Parameter('productId', ClassType::create('MyShop\\Model\\ProductModel'));
+        $classType      = ClassType::create('MyShop\\Model\\ProductModelRepository');
+        $modelClassType = ClassType::create('MyShop\\Model\\ProductModel');
 
         $factory = new EventSourcingRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
-        return $factory->create($classType, $parameter);
+        return $factory->create($classType, $modelClassType);
     }
 
     private function provideSourceForBroadwayReadEntity() : ImprovedClassSource

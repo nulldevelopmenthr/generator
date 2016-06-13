@@ -29,24 +29,19 @@ class EventSourcingRepositorySourceFactorySpec extends ObjectBehavior
         DefinitionFactory $definitionFactory,
         ClassType $classType,
         ImprovedClassSource $classSource,
-        Parameter $parameter,
-        ClassType $parameterClassType,
+        ClassType $modelClassType,
         RepositoryConstructorMethod $repositoryConstructorMethod
     ) {
-        $parameter
-            ->getClassType()
-            ->willReturn($parameterClassType);
-
         $sourceFactory
             ->create($classType)
             ->willReturn($classSource);
 
         $definitionFactory
-            ->createBroadwayModelRepositoryConstructorMethod($parameterClassType)
+            ->createBroadwayModelRepositoryConstructorMethod($modelClassType)
             ->shouldBeCalled()
             ->willReturn($repositoryConstructorMethod);
 
-        $this->create($classType, $parameter)
+        $this->create($classType, $modelClassType)
             ->shouldReturn($classSource);
     }
 }
