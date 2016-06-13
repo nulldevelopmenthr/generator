@@ -3,13 +3,10 @@
 declare (strict_types = 1);
 namespace NullDev\Skeleton\Command;
 
-use Mockery as m;
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\Type;
-use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\FileGenerator;
 use NullDev\Skeleton\File\FileResource;
@@ -17,7 +14,6 @@ use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
