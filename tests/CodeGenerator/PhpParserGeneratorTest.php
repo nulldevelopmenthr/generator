@@ -21,6 +21,7 @@ use NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFacto
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\ReadEntitySourceFactory;
+use NullDev\Skeleton\SourceFactory\Broadway\ReadRepositorySourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
 use PhpParser\PrettyPrinter;
@@ -62,6 +63,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             [$this->provideSourceForBroadwayModel(), 'broadway-model'],
             [$this->provideSourceForBroadwayModelRepository(), 'broadway-model-repository'],
             [$this->provideSourceForBroadwayReadEntity(), 'broadway-read-entity'],
+            [$this->provideSourceForBroadwayReadRepository(), 'broadway-read-repository'],
 
         ];
     }
@@ -235,6 +237,15 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         $factory = new ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
+    }
+
+    private function provideSourceForBroadwayReadRepository() : ImprovedClassSource
+    {
+        $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
+
+        $factory = new ReadRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType);
     }
 
     private function provideClassType() : ClassType
