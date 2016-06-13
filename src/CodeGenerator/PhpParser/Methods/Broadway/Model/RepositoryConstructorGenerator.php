@@ -4,11 +4,9 @@ declare (strict_types = 1);
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use PhpParser\Builder\Method;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Name;

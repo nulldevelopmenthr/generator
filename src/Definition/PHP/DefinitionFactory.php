@@ -5,6 +5,7 @@ namespace NullDev\Skeleton\Definition\PHP;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\ReadModelIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
@@ -72,5 +73,10 @@ class DefinitionFactory
         ClassType $classType
     ) : RepositoryConstructorMethod {
         return new RepositoryConstructorMethod($classType);
+    }
+
+    public function createReadModelIdGetterMethod(Parameter $parameter)
+    {
+        return new ReadModelIdGetterMethod($parameter);
     }
 }
