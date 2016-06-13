@@ -15,7 +15,7 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ReadEntitySourceFactorySpec extends ObjectBehavior
+class ReadRepositorySourceFactorySpec extends ObjectBehavior
 {
     public function let(ClassSourceFactory $sourceFactory, DefinitionFactory $definitionFactory)
     {
@@ -24,46 +24,20 @@ class ReadEntitySourceFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\SourceFactory\Broadway\ReadEntitySourceFactory');
+        $this->shouldHaveType('NullDev\Skeleton\SourceFactory\Broadway\ReadRepositorySourceFactory');
     }
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(
         ClassSourceFactory $sourceFactory,
         DefinitionFactory $definitionFactory,
         ClassType $classType,
-        ImprovedClassSource $classSource,
-        Parameter $parameter1,
-        Parameter $parameter2,
-        ConstructorMethod $constructorMethod,
-        SerializeMethod $serializeMethod,
-        DeserializeMethod $deserializeMethod,
-        ReadModelIdGetterMethod $readModelIdGetterMethod
+        ImprovedClassSource $classSource
     ) {
         $sourceFactory
             ->create($classType)
             ->willReturn($classSource);
 
-        $definitionFactory
-            ->createConstructorMethod([$parameter1, $parameter2])
-            ->shouldBeCalled()
-            ->willReturn($constructorMethod);
-
-        $definitionFactory
-            ->createSerializeMethod($classSource)
-            ->shouldBeCalled()
-            ->willReturn($serializeMethod);
-
-        $definitionFactory
-            ->createDeserializeMethod($classSource)
-            ->shouldBeCalled()
-            ->willReturn($deserializeMethod);
-
-        $definitionFactory
-            ->createReadModelIdGetterMethod($parameter1)
-            ->shouldBeCalled()
-            ->willReturn($readModelIdGetterMethod);
-
-        $this->create($classType, [$parameter1, $parameter2])
+        $this->create($classType)
             ->shouldReturn($classSource);
     }
 }

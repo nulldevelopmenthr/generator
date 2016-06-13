@@ -1,0 +1,8 @@
+<?php
+
+namespace MyShop\ReadModel\Product;
+
+use Broadway\ReadModel\ElasticSearch\ElasticSearchRepository;
+class ProductReadRepository extends ElasticSearchRepository
+{
+}
