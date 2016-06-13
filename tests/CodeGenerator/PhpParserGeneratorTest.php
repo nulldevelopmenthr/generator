@@ -20,6 +20,7 @@ use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\EventSourcingRepositorySourceFactory;
+use NullDev\Skeleton\SourceFactory\Broadway\ReadEntitySourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use PhpParser\Node;
 use PhpParser\PrettyPrinter;
@@ -60,6 +61,7 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
             [$this->provideSourceForBroadwayEvent(), 'broadway-event'],
             [$this->provideSourceForBroadwayModel(), 'broadway-model'],
             [$this->provideSourceForBroadwayModelRepository(), 'broadway-model-repository'],
+            [$this->provideSourceForBroadwayReadEntity(), 'broadway-read-entity'],
 
         ];
     }
@@ -217,6 +219,22 @@ class PhpParserGeneratorTest extends \PHPUnit_Framework_TestCase
         $factory = new EventSourcingRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameter);
+    }
+
+    private function provideSourceForBroadwayReadEntity() : ImprovedClassSource
+    {
+        $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
+        $parameters = [
+            new Parameter('productId', ClassType::createFromFullyQualified('Ramsey\\Uuid\\Uuid')),
+            new Parameter('title', new StringType()),
+            new Parameter('quantity', new IntType()),
+            new Parameter('locationsAvailable', new ArrayType()),
+            new Parameter('createdAt', ClassType::create('DateTime')),
+        ];
+
+        $factory = new ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType, $parameters);
     }
 
     private function provideClassType() : ClassType

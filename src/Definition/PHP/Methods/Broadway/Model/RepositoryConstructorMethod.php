@@ -4,10 +4,7 @@ declare (strict_types = 1);
 namespace NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 
 class RepositoryConstructorMethod implements Method
 {

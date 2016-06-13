@@ -5,6 +5,7 @@ namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\ReadModelIdGetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
@@ -14,6 +15,7 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\ReadModelIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
@@ -29,6 +31,7 @@ use PhpParser\Node\Name;
  * @see MethodFactorySpec
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+ * @SuppressWarnings(PHPMD.ExcessiveParameterList)
  */
 class MethodFactory
 {
@@ -50,6 +53,8 @@ class MethodFactory
     private $aggregateRootIdGetterGenerator;
     /** @var RepositoryConstructorGenerator */
     private $repositoryConstructorGenerator;
+    /** @var ReadModelIdGetterGenerator */
+    private $readModelIdGetterGenerator;
 
     public function __construct(
         ConstructorGenerator $constructorGenerator,
@@ -60,7 +65,8 @@ class MethodFactory
         UuidCreateGenerator $uuidCreateGenerator,
         CreateGenerator $createGenerator,
         AggregateRootIdGetterGenerator $aggregateRootIdGetterGenerator,
-        RepositoryConstructorGenerator $repositoryConstructorGenerator
+        RepositoryConstructorGenerator $repositoryConstructorGenerator,
+        ReadModelIdGetterGenerator $readModelIdGetterGenerator
     ) {
         $this->constructorGenerator           = $constructorGenerator;
         $this->deserializeGenerator           = $deserializeGenerator;
@@ -71,6 +77,7 @@ class MethodFactory
         $this->createGenerator                = $createGenerator;
         $this->aggregateRootIdGetterGenerator = $aggregateRootIdGetterGenerator;
         $this->repositoryConstructorGenerator = $repositoryConstructorGenerator;
+        $this->readModelIdGetterGenerator     = $readModelIdGetterGenerator;
     }
 
     public function generate(Method $method)
@@ -93,6 +100,8 @@ class MethodFactory
             return $this->aggregateRootIdGetterGenerator->generate($method);
         } elseif ($method instanceof RepositoryConstructorMethod) {
             return $this->repositoryConstructorGenerator->generate($method);
+        } elseif ($method instanceof ReadModelIdGetterMethod) {
+            return $this->readModelIdGetterGenerator->generate($method);
         } else {
             throw new \Exception('ERR 12431999: Unhandled method:'.get_class($method));
         }
