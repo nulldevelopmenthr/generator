@@ -16,6 +16,7 @@ use Symfony\Component\Console\Application;
 use NullDev\Skeleton\Command\UuidIdentityCommand;
 use NullDev\Skeleton\Command\BroadwayCommandCliCommand;
 use NullDev\Skeleton\Command\BroadwayEventCliCommand;
+use NullDev\Skeleton\Command\BroadwayModelCliCommand;
 use NullDev\Skeleton\Path\Psr0Path;
 use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
@@ -40,9 +41,14 @@ $broadwayEventCliCommand = new BroadwayEventCliCommand();
 $broadwayEventCliCommand->setPaths($paths);
 $broadwayEventCliCommand->setAutoloader($autoload);
 
+$broadwayModelCliCommand = new BroadwayModelCliCommand();
+$broadwayModelCliCommand->setPaths($paths);
+$broadwayModelCliCommand->setAutoloader($autoload);
+
 $app = new Application();
 $app->add($uuidIdentityCommand);
 $app->add($broadwayCommandCliCommand);
 $app->add($broadwayEventCliCommand);
+$app->add($broadwayModelCliCommand);
 $app->run();
 
