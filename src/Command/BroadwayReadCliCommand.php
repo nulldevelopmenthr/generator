@@ -180,7 +180,7 @@ class BroadwayReadCliCommand extends GeneratorCommand
 
         //Projector
 
-        $readProjectorClassType = ClassType::create($className.'Id');
+        $readProjectorClassType = ClassType::create($className.'Projector');
 
         $readProjectorClassSource  = $this->getReadProjectorSource($readProjectorClassType, $repositoryClassType);
         $readProjectorFileResource = $this->getFileResource($readProjectorClassSource);
