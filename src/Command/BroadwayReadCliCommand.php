@@ -220,7 +220,7 @@ class BroadwayReadCliCommand extends GeneratorCommand
     ) : ImprovedClassSource {
         $factory = new ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
-        $parameter = new Parameter(lcfirst($repositoryClassType->getName()), $repositoryClassType);
+        $parameter = new Parameter('repository', $repositoryClassType);
 
         return $factory->create($readProjectorClassType, [$parameter]);
     }
