@@ -30,31 +30,21 @@ $paths = [
     new Psr0Path(realpath(__DIR__.'/../lib').'/', ""),
 ];
 
-$uuidIdentityCommand = new UuidIdentityCommand();
-$uuidIdentityCommand->setPaths($paths);
-$uuidIdentityCommand->setAutoloader($autoload);
-
-$broadwayCommandCliCommand = new BroadwayCommandCliCommand();
-$broadwayCommandCliCommand->setPaths($paths);
-$broadwayCommandCliCommand->setAutoloader($autoload);
-
-$broadwayEventCliCommand = new BroadwayEventCliCommand();
-$broadwayEventCliCommand->setPaths($paths);
-$broadwayEventCliCommand->setAutoloader($autoload);
-
-$broadwayModelCliCommand = new BroadwayModelCliCommand();
-$broadwayModelCliCommand->setPaths($paths);
-$broadwayModelCliCommand->setAutoloader($autoload);
-
-$broadwayReadCliCommand = new BroadwayReadCliCommand();
-$broadwayReadCliCommand->setPaths($paths);
-$broadwayReadCliCommand->setAutoloader($autoload);
-
+$commands = [
+    new UuidIdentityCommand(),
+    new BroadwayCommandCliCommand(),
+    new BroadwayEventCliCommand(),
+    new BroadwayModelCliCommand(),
+    new BroadwayReadCliCommand()
+];
 $app = new Application();
-$app->add($uuidIdentityCommand);
-$app->add($broadwayCommandCliCommand);
-$app->add($broadwayEventCliCommand);
-$app->add($broadwayModelCliCommand);
-$app->add($broadwayReadCliCommand);
+
+foreach ($commands as $command) {
+
+    $command->setPaths($paths);
+    $command->setAutoloader($autoload);
+    $app->add($command);
+}
+
 $app->run();
 
