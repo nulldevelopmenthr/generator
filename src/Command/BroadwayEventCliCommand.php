@@ -36,16 +36,10 @@ use Symfony\Component\Finder\Finder;
 class BroadwayEventCliCommand extends GeneratorCommand
 {
     private $paths;
-    private $autoloader;
 
     public function setPaths(array  $paths)
     {
         $this->paths = $paths;
-    }
-
-    public function setAutoloader($autoloader)
-    {
-        $this->autoloader = $autoloader;
     }
 
     protected function configure()
@@ -131,7 +125,7 @@ class BroadwayEventCliCommand extends GeneratorCommand
         $classSource  = $this->getSource($classType, $fields);
         $fileResource = $this->getFileResource($classSource);
 
-        if ($fileResource->fileExists()) {
+        if (file_exists($fileResource->getFileName())) {
             $question = new ConfirmationQuestion('File exists, overwrite?', false);
 
             if (!$questionHelper->ask($input, $output, $question)) {
@@ -156,7 +150,7 @@ class BroadwayEventCliCommand extends GeneratorCommand
 
     private function getFileResource(ImprovedClassSource $classSource) : FileResource
     {
-        $factory = new FileFactory($this->autoloader, $this->paths);
+        $factory = new FileFactory($this->paths);
 
         return $factory->create($classSource);
     }
