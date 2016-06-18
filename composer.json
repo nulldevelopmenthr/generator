@@ -8,7 +8,11 @@
             "": "lib/"
         },
         "psr-4": {
-            "NullDev\\Skeleton\\": "src/",
+            "NullDev\\Skeleton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "spec\\NullDev\\Skeleton\\": "spec/",
             "tests\\NullDev\\Skeleton\\": "tests/"
         }
