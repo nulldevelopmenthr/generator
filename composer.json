@@ -8,7 +8,11 @@
             "": "lib/"
         },
         "psr-4": {
-            "NullDev\\Skeleton\\": "src/",
+            "NullDev\\Skeleton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "spec\\NullDev\\Skeleton\\": "spec/",
             "tests\\NullDev\\Skeleton\\": "tests/"
         }
@@ -16,7 +20,6 @@
     "require": {
         "php": ">=7.0.0",
         "nikic/php-parser": "^2.1",
-        "symfony/console": "~3",
         "symfony/finder": "~3",
         "hanneskod/classtools": "~1.0",
         "sensio/generator-bundle": "~3"
@@ -43,7 +46,6 @@
     "config": {
         "bin-dir": "bin"
     },
-    "bin": ["bin/skeleton"],
     "extra": {
     }
 }
