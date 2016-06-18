@@ -8,20 +8,17 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class FileFactory
 {
-    /** @var ClassLoader */
-    private $classLoader;
     /** @var array */
     private $paths;
 
-    public function __construct(ClassLoader $classLoader, array $paths)
+    public function __construct(array $paths)
     {
-        $this->classLoader = $classLoader;
-        $this->paths       = $paths;
+        $this->paths = $paths;
     }
 
     public function create(ImprovedClassSource $classSource) : FileResource
     {
-        return new FileResource($this->classLoader, $this->getPathItBelongsTo($classSource), $classSource);
+        return new FileResource($this->getPathItBelongsTo($classSource), $classSource);
     }
 
     protected function getPathItBelongsTo(ImprovedClassSource $classSource)

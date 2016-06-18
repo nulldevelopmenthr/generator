@@ -12,9 +12,9 @@ use Prophecy\Argument;
 
 class FileFactorySpec extends ObjectBehavior
 {
-    public function let(ClassLoader $classLoader, Psr0Path $path1)
+    public function let(Psr0Path $path1)
     {
-        $this->beConstructedWith($classLoader, [$path1]);
+        $this->beConstructedWith([$path1]);
     }
 
     public function it_is_initializable()

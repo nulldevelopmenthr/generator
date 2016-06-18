@@ -11,11 +11,11 @@ use Prophecy\Argument;
 
 class FileResourceSpec extends ObjectBehavior
 {
-    public function let(ClassLoader $classLoader, Path $path, ImprovedClassSource $classSource)
+    public function let(Path $path, ImprovedClassSource $classSource)
     {
         $classSource->getFullName()->willReturn('Namespace\\ClassName');
 
-        $this->beConstructedWith($classLoader, $path, $classSource);
+        $this->beConstructedWith($path, $classSource);
     }
 
     public function it_is_initializable()
@@ -27,11 +27,5 @@ class FileResourceSpec extends ObjectBehavior
     {
         $path->getFileNameFor('Namespace\\ClassName')->willReturn('/var/www/somewhere/src/Namespace/ClassName.php');
         $this->getFileName()->shouldReturn('/var/www/somewhere/src/Namespace/ClassName.php');
-    }
-
-    public function it_knows_if_file_already_exists($classLoader)
-    {
-        $classLoader->findFile('Namespace\\ClassName')->willReturn(true);
-        $this->fileExists()->shouldReturn(true);
     }
 }
