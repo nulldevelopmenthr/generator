@@ -9,6 +9,7 @@ class FloatType implements TypeDeclaration
     {
         return 'float';
     }
+
     public function getFullName() : string
     {
         return 'float';

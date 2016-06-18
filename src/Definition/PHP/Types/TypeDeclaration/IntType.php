@@ -9,6 +9,7 @@ class IntType implements TypeDeclaration
     {
         return 'int';
     }
+
     public function getFullName() : string
     {
         return 'int';

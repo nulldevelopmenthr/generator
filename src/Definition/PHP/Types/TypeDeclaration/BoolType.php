@@ -9,6 +9,7 @@ class BoolType implements TypeDeclaration
     {
         return 'bool';
     }
+
     public function getFullName() : string
     {
         return 'bool';

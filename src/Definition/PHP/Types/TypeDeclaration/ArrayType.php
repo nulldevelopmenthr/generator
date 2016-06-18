@@ -9,6 +9,7 @@ class ArrayType implements TypeDeclaration
     {
         return 'array';
     }
+
     public function getFullName() : string
     {
         return 'array';
