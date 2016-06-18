@@ -44,16 +44,10 @@ use Symfony\Component\Finder\Finder;
 class BroadwayReadCliCommand extends GeneratorCommand
 {
     private $paths;
-    private $autoloader;
 
     public function setPaths(array  $paths)
     {
         $this->paths = $paths;
-    }
-
-    public function setAutoloader($autoloader)
-    {
-        $this->autoloader = $autoloader;
     }
 
     protected function configure()
@@ -143,7 +137,7 @@ class BroadwayReadCliCommand extends GeneratorCommand
         $readEntityClassSource  = $this->getReadEntitySource($readEntityClassType, $readEntityProperties);
         $readEntityFileResource = $this->getFileResource($readEntityClassSource);
 
-        if ($readEntityFileResource->fileExists()) {
+        if (file_exists($readEntityFileResource->getFileName())) {
             $question = new ConfirmationQuestion('Read entity file exists, overwrite?', false);
 
             if ($questionHelper->ask($input, $output, $question)) {
@@ -164,7 +158,7 @@ class BroadwayReadCliCommand extends GeneratorCommand
         $repositoryClassSource  = $this->getReadRepositorySource($repositoryClassType);
         $repositoryFileResource = $this->getFileResource($repositoryClassSource);
 
-        if ($repositoryFileResource->fileExists()) {
+        if (file_exists($repositoryFileResource->getFileName())) {
             $question = new ConfirmationQuestion('Read repository file exists, overwrite?', false);
 
             if ($questionHelper->ask($input, $output, $question)) {
@@ -185,7 +179,7 @@ class BroadwayReadCliCommand extends GeneratorCommand
         $readProjectorClassSource  = $this->getReadProjectorSource($readProjectorClassType, $repositoryClassType);
         $readProjectorFileResource = $this->getFileResource($readProjectorClassSource);
 
-        if ($readProjectorFileResource->fileExists()) {
+        if (file_exists($readProjectorFileResource->getFileName())) {
             $question = new ConfirmationQuestion('Read projector file exists, overwrite?', false);
 
             if ($questionHelper->ask($input, $output, $question)) {
@@ -227,7 +221,7 @@ class BroadwayReadCliCommand extends GeneratorCommand
 
     private function getFileResource(ImprovedClassSource $classSource) : FileResource
     {
-        $factory = new FileFactory($this->autoloader, $this->paths);
+        $factory = new FileFactory($this->paths);
 
         return $factory->create($classSource);
     }

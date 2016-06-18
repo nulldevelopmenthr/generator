@@ -9,16 +9,13 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class FileResource
 {
-    /** @var ClassLoader */
-    private $classLoader;
     /** @var Path */
     private $path;
     /** @var ImprovedClassSource */
     private $classSource;
 
-    public function __construct(ClassLoader $classLoader, Path $path, ImprovedClassSource $classSource)
+    public function __construct(Path $path, ImprovedClassSource $classSource)
     {
-        $this->classLoader = $classLoader;
         $this->path        = $path;
         $this->classSource = $classSource;
     }
@@ -34,14 +31,5 @@ class FileResource
     public function getFileName() : string
     {
         return $this->path->getFileNameFor($this->classSource->getFullName());
-    }
-
-    public function fileExists() : bool
-    {
-        if (false === $this->classLoader->findFile($this->classSource->getFullName())) {
-            return false;
-        }
-
-        return true;
     }
 }
