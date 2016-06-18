@@ -20,7 +20,6 @@
     "require": {
         "php": ">=7.0.0",
         "nikic/php-parser": "^2.1",
-        "symfony/console": "~3",
         "symfony/finder": "~3",
         "hanneskod/classtools": "~1.0",
         "sensio/generator-bundle": "~3"
