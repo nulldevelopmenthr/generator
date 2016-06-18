@@ -16,4 +16,14 @@ class ArrayTypeSpec extends ObjectBehavior
         $this->shouldHaveType(TypeDeclaration::class);
         $this->shouldHaveType(Type::class);
     }
+
+    public function it_exposes_type_name()
+    {
+        $this->getName()->shouldReturn('array');
+    }
+
+    public function it_exposes_type_full_name()
+    {
+        $this->getFullName()->shouldReturn('array');
+    }
 }

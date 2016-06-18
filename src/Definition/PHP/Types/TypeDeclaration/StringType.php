@@ -9,6 +9,7 @@ class StringType implements TypeDeclaration
     {
         return 'string';
     }
+
     public function getFullName() : string
     {
         return 'string';

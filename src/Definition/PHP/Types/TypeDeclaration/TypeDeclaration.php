@@ -8,5 +8,6 @@ use NullDev\Skeleton\Definition\PHP\Types\Type;
 interface TypeDeclaration extends Type
 {
     public function getName() : string;
+
     public function getFullName() : string;
 }
