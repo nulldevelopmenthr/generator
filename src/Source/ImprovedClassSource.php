@@ -196,6 +196,15 @@ class ImprovedClassSource
         return $this->constructor;
     }
 
+    public function getConstructorParameters() : array
+    {
+        if (false === $this->hasConstructorMethod()) {
+            return [];
+        }
+
+        return $this->constructor->getMethodParameters();
+    }
+
     //
     //-----     Properties     -----
     //
