@@ -24,7 +24,6 @@ class ReadRepositorySourceFactorySpec extends ObjectBehavior
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(
         ClassSourceFactory $sourceFactory,
-        DefinitionFactory $definitionFactory,
         ClassType $classType,
         ImprovedClassSource $classSource
     ) {

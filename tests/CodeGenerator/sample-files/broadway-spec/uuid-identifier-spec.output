@@ -1,0 +1,19 @@
+<?php
+
+namespace spec\SomeNamespace;
+
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+use Ramsey\Uuid\Uuid;
+use SomeNamespace\SomeClass;
+class SomeClassSpec extends ObjectBehavior
+{
+    public function let()
+    {
+        $this->beConstructedWith($id = 'id');
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(SomeClass::class);
+    }
+}

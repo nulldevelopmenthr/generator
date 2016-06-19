@@ -10,6 +10,8 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryCo
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\InitializableGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\LetGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
@@ -21,6 +23,8 @@ use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
@@ -55,6 +59,10 @@ class MethodFactory
     private $repositoryConstructorGenerator;
     /** @var ReadModelIdGetterGenerator */
     private $readModelIdGetterGenerator;
+    /** @var LetGenerator */
+    private $letGenerator;
+    /** @var InitializableGenerator */
+    private $initializableGenerator;
 
     public function __construct(
         ConstructorGenerator $constructorGenerator,
@@ -66,7 +74,9 @@ class MethodFactory
         CreateGenerator $createGenerator,
         AggregateRootIdGetterGenerator $aggregateRootIdGetterGenerator,
         RepositoryConstructorGenerator $repositoryConstructorGenerator,
-        ReadModelIdGetterGenerator $readModelIdGetterGenerator
+        ReadModelIdGetterGenerator $readModelIdGetterGenerator,
+        LetGenerator $letGenerator,
+        InitializableGenerator $initializableGenerator
     ) {
         $this->constructorGenerator           = $constructorGenerator;
         $this->deserializeGenerator           = $deserializeGenerator;
@@ -78,6 +88,8 @@ class MethodFactory
         $this->aggregateRootIdGetterGenerator = $aggregateRootIdGetterGenerator;
         $this->repositoryConstructorGenerator = $repositoryConstructorGenerator;
         $this->readModelIdGetterGenerator     = $readModelIdGetterGenerator;
+        $this->letGenerator                   = $letGenerator;
+        $this->initializableGenerator         = $initializableGenerator;
     }
 
     public function generate(Method $method)
@@ -102,6 +114,10 @@ class MethodFactory
             return $this->repositoryConstructorGenerator->generate($method);
         } elseif ($method instanceof ReadModelIdGetterMethod) {
             return $this->readModelIdGetterGenerator->generate($method);
+        } elseif ($method instanceof LetMethod) {
+            return $this->letGenerator->generate($method);
+        } elseif ($method instanceof InitializableMethod) {
+            return $this->initializableGenerator->generate($method);
         } else {
             throw new \Exception('ERR 12431999: Unhandled method:'.get_class($method));
         }

@@ -196,6 +196,15 @@ class ImprovedClassSource
         return $this->constructor;
     }
 
+    public function getConstructorParameters() : array
+    {
+        if (false === $this->hasConstructorMethod()) {
+            return [];
+        }
+
+        return $this->constructor->getMethodParameters();
+    }
+
     //
     //-----     Properties     -----
     //
@@ -241,7 +250,9 @@ class ImprovedClassSource
     private function addImportIfEligible(Type $import)
     {
         if ($import instanceof Importable) {
-            $this->imports[] = $import;
+            if (false === in_array($import, $this->imports)) {
+                $this->imports[] = $import;
+            }
         }
     }
 

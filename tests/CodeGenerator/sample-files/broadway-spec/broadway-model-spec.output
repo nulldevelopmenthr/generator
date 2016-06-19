@@ -1,0 +1,21 @@
+<?php
+
+namespace spec\MyShop\Model;
+
+use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use MyShop\Model\ProductModel;
+use MyShop\Model\ProductUuid;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+class ProductModelSpec extends ObjectBehavior
+{
+    public function let()
+    {
+        $this->beConstructedWith();
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(ProductModel::class);
+        $this->shouldHaveType(EventSourcedAggregateRoot::class);
+    }
+}
