@@ -241,7 +241,9 @@ class ImprovedClassSource
     private function addImportIfEligible(Type $import)
     {
         if ($import instanceof Importable) {
-            $this->imports[] = $import;
+            if (false === in_array($import, $this->imports)) {
+                $this->imports[] = $import;
+            }
         }
     }
 
