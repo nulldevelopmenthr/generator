@@ -1,0 +1,19 @@
+<?php
+
+namespace spec\MyShop\Command;
+
+use MyShop\Command\CreateProduct;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+use Ramsey\Uuid\Uuid;
+class CreateProductSpec extends ObjectBehavior
+{
+    public function let(Uuid $productId)
+    {
+        $this->beConstructedWith($productId, $title = 'title');
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(CreateProduct::class);
+    }
+}

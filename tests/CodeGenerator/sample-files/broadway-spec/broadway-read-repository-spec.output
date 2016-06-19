@@ -1,0 +1,20 @@
+<?php
+
+namespace spec\MyShop\ReadModel\Product;
+
+use Broadway\ReadModel\ElasticSearch\ElasticSearchRepository;
+use MyShop\ReadModel\Product\ProductReadRepository;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+class ProductReadRepositorySpec extends ObjectBehavior
+{
+    public function let()
+    {
+        $this->beConstructedWith();
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(ProductReadRepository::class);
+        $this->shouldHaveType(ElasticSearchRepository::class);
+    }
+}

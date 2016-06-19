@@ -1,0 +1,24 @@
+<?php
+
+namespace spec\Developer;
+
+use Coder;
+use Developer\Senior;
+use FirstName;
+use Human\Person;
+use LastName;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+class SeniorSpec extends ObjectBehavior
+{
+    public function let(FirstName $firstName, LastName $lastName)
+    {
+        $this->beConstructedWith($firstName, $lastName);
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(Senior::class);
+        $this->shouldHaveType(Person::class);
+        $this->shouldHaveType(Coder::class);
+    }
+}

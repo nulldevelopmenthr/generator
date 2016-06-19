@@ -1,0 +1,22 @@
+<?php
+
+namespace spec\MyShop\Event;
+
+use Broadway\Serializer\SerializableInterface;
+use DateTime;
+use MyShop\Event\ProductCreated;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+use Ramsey\Uuid\Uuid;
+class ProductCreatedSpec extends ObjectBehavior
+{
+    public function let(Uuid $productId, DateTime $createdAt)
+    {
+        $this->beConstructedWith($productId, $title = 'title', $quantity = 1, $locationsAvailable = [], $createdAt);
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(ProductCreated::class);
+        $this->shouldHaveType(SerializableInterface::class);
+    }
+}
