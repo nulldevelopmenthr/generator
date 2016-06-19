@@ -4,7 +4,6 @@ declare (strict_types = 1);
 namespace NullDev\Skeleton\SourceFactory\Broadway;
 
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 

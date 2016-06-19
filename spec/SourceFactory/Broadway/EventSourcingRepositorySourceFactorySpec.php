@@ -5,7 +5,6 @@ namespace spec\NullDev\Skeleton\SourceFactory\Broadway;
 
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;

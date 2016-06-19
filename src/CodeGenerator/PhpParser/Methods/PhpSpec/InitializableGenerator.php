@@ -6,11 +6,9 @@ namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec;
 use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Expr\ClassConstFetch;
-use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
-use PhpParser\Node\Scalar\String_;
 
 class InitializableGenerator
 {
