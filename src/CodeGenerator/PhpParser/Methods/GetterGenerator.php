@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;

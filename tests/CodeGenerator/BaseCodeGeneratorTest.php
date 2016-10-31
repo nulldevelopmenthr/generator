@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace tests\NullDev\Skeleton\Output\PHP;
 
 use Mockery as m;

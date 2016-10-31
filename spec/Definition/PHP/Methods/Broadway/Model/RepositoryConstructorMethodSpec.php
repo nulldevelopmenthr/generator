@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;

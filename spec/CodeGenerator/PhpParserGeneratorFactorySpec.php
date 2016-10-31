@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace spec\NullDev\Skeleton\CodeGenerator;
 
 use PhpSpec\ObjectBehavior;

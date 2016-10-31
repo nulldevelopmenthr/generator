@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace NullDev\Skeleton\File;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
