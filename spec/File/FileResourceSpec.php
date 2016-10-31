@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\File;
 
-use Composer\Autoload\ClassLoader;
 use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class FileResourceSpec extends ObjectBehavior
 {

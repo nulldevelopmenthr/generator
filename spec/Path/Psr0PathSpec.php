@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Path;
 
 use Exception;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class Psr0PathSpec extends ObjectBehavior
 {

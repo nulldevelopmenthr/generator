@@ -19,7 +19,6 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class DefinitionFactorySpec extends ObjectBehavior
 {

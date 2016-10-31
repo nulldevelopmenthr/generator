@@ -7,7 +7,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class GetterMethodSpec extends ObjectBehavior
 {

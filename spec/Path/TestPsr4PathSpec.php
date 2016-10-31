@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\Path;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class TestPsr4PathSpec extends ObjectBehavior
 {

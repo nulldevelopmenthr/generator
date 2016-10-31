@@ -8,7 +8,6 @@ use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\Filesystem\Filesystem;
 
 class FileGeneratorSpec extends ObjectBehavior

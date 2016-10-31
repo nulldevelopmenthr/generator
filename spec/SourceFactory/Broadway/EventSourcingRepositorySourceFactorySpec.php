@@ -10,7 +10,6 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class EventSourcingRepositorySourceFactorySpec extends ObjectBehavior
 {

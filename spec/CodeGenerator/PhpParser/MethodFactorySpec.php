@@ -17,7 +17,6 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class MethodFactorySpec extends ObjectBehavior
 {

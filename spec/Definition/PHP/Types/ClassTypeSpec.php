@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Types;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ClassTypeSpec extends ObjectBehavior
 {

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\File;
 
-use Composer\Autoload\ClassLoader;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class FileFactory

@@ -7,7 +7,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class FloatTypeSpec extends ObjectBehavior
 {

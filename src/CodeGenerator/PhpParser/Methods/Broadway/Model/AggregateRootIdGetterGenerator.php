@@ -7,7 +7,6 @@ namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
-use PhpParser\Node\Name;
 
 class AggregateRootIdGetterGenerator
 {

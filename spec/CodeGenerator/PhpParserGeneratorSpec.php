@@ -9,7 +9,6 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use PhpParser\BuilderFactory;
 use PhpParser\PrettyPrinterAbstract;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class PhpParserGeneratorSpec extends ObjectBehavior
 {

@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Types;
 
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class TraitTypeSpec extends ObjectBehavior
 {
