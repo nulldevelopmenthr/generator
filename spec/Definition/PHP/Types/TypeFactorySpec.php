@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\Definition\PHP\Types;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class TypeFactorySpec extends ObjectBehavior
 {

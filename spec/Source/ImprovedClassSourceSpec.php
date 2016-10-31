@@ -12,7 +12,6 @@ use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ImprovedClassSourceSpec extends ObjectBehavior
 {

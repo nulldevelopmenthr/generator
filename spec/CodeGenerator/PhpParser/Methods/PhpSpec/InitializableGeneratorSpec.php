@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec;
 
 use PhpParser\BuilderFactory;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class InitializableGeneratorSpec extends ObjectBehavior
 {

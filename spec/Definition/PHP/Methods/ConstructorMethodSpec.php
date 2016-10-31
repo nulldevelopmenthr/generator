@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ConstructorMethodSpec extends ObjectBehavior
 {

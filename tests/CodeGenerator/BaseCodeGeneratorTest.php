@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Output\PHP;
 
-use Mockery as m;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -24,8 +23,6 @@ use NullDev\Skeleton\SourceFactory\Broadway\ReadEntitySourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\ReadProjectorSourceFactory;
 use NullDev\Skeleton\SourceFactory\Broadway\ReadRepositorySourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
-use PhpParser\Node;
-use PhpParser\PrettyPrinter;
 
 /**
  * @group  FullCoverage

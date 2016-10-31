@@ -8,7 +8,6 @@ use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class CreateMethodSpec extends ObjectBehavior
 {

@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class RepositoryConstructorMethodSpec extends ObjectBehavior
 {

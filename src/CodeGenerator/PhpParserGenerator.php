@@ -8,8 +8,6 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
-use PhpParser\Node;
-use PhpParser\Node\Name;
 use PhpParser\PrettyPrinterAbstract;
 
 /**

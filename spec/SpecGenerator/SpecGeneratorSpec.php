@@ -7,8 +7,6 @@ namespace spec\NullDev\Skeleton\SpecGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\Source\SpecSource;
-use NullDev\Skeleton\Source\SpecSourceFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Methods\PhpSpec;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class LetMethodSpec extends ObjectBehavior
 {

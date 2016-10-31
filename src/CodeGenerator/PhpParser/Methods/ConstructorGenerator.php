@@ -8,7 +8,6 @@ use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
-use PhpParser\Node\Name;
 
 /**
  * @see ConstructorGeneratorSpec

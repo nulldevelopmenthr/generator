@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Output\PHP;
 
-use Mockery as m;
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PhpParser\Node;
-use PhpParser\PrettyPrinter;
 
 /**
  * @group  FullCoverage

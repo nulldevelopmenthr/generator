@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use PhpParser\BuilderFactory;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ToStringGeneratorSpec extends ObjectBehavior
 {

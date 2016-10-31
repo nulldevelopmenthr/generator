@@ -8,7 +8,6 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
-use PhpParser\Node;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\TraitUse;
 

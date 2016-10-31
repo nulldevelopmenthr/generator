@@ -29,8 +29,6 @@ use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
-use PhpParser\Node;
-use PhpParser\Node\Name;
 
 /**
  * @see MethodFactorySpec

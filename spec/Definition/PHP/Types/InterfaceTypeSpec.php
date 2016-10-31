@@ -6,7 +6,6 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Types;
 
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class InterfaceTypeSpec extends ObjectBehavior
 {
