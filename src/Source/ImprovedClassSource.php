@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace NullDev\Skeleton\Source;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
@@ -67,9 +68,7 @@ class ImprovedClassSource
         return $this->classType->getFullName();
     }
 
-    //
     //-----     Parent     -----
-    //
 
     public function addParent(ClassType $parent)
     {
@@ -103,9 +102,7 @@ class ImprovedClassSource
         return $this->getParent()->getName();
     }
 
-    //
     //-----     Interfaces     -----
-    //
 
     public function addInterface(InterfaceType $interface)
     {
@@ -129,9 +126,7 @@ class ImprovedClassSource
         return $this->interfaces;
     }
 
-    //
     //-----     Traits     -----
-    //
 
     public function addTrait(TraitType $trait)
     {
@@ -155,9 +150,8 @@ class ImprovedClassSource
         return $this->traits;
     }
 
-    //
     //-----     ConstructorMethod     -----
-    //
+
     public function hasConstructorMethod()
     {
         if (null === $this->constructor) {
@@ -205,9 +199,7 @@ class ImprovedClassSource
         return $this->constructor->getMethodParameters();
     }
 
-    //
     //-----     Properties     -----
-    //
 
     public function addProperty(Parameter $property)
     {
@@ -219,9 +211,7 @@ class ImprovedClassSource
         return $this->properties;
     }
 
-    //
     //-----     Methods     -----
-    //
 
     public function addGetterMethod(Parameter $parameter)
     {
@@ -238,9 +228,7 @@ class ImprovedClassSource
         return $this->methods;
     }
 
-    //
     //-----     Import     -----
-    //
 
     public function addImport(Type $import)
     {
