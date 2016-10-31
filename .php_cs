@@ -17,7 +17,5 @@ return Symfony\CS\Config\Config::create()
         'no_blank_lines_before_namespace',
         'ordered_use',
         'phpdoc_order',
-        '-unused_use',
-        '-empty_return'
     ])
     ->finder($finder);
