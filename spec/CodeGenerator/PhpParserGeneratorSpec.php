@@ -6,6 +6,7 @@ namespace spec\NullDev\Skeleton\CodeGenerator;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
+use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\PrettyPrinterAbstract;
 use PhpSpec\ObjectBehavior;
@@ -23,6 +24,6 @@ class PhpParserGeneratorSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\CodeGenerator\PhpParserGenerator');
+        $this->shouldHaveType(PhpParserGenerator::class);
     }
 }

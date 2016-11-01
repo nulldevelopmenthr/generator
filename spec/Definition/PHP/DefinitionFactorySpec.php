@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Definition\PHP;
 
+use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\ReadModelIdGetterMethod;
@@ -24,7 +25,7 @@ class DefinitionFactorySpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\DefinitionFactory');
+        $this->shouldHaveType(DefinitionFactory::class);
     }
 
     public function it_will_create_parameter(Type $type)

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\File;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
+use NullDev\Skeleton\File\FileGenerator;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
@@ -19,7 +20,7 @@ class FileGeneratorSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\File\FileGenerator');
+        $this->shouldHaveType(FileGenerator::class);
     }
 
     public function it_will_create_file(

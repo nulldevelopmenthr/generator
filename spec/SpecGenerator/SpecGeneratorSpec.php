@@ -7,6 +7,7 @@ namespace spec\NullDev\Skeleton\SpecGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDev\Skeleton\SpecGenerator\SpecGenerator;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -19,7 +20,7 @@ class SpecGeneratorSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\SpecGenerator\SpecGenerator');
+        $this->shouldHaveType(SpecGenerator::class);
     }
 
     public function TODO_it_can_generate_spec_source_from_class_source(

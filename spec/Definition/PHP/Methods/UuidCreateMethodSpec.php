@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\ObjectBehavior;
 
@@ -17,7 +18,7 @@ class UuidCreateMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod');
+        $this->shouldHaveType(UuidCreateMethod::class);
         $this->shouldHaveType(Method::class);
     }
 

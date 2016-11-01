@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\File;
 
+use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Psr0Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -18,7 +19,7 @@ class FileFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\File\FileFactory');
+        $this->shouldHaveType(FileFactory::class);
     }
 
     public function it_will_create_file_resource(ImprovedClassSource $classSource, $path1)

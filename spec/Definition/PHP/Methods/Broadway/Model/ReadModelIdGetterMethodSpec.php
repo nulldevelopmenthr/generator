@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model;
 
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\ReadModelIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpSpec\ObjectBehavior;
@@ -17,7 +18,7 @@ class ReadModelIdGetterMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\ReadModelIdGetterMethod');
+        $this->shouldHaveType(ReadModelIdGetterMethod::class);
         $this->shouldHaveType(Method::class);
     }
 

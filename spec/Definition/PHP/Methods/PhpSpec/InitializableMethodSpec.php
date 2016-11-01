@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods\PhpSpec;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
 use PhpSpec\ObjectBehavior;
 
 class InitializableMethodSpec extends ObjectBehavior
@@ -16,7 +17,7 @@ class InitializableMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod');
+        $this->shouldHaveType(InitializableMethod::class);
         $this->shouldHaveType(Method::class);
     }
 }

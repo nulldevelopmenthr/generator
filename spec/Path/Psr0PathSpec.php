@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\Path;
 
 use Exception;
+use NullDev\Skeleton\Path\Psr0Path;
 use PhpSpec\ObjectBehavior;
 
 class Psr0PathSpec extends ObjectBehavior
@@ -16,7 +17,7 @@ class Psr0PathSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Path\Psr0Path');
+        $this->shouldHaveType(Psr0Path::class);
     }
 
     public function it_returns_its_source_code_path()

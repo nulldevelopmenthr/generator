@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\File;
 
+use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
@@ -19,7 +20,7 @@ class FileResourceSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\File\FileResource');
+        $this->shouldHaveType(FileResource::class);
     }
 
     public function it_know_file_name($path)
