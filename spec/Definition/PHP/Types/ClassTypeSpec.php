@@ -16,7 +16,7 @@ class ClassTypeSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Types\ClassType');
+        $this->shouldHaveType(ClassType::class);
     }
 
     public function it_exposes_namespace()

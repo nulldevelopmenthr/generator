@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\ReadModelIdGetterGenerator;
@@ -52,6 +53,6 @@ class MethodFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory');
+        $this->shouldHaveType(MethodFactory::class);
     }
 }

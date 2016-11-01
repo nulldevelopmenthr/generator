@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model;
 
+use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -18,7 +19,7 @@ class CreateMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\CreateMethod');
+        $this->shouldHaveType(CreateMethod::class);
         $this->shouldHaveType(Method::class);
     }
 

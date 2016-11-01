@@ -9,6 +9,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDev\Skeleton\SourceFactory\Broadway\ReadProjectorSourceFactory;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\DependencyInjection\Parameter;
 
@@ -21,7 +22,7 @@ class ReadProjectorSourceFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\SourceFactory\Broadway\ReadProjectorSourceFactory');
+        $this->shouldHaveType(ReadProjectorSourceFactory::class);
     }
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(

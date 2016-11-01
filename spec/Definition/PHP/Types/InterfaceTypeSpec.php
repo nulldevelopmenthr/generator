@@ -16,7 +16,7 @@ class InterfaceTypeSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Types\InterfaceType');
+        $this->shouldHaveType(InterfaceType::class);
     }
 
     public function it_exposes_namespace()

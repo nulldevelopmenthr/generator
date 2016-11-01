@@ -11,6 +11,7 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
+use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 
 class ImprovedClassSourceSpec extends ObjectBehavior
@@ -22,7 +23,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Source\ImprovedClassSource');
+        $this->shouldHaveType(ImprovedClassSource::class);
     }
 
     public function it_can_have_parent(ClassType $parent)

@@ -16,8 +16,9 @@ class TraitTypeSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Types\TraitType');
+        $this->shouldHaveType(TraitType::class);
     }
+
     public function it_exposes_namespace()
     {
         $this->getNamespace()->shouldReturn('Namespace1\\Namespace2');

@@ -12,6 +12,7 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
 use PhpSpec\ObjectBehavior;
 
 class EventSourceFactorySpec extends ObjectBehavior
@@ -23,7 +24,7 @@ class EventSourceFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory');
+        $this->shouldHaveType(EventSourceFactory::class);
     }
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
+use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
@@ -20,7 +21,7 @@ class DeserializeMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod');
+        $this->shouldHaveType(DeserializeMethod::class);
         $this->shouldHaveType(Method::class);
     }
 

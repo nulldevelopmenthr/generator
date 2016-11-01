@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Path;
 
+use NullDev\Skeleton\Path\TestPsr4Path;
 use PhpSpec\ObjectBehavior;
 
 class TestPsr4PathSpec extends ObjectBehavior
@@ -15,7 +16,7 @@ class TestPsr4PathSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NullDev\Skeleton\Path\TestPsr4Path');
+        $this->shouldHaveType(TestPsr4Path::class);
     }
     public function it_returns_its_tests_code_path()
     {
