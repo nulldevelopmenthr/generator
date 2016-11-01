@@ -28,6 +28,10 @@ class SpecGenerator
         $this->factory = $factory;
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     */
     public function generate(ImprovedClassSource $improvedClassSource)
     {
         $specClassType = ClassType::create('spec\\'.$improvedClassSource->getClassType()->getFullName().'Spec');

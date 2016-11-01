@@ -65,7 +65,7 @@ class MethodFactory
     /** @var InitializableGenerator */
     private $initializableGenerator;
     /** @var ExposeConstructorArgumentsAsGettersGenerator */
-    private $exposeConstructorArgumentsAsGettersGenerator;
+    private $exposeConstructorArgsGenerator;
 
     public function __construct(
         ConstructorGenerator $constructorGenerator,
@@ -80,21 +80,21 @@ class MethodFactory
         ReadModelIdGetterGenerator $readModelIdGetterGenerator,
         LetGenerator $letGenerator,
         InitializableGenerator $initializableGenerator,
-        ExposeConstructorArgumentsAsGettersGenerator $exposeConstructorArgumentsAsGettersGenerator
+        ExposeConstructorArgumentsAsGettersGenerator $exposeConstructorArgsGenerator
     ) {
-        $this->constructorGenerator                         = $constructorGenerator;
-        $this->deserializeGenerator                         = $deserializeGenerator;
-        $this->getterGenerator                              = $getterGenerator;
-        $this->serializeGenerator                           = $serializeGenerator;
-        $this->toStringGenerator                            = $toStringGenerator;
-        $this->uuidCreateGenerator                          = $uuidCreateGenerator;
-        $this->createGenerator                              = $createGenerator;
-        $this->aggregateRootIdGetterGenerator               = $aggregateRootIdGetterGenerator;
-        $this->repositoryConstructorGenerator               = $repositoryConstructorGenerator;
-        $this->readModelIdGetterGenerator                   = $readModelIdGetterGenerator;
-        $this->letGenerator                                 = $letGenerator;
-        $this->initializableGenerator                       = $initializableGenerator;
-        $this->exposeConstructorArgumentsAsGettersGenerator = $exposeConstructorArgumentsAsGettersGenerator;
+        $this->constructorGenerator           = $constructorGenerator;
+        $this->deserializeGenerator           = $deserializeGenerator;
+        $this->getterGenerator                = $getterGenerator;
+        $this->serializeGenerator             = $serializeGenerator;
+        $this->toStringGenerator              = $toStringGenerator;
+        $this->uuidCreateGenerator            = $uuidCreateGenerator;
+        $this->createGenerator                = $createGenerator;
+        $this->aggregateRootIdGetterGenerator = $aggregateRootIdGetterGenerator;
+        $this->repositoryConstructorGenerator = $repositoryConstructorGenerator;
+        $this->readModelIdGetterGenerator     = $readModelIdGetterGenerator;
+        $this->letGenerator                   = $letGenerator;
+        $this->initializableGenerator         = $initializableGenerator;
+        $this->exposeConstructorArgsGenerator = $exposeConstructorArgsGenerator;
     }
 
     public function generate(Method $method)
@@ -124,7 +124,7 @@ class MethodFactory
         } elseif ($method instanceof InitializableMethod) {
             return $this->initializableGenerator->generate($method);
         } elseif ($method instanceof ExposeConstructorArgumentsAsGettersMethod) {
-            return $this->exposeConstructorArgumentsAsGettersGenerator->generate($method);
+            return $this->exposeConstructorArgsGenerator->generate($method);
         } else {
             throw new \Exception('ERR 12431999: Unhandled method:'.get_class($method));
         }
