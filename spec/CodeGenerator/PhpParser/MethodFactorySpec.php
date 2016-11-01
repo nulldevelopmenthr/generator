@@ -12,6 +12,7 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryCo
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\InitializableGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\LetGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
@@ -33,7 +34,8 @@ class MethodFactorySpec extends ObjectBehavior
         RepositoryConstructorGenerator $repositoryConstructorGenerator,
         ReadModelIdGetterGenerator $readModelIdGetterGenerator,
         LetGenerator $letGenerator,
-        InitializableGenerator $initializableGenerator
+        InitializableGenerator $initializableGenerator,
+        ExposeConstructorArgumentsAsGettersGenerator $exposeConstructorArgumentsAsGettersGenerator
     ) {
         $this->beConstructedWith(
             $constructorGenerator,
@@ -47,7 +49,8 @@ class MethodFactorySpec extends ObjectBehavior
             $repositoryConstructorGenerator,
             $readModelIdGetterGenerator,
             $letGenerator,
-            $initializableGenerator
+            $initializableGenerator,
+            $exposeConstructorArgumentsAsGettersGenerator
         );
     }
 

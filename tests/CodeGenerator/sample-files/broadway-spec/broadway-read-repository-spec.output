@@ -17,4 +17,7 @@ class ProductReadRepositorySpec extends ObjectBehavior
         $this->shouldHaveType(ProductReadRepository::class);
         $this->shouldHaveType(ElasticSearchRepository::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters()
+    {
+    }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\SpecGenerator;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -74,6 +75,18 @@ class SpecGenerator
 
         $specSource->addMethod(new LetMethod($lets));
         $specSource->addMethod(new InitializableMethod($initializable));
+
+        $skip = false;
+
+        if (true === $improvedClassSource->hasParent()) {
+            if ($improvedClassSource->getParent()->getFullName() === 'Broadway\EventSourcing\EventSourcingRepository') {
+                $skip = true;
+            }
+        }
+
+        if (false === $skip) {
+            $specSource->addMethod(new ExposeConstructorArgumentsAsGettersMethod($lets));
+        }
 
         return $specSource;
     }

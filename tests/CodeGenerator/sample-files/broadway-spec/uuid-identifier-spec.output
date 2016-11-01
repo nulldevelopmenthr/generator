@@ -16,4 +16,8 @@ class SomeClassSpec extends ObjectBehavior
     {
         $this->shouldHaveType(SomeClass::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters()
+    {
+        $this->getId()->shouldReturn('id');
+    }
 }

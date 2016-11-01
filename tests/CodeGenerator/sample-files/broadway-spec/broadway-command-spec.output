@@ -16,4 +16,9 @@ class CreateProductSpec extends ObjectBehavior
     {
         $this->shouldHaveType(CreateProduct::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters($productId)
+    {
+        $this->getProductId()->shouldReturn($productId);
+        $this->getTitle()->shouldReturn('title');
+    }
 }

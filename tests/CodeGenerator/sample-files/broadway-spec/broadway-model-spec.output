@@ -18,4 +18,7 @@ class ProductModelSpec extends ObjectBehavior
         $this->shouldHaveType(ProductModel::class);
         $this->shouldHaveType(EventSourcedAggregateRoot::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters()
+    {
+    }
 }

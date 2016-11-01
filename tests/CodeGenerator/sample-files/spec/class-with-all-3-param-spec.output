@@ -22,4 +22,10 @@ class SeniorSpec extends ObjectBehavior
         $this->shouldHaveType(Person::class);
         $this->shouldHaveType(Coder::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters($firstName, $lastName, $amount)
+    {
+        $this->getFirstName()->shouldReturn($firstName);
+        $this->getLastName()->shouldReturn($lastName);
+        $this->getAmount()->shouldReturn($amount);
+    }
 }

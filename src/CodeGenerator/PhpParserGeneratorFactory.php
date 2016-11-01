@@ -13,6 +13,7 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryCo
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\InitializableGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\LetGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
@@ -45,7 +46,8 @@ class PhpParserGeneratorFactory
                 new RepositoryConstructorGenerator(new BuilderFactory()),
                 new ReadModelIdGetterGenerator(new BuilderFactory()),
                 new LetGenerator(new BuilderFactory()),
-                new InitializableGenerator(new BuilderFactory())
+                new InitializableGenerator(new BuilderFactory()),
+                new ExposeConstructorArgumentsAsGettersGenerator(new BuilderFactory())
             ),
             new PrettyPrinter\Standard()
         );

@@ -19,4 +19,12 @@ class ProductCreatedSpec extends ObjectBehavior
         $this->shouldHaveType(ProductCreated::class);
         $this->shouldHaveType(SerializableInterface::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters($productId, $createdAt)
+    {
+        $this->getProductId()->shouldReturn($productId);
+        $this->getTitle()->shouldReturn('title');
+        $this->getQuantity()->shouldReturn(1);
+        $this->getLocationsAvailable()->shouldReturn([]);
+        $this->getCreatedAt()->shouldReturn($createdAt);
+    }
 }

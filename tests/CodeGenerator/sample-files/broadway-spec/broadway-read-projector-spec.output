@@ -18,4 +18,8 @@ class ProductReadProjectorSpec extends ObjectBehavior
         $this->shouldHaveType(ProductReadProjector::class);
         $this->shouldHaveType(Projector::class);
     }
+    public function it_should_expose_constructor_arguments_via_getters($repository)
+    {
+        $this->getRepository()->shouldReturn($repository);
+    }
 }
