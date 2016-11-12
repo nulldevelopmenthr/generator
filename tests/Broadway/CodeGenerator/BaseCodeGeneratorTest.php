@@ -8,9 +8,8 @@ use NullDev\Skeleton\Broadway\SourceFactory\CommandSourceFactory;
 use NullDev\Skeleton\Broadway\SourceFactory\EventSourcedAggregateRootSourceFactory;
 use NullDev\Skeleton\Broadway\SourceFactory\EventSourceFactory;
 use NullDev\Skeleton\Broadway\SourceFactory\EventSourcingRepositorySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm;
+use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -98,7 +97,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
             new Parameter('createdAt', ClassType::create('DateTime')),
         ];
 
-        $factory = new ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $factory = new ElasticSearch\ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
     }
@@ -107,7 +106,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
 
-        $factory = new ReadRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $factory = new ElasticSearch\ReadRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType);
     }
@@ -118,10 +117,63 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         $parameters = [
             new Parameter('repository', ClassType::create('MyShop\\ReadModel\\Product\\ProductReadRepository')),
         ];
-        $factory = new ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $factory = new ElasticSearch\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
     }
+
+    ///
+    ///--------------------------------------------------------------------------------------------------------------------
+    ///
+
+    protected function provideBroadwayDoctrineOrmReadEntity() : ImprovedClassSource
+    {
+        $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
+        $parameters = [
+            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
+            new Parameter('title', new StringType()),
+            new Parameter('quantity', new IntType()),
+            new Parameter('locationsAvailable', new ArrayType()),
+            new Parameter('createdAt', ClassType::create('DateTime')),
+        ];
+
+        $factory = new DoctrineOrm\ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType, $parameters);
+    }
+
+    protected function provideBroadwayDoctrineOrmReadFactory() : ImprovedClassSource
+    {
+        $classType = new ClassType('ProductReadFactory', 'MyShop\\ReadModel\\Product');
+        $factory   = new DoctrineOrm\ReadFactorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType);
+    }
+
+    protected function provideBroadwayDoctrineOrmReadRepository() : ImprovedClassSource
+    {
+        $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
+
+        $factory = new DoctrineOrm\ReadRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType);
+    }
+
+    protected function provideBroadwayDoctrineOrmReadProjector() : ImprovedClassSource
+    {
+        $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
+        $parameters = [
+            new Parameter('repository', ClassType::create('MyShop\\ReadModel\\Product\\ProductReadRepository')),
+            new Parameter('factory', ClassType::create('MyShop\\ReadModel\\Product\\ProductReadFactory')),
+        ];
+        $factory = new DoctrineOrm\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+
+        return $factory->create($classType, $parameters);
+    }
+
+    ///
+    ///--------------------------------------------------------------------------------------------------------------------
+    ///
 
     protected function provideClassType() : ClassType
     {

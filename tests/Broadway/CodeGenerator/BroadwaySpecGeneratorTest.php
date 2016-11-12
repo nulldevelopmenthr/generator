@@ -41,6 +41,10 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
             [$this->provideBroadwayElasticSearchReadEntity(), 'spec/read/elasticsearch/entity-spec'],
             [$this->provideBroadwayElasticSearchReadRepository(), 'spec/read/elasticsearch/repository-spec'],
             [$this->provideBroadwayElasticSearchReadProjector(), 'spec/read/elasticsearch/projector-spec'],
+            [$this->provideBroadwayDoctrineOrmReadEntity(), 'spec/read/doctrine-orm/entity-spec'],
+            [$this->provideBroadwayDoctrineOrmReadFactory(), 'spec/read/doctrine-orm/factory-spec'],
+            [$this->provideBroadwayDoctrineOrmReadRepository(), 'spec/read/doctrine-orm/repository-spec'],
+            [$this->provideBroadwayDoctrineOrmReadProjector(), 'spec/read/doctrine-orm/projector-spec'],
         ];
     }
 }
