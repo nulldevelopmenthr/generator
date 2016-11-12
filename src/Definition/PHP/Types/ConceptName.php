@@ -19,7 +19,7 @@ abstract class ConceptName implements Importable, Type
         $this->namespace = $namespace;
     }
 
-    public function hasNamespace(): bool
+    public function hasNamespace() : bool
     {
         if (null === $this->namespace) {
             return false;

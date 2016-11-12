@@ -77,19 +77,19 @@ class ExposeConstructorArgumentsAsGettersGenerator
     private function createShouldReturn(Parameter $parameter)
     {
         if (false === $parameter->hasClass()) {
-            return  new String_($parameter->getName());
+            return new String_($parameter->getName());
         }
 
         if ($parameter->getClassType() instanceof StringType) {
-            return  new String_($parameter->getName());
+            return new String_($parameter->getName());
         } elseif ($parameter->getClassType() instanceof IntType) {
-            return  new LNumber(1);
+            return new LNumber(1);
         } elseif ($parameter->getClassType() instanceof ArrayType) {
-            return  new Array_([], ['kind' => Array_::KIND_SHORT]);
+            return new Array_([], ['kind' => Array_::KIND_SHORT]);
         } elseif ($parameter->getClassType() instanceof FloatType) {
-            return  new DNumber(2.0);
+            return new DNumber(2.0);
         } elseif ($parameter->getClassType() instanceof BoolType) {
-            return  true;
+            return true;
         }
 
         throw new \Exception('ERR 242342123123: Unhandled argument received.');
