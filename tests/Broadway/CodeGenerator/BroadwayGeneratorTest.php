@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Output\PHP;
+namespace tests\NullDev\Skeleton\Broadway\CodeGenerator;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
