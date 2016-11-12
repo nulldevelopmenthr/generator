@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\Broadway\SourceFactory;
+namespace spec\NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch;
 
-use NullDev\Skeleton\Broadway\SourceFactory\ReadProjectorSourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
