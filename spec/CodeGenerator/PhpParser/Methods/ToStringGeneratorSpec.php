@@ -14,6 +14,7 @@ class ToStringGeneratorSpec extends ObjectBehavior
     {
         $this->beConstructedWith($builderFactory);
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(ToStringGenerator::class);

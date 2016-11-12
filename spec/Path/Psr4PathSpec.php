@@ -26,6 +26,7 @@ class Psr4PathSpec extends ObjectBehavior
         $this->isSpecCode()->shouldReturn(false);
         $this->isTestsCode()->shouldReturn(false);
     }
+
     public function it_handles_when_no_class_base_defined()
     {
         $this->beConstructedWith($pathBase = '/var/www/something/src/', $classBase = '');

@@ -26,6 +26,7 @@ class GetterMethodSpec extends ObjectBehavior
     {
         $this->getVisibility()->shouldReturn('public');
     }
+
     public function it_knows_its_not_static_type()
     {
         $this->isStatic()->shouldReturn(false);

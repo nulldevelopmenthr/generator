@@ -80,6 +80,7 @@ class DefinitionFactorySpec extends ObjectBehavior
         $this->createBroadwayModelRepositoryConstructorMethod($classType)
             ->shouldReturnAnInstanceOf(RepositoryConstructorMethod::class);
     }
+
     public function it_will_create_broadway_read_entity_id_getter_method(Parameter $parameter)
     {
         $this->createReadModelIdGetterMethod($parameter)

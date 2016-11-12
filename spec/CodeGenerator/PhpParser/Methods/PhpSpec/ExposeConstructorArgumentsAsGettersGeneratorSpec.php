@@ -14,6 +14,7 @@ class ExposeConstructorArgumentsAsGettersGeneratorSpec extends ObjectBehavior
     {
         $this->beConstructedWith($builderFactory);
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(ExposeConstructorArgumentsAsGettersGenerator::class);

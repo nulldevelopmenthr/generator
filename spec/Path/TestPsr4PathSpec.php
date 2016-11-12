@@ -18,6 +18,7 @@ class TestPsr4PathSpec extends ObjectBehavior
     {
         $this->shouldHaveType(TestPsr4Path::class);
     }
+
     public function it_returns_its_tests_code_path()
     {
         $this->isSourceCode()->shouldReturn(false);

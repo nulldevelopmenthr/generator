@@ -13,10 +13,12 @@ class SpecPsr4PathSpec extends ObjectBehavior
     {
         $this->beConstructedWith($pathBase = '/var/www/something/spec/', $classBase = '');
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(SpecPsr4Path::class);
     }
+
     public function it_returns_its_spec_code_path()
     {
         $this->isSourceCode()->shouldReturn(false);
