@@ -3,14 +3,12 @@ sudo: false
 env:
   global:
     - COMPOSER_DISCARD_CHANGES=true
-matrix:
-    include:
-        - php: 7.0
-          env: coverage=phpunit
-        - php: 7.0
-          env: coverage=phpspec
-        - php: 7.0
-    fast_finish: true
+php:
+  - 7.0
+env:
+  - coverage=phpunit
+  - coverage=phpspec
+fast_finish: true
 
 cache:
   directories:
