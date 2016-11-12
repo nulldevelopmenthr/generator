@@ -35,6 +35,10 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
             [$this->provideBroadwayElasticSearchReadEntity(), 'code/read/elasticsearch/entity'],
             [$this->provideBroadwayElasticSearchReadRepository(), 'code/read/elasticsearch/repository'],
             [$this->provideBroadwayElasticSearchReadProjector(), 'code/read/elasticsearch/projector'],
+            [$this->provideBroadwayDoctrineOrmReadEntity(), 'code/read/doctrine-orm/entity'],
+            [$this->provideBroadwayDoctrineOrmReadFactory(), 'code/read/doctrine-orm/factory'],
+            [$this->provideBroadwayDoctrineOrmReadRepository(), 'code/read/doctrine-orm/repository'],
+            [$this->provideBroadwayDoctrineOrmReadProjector(), 'code/read/doctrine-orm/projector'],
 
         ];
     }
