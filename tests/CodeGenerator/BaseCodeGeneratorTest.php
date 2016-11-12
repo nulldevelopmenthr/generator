@@ -2,27 +2,15 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Output\PHP;
+namespace tests\NullDev\Skeleton\CodeGenerator;
 
-use NullDev\Skeleton\Broadway\SourceFactory\CommandSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\EventSourcedAggregateRootSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\EventSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\EventSourcingRepositorySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\ReadEntitySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\ReadProjectorSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\ReadRepositorySourceFactory;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
-use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 
 /**
  * @group  FullCoverage
@@ -125,100 +113,6 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         ];
 
         return new ConstructorMethod($params);
-    }
-
-    protected function provideSourceForUuidIdentifier() : ImprovedClassSource
-    {
-        $classType = new ClassType('SomeClass', 'SomeNamespace');
-
-        $factory = new UuidIdentitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType);
-    }
-
-    protected function provideSourceForBroadwayCommand() : ImprovedClassSource
-    {
-        $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
-        $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
-            new Parameter('title', new StringType()),
-        ];
-
-        $factory = new CommandSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType, $parameters);
-    }
-
-    protected function provideSourceForBroadwayEvent() : ImprovedClassSource
-    {
-        $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
-        $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
-            new Parameter('title', new StringType()),
-            new Parameter('quantity', new IntType()),
-            new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::create('DateTime')),
-        ];
-
-        $factory = new EventSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType, $parameters);
-    }
-
-    protected function provideSourceForBroadwayModel() : ImprovedClassSource
-    {
-        $classType = new ClassType('ProductModel', 'MyShop\\Model');
-        $parameter = new Parameter('productId', ClassType::create('MyShop\\Model\\ProductUuid'));
-
-        $factory = new EventSourcedAggregateRootSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType, $parameter);
-    }
-
-    protected function provideSourceForBroadwayModelRepository() : ImprovedClassSource
-    {
-        $classType      = ClassType::create('MyShop\\Model\\ProductModelRepository');
-        $modelClassType = ClassType::create('MyShop\\Model\\ProductModel');
-
-        $factory = new EventSourcingRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType, $modelClassType);
-    }
-
-    protected function provideSourceForBroadwayReadEntity() : ImprovedClassSource
-    {
-        $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
-        $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
-            new Parameter('title', new StringType()),
-            new Parameter('quantity', new IntType()),
-            new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::create('DateTime')),
-        ];
-
-        $factory = new ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType, $parameters);
-    }
-
-    protected function provideSourceForBroadwayReadRepository() : ImprovedClassSource
-    {
-        $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
-
-        $factory = new ReadRepositorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType);
-    }
-
-    protected function provideSourceForBroadwayReadProjector() : ImprovedClassSource
-    {
-        $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
-        $parameters = [
-            new Parameter('repository', ClassType::create('MyShop\\ReadModel\\Product\\ProductReadRepository')),
-        ];
-        $factory = new ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
-
-        return $factory->create($classType, $parameters);
     }
 
     protected function provideClassType() : ClassType

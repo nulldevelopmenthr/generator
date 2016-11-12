@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Output\PHP;
+namespace tests\NullDev\Skeleton\CodeGenerator;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -38,7 +38,6 @@ class PhpParserGeneratorTest extends BaseCodeGeneratorTest
             [$this->provideSourceWithThreeParamConstructor(), 'code/class-with-all-3-param'],
             [$this->provideSourceWithOneClasslessParamConstructor(), 'code/class-with-all-1-classless-param'],
             [$this->provideSourceWithOneTypeDeclarationParamConstructor(), 'code/class-with-all-1-scalartypes-param'],
-
         ];
     }
 }
