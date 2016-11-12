@@ -1,0 +1,27 @@
+<?php
+
+namespace MyShop\ReadModel\Product;
+
+use Broadway\ReadModel\Projector;
+use MyShop\ReadModel\Product\ProductReadFactory;
+use MyShop\ReadModel\Product\ProductReadRepository;
+class ProductReadProjector extends Projector
+{
+    /** @var ProductReadRepository */
+    private $repository;
+    /** @var ProductReadFactory */
+    private $factory;
+    public function __construct(ProductReadRepository $repository, ProductReadFactory $factory)
+    {
+        $this->repository = $repository;
+        $this->factory = $factory;
+    }
+    public function getRepository() : ProductReadRepository
+    {
+        return $this->repository;
+    }
+    public function getFactory() : ProductReadFactory
+    {
+        return $this->factory;
+    }
+}

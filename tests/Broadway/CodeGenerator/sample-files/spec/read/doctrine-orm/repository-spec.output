@@ -1,0 +1,23 @@
+<?php
+
+namespace spec\MyShop\ReadModel\Product;
+
+use MyShop\ReadModel\Product\ProductReadRepository;
+use NullDev\Theater\DoctrineOrm\EntityRepository;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+class ProductReadRepositorySpec extends ObjectBehavior
+{
+    public function let()
+    {
+        $this->beConstructedWith();
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(ProductReadRepository::class);
+        $this->shouldHaveType(EntityRepository::class);
+    }
+    public function it_should_expose_constructor_arguments_via_getters()
+    {
+    }
+}

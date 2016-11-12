@@ -1,0 +1,21 @@
+<?php
+
+namespace spec\MyShop\ReadModel\Product;
+
+use MyShop\ReadModel\Product\ProductReadFactory;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+class ProductReadFactorySpec extends ObjectBehavior
+{
+    public function let()
+    {
+        $this->beConstructedWith();
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(ProductReadFactory::class);
+    }
+    public function it_should_expose_constructor_arguments_via_getters()
+    {
+    }
+}
