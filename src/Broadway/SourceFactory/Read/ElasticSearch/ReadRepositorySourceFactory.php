@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\Broadway\SourceFactory;
+namespace NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch;
 
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;

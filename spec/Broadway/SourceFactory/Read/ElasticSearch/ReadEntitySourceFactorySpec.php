@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\Broadway\SourceFactory;
+namespace spec\NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch;
 
 use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\ReadModelIdGetterMethod;
-use NullDev\Skeleton\Broadway\SourceFactory\ReadEntitySourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
