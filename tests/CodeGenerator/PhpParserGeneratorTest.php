@@ -38,14 +38,6 @@ class PhpParserGeneratorTest extends BaseCodeGeneratorTest
             [$this->provideSourceWithThreeParamConstructor(), 'code/class-with-all-3-param'],
             [$this->provideSourceWithOneClasslessParamConstructor(), 'code/class-with-all-1-classless-param'],
             [$this->provideSourceWithOneTypeDeclarationParamConstructor(), 'code/class-with-all-1-scalartypes-param'],
-            [$this->provideSourceForUuidIdentifier(), 'broadway-code/uuid-identifier'],
-            [$this->provideSourceForBroadwayCommand(), 'broadway-code/broadway-command'],
-            [$this->provideSourceForBroadwayEvent(), 'broadway-code/broadway-event'],
-            [$this->provideSourceForBroadwayModel(), 'broadway-code/broadway-model'],
-            [$this->provideSourceForBroadwayModelRepository(), 'broadway-code/broadway-model-repository'],
-            [$this->provideSourceForBroadwayReadEntity(), 'broadway-code/read/elasticsearch/entity'],
-            [$this->provideSourceForBroadwayReadRepository(), 'broadway-code/read/elasticsearch/repository'],
-            [$this->provideSourceForBroadwayReadProjector(), 'broadway-code/read/elasticsearch/projector'],
 
         ];
     }
