@@ -32,9 +32,9 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
             [$this->provideBroadwayEvent(), 'code/broadway-event'],
             [$this->provideBroadwayModel(), 'code/broadway-model'],
             [$this->provideBroadwayModelRepository(), 'code/broadway-model-repository'],
-            [$this->provideBroadwayReadEntity(), 'code/read/elasticsearch/entity'],
-            [$this->provideBroadwayReadRepository(), 'code/read/elasticsearch/repository'],
-            [$this->provideBroadwayReadProjector(), 'code/read/elasticsearch/projector'],
+            [$this->provideBroadwayElasticSearchReadEntity(), 'code/read/elasticsearch/entity'],
+            [$this->provideBroadwayElasticSearchReadRepository(), 'code/read/elasticsearch/repository'],
+            [$this->provideBroadwayElasticSearchReadProjector(), 'code/read/elasticsearch/projector'],
 
         ];
     }

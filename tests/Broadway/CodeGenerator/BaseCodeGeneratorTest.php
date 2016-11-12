@@ -87,7 +87,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $modelClassType);
     }
 
-    protected function provideBroadwayReadEntity() : ImprovedClassSource
+    protected function provideBroadwayElasticSearchReadEntity() : ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
@@ -103,7 +103,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideBroadwayReadRepository() : ImprovedClassSource
+    protected function provideBroadwayElasticSearchReadRepository() : ImprovedClassSource
     {
         $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
 
@@ -112,7 +112,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideBroadwayReadProjector() : ImprovedClassSource
+    protected function provideBroadwayElasticSearchReadProjector() : ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
         $parameters = [
