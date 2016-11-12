@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\Definition\PHP\Methods\PhpSpec;
+namespace NullDev\Skeleton\PhpSpec\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 

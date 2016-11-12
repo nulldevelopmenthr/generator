@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\Definition\PHP\Methods\PhpSpec;
+namespace NullDev\Skeleton\PhpSpec\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 
-class ExposeConstructorArgumentsAsGettersMethod implements Method
+class LetMethod implements Method
 {
     private $params;
 
@@ -39,7 +39,7 @@ class ExposeConstructorArgumentsAsGettersMethod implements Method
 
     public function getMethodName() : string
     {
-        return 'it_should_expose_constructor_arguments_via_getters';
+        return 'let';
     }
 
     public function getMethodParameters() : array
@@ -54,6 +54,6 @@ class ExposeConstructorArgumentsAsGettersMethod implements Method
 
     public function getMethodReturnType() : string
     {
-        throw new \Exception('Err 2342341: PhpSpec expose doesnt use return types.');
+        throw new \Exception('Err 543534: PhpSpec LetMethod doesnt use return types.');
     }
 }

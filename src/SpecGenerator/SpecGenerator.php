@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\SpecGenerator;
 
 use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
