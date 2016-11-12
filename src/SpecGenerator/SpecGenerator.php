@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\SpecGenerator;
 
-use NullDev\Skeleton\Definition\PHP\Methods\Broadway\Model\RepositoryConstructorMethod;
+use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
