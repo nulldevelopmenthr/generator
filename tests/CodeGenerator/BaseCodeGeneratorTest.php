@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Output\PHP;
 
+use NullDev\Skeleton\Broadway\SourceFactory\CommandSourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\EventSourcedAggregateRootSourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\EventSourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\EventSourcingRepositorySourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\ReadEntitySourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\ReadProjectorSourceFactory;
+use NullDev\Skeleton\Broadway\SourceFactory\ReadRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -15,13 +22,6 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SourceFactory\Broadway\CommandSourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\EventSourcedAggregateRootSourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\EventSourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\EventSourcingRepositorySourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\ReadEntitySourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\ReadProjectorSourceFactory;
-use NullDev\Skeleton\SourceFactory\Broadway\ReadRepositorySourceFactory;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 
 /**

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator;
+use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\CreateGenerator;
+use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator;
+use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\RepositoryConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\AggregateRootIdGetterGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\CreateGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\ReadModelIdGetterGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\Broadway\Model\RepositoryConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
