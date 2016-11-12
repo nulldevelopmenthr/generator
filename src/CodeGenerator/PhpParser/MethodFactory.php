@@ -15,9 +15,6 @@ use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\RepositoryConstructor
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\InitializableGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\LetGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
@@ -25,12 +22,15 @@ use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
+use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator;
+use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\InitializableGenerator;
+use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\LetGenerator;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\LetMethod;
 
 /**
  * @see MethodFactorySpec

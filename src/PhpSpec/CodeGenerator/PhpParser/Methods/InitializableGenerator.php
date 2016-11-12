@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec;
+namespace NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\InitializableMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethod;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;

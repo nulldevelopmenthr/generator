@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\Definition\PHP\Methods\PhpSpec;
+namespace spec\NullDev\Skeleton\PhpSpec\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\LetMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\LetMethod;
 use PhpSpec\ObjectBehavior;
 
 class LetMethodSpec extends ObjectBehavior

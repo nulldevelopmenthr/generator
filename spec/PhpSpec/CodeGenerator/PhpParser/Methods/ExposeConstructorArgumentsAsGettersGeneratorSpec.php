@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec;
+namespace spec\NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersGenerator;
+use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator;
 use PhpParser\BuilderFactory;
 use PhpSpec\ObjectBehavior;
 

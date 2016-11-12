@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\Definition\PHP\Methods\PhpSpec;
+namespace spec\NullDev\Skeleton\PhpSpec\Definition\PHP\Methods;
 
-use NullDev\Skeleton\Definition\PHP\Methods\PhpSpec\ExposeConstructorArgumentsAsGettersMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
 use PhpSpec\ObjectBehavior;
 
 class ExposeConstructorArgumentsAsGettersMethodSpec extends ObjectBehavior
