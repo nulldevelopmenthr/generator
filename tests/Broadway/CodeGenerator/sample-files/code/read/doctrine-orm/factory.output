@@ -1,0 +1,7 @@
+<?php
+
+namespace MyShop\ReadModel\Product;
+
+class ProductReadFactory
+{
+}

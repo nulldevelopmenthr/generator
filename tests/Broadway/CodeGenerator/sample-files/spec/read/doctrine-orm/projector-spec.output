@@ -1,0 +1,27 @@
+<?php
+
+namespace spec\MyShop\ReadModel\Product;
+
+use Broadway\ReadModel\Projector;
+use MyShop\ReadModel\Product\ProductReadFactory;
+use MyShop\ReadModel\Product\ProductReadProjector;
+use MyShop\ReadModel\Product\ProductReadRepository;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+class ProductReadProjectorSpec extends ObjectBehavior
+{
+    public function let(ProductReadRepository $repository, ProductReadFactory $factory)
+    {
+        $this->beConstructedWith($repository, $factory);
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(ProductReadProjector::class);
+        $this->shouldHaveType(Projector::class);
+    }
+    public function it_should_expose_constructor_arguments_via_getters($repository, $factory)
+    {
+        $this->getRepository()->shouldReturn($repository);
+        $this->getFactory()->shouldReturn($factory);
+    }
+}

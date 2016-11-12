@@ -1,0 +1,8 @@
+<?php
+
+namespace MyShop\ReadModel\Product;
+
+use NullDev\Theater\DoctrineOrm\EntityRepository;
+class ProductReadRepository extends EntityRepository
+{
+}
