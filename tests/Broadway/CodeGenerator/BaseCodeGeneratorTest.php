@@ -29,7 +29,7 @@ use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
  */
 abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-    protected function provideSourceForUuidIdentifier() : ImprovedClassSource
+    protected function provideUuidIdentifier() : ImprovedClassSource
     {
         $classType = new ClassType('SomeClass', 'SomeNamespace');
 
@@ -38,7 +38,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideSourceForBroadwayCommand() : ImprovedClassSource
+    protected function provideBroadwayCommand() : ImprovedClassSource
     {
         $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
         $parameters = [
@@ -51,7 +51,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideSourceForBroadwayEvent() : ImprovedClassSource
+    protected function provideBroadwayEvent() : ImprovedClassSource
     {
         $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
         $parameters = [
@@ -67,7 +67,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideSourceForBroadwayModel() : ImprovedClassSource
+    protected function provideBroadwayModel() : ImprovedClassSource
     {
         $classType = new ClassType('ProductModel', 'MyShop\\Model');
         $parameter = new Parameter('productId', ClassType::create('MyShop\\Model\\ProductUuid'));
@@ -77,7 +77,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameter);
     }
 
-    protected function provideSourceForBroadwayModelRepository() : ImprovedClassSource
+    protected function provideBroadwayModelRepository() : ImprovedClassSource
     {
         $classType      = ClassType::create('MyShop\\Model\\ProductModelRepository');
         $modelClassType = ClassType::create('MyShop\\Model\\ProductModel');
@@ -87,7 +87,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $modelClassType);
     }
 
-    protected function provideSourceForBroadwayReadEntity() : ImprovedClassSource
+    protected function provideBroadwayReadEntity() : ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
@@ -103,7 +103,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideSourceForBroadwayReadRepository() : ImprovedClassSource
+    protected function provideBroadwayReadRepository() : ImprovedClassSource
     {
         $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
 
@@ -112,7 +112,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideSourceForBroadwayReadProjector() : ImprovedClassSource
+    protected function provideBroadwayReadProjector() : ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
         $parameters = [
