@@ -33,14 +33,14 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
     public function provideTestRenderData()
     {
         return [
-            [$this->provideUuidIdentifier(), 'broadway-spec/uuid-identifier-spec'],
-            [$this->provideBroadwayCommand(), 'broadway-spec/broadway-command-spec'],
-            [$this->provideBroadwayEvent(), 'broadway-spec/broadway-event-spec'],
-            [$this->provideBroadwayModel(), 'broadway-spec/broadway-model-spec'],
-            [$this->provideBroadwayModelRepository(), 'broadway-spec/broadway-model-repository-spec'],
-            [$this->provideBroadwayReadEntity(), 'broadway-spec/read/elasticsearch/entity-spec'],
-            [$this->provideBroadwayReadRepository(), 'broadway-spec/read/elasticsearch/repository-spec'],
-            [$this->provideBroadwayReadProjector(), 'broadway-spec/read/elasticsearch/projector-spec'],
+            [$this->provideUuidIdentifier(), 'spec/uuid-identifier-spec'],
+            [$this->provideBroadwayCommand(), 'spec/broadway-command-spec'],
+            [$this->provideBroadwayEvent(), 'spec/broadway-event-spec'],
+            [$this->provideBroadwayModel(), 'spec/broadway-model-spec'],
+            [$this->provideBroadwayModelRepository(), 'spec/broadway-model-repository-spec'],
+            [$this->provideBroadwayReadEntity(), 'spec/read/elasticsearch/entity-spec'],
+            [$this->provideBroadwayReadRepository(), 'spec/read/elasticsearch/repository-spec'],
+            [$this->provideBroadwayReadProjector(), 'spec/read/elasticsearch/projector-spec'],
         ];
     }
 }
