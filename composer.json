@@ -43,9 +43,6 @@
     },
     "scripts": {
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "extra": {
     }
 }

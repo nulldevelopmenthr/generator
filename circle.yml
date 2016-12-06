@@ -10,11 +10,10 @@ general:
 dependencies:
   cache_directories:
     - "vendor"
-    - "bin"
 test:
   override:
-    - ./bin/phpunit --fail-on-warning
-    - ./bin/phpspec run --no-interaction
+    - ./vendor/bin/phpunit --fail-on-warning
+    - ./vendor/bin/phpspec run --no-interaction
     - ant php-cs-fixer-check
     - ant phpcs-task
     - ant phpmd-task

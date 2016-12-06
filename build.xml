@@ -17,7 +17,7 @@
     </target>
 
     <target name="phpspec" description="">
-        <exec executable="bin/phpspec" failonerror="false" resultproperty="phpspecresult"
+        <exec executable="vendor/bin/phpspec" failonerror="false" resultproperty="phpspecresult"
               outputproperty="phpspecout">
             <arg value="run"/>
             <arg value="-v"/>
@@ -30,7 +30,7 @@
     </target>
 
     <target name="phpspec-code-coverage" description="">
-        <exec executable="bin/phpspec" failonerror="false" resultproperty="phpspecresult" outputproperty="phpspecout">
+        <exec executable="vendor/bin/phpspec" failonerror="false" resultproperty="phpspecresult" outputproperty="phpspecout">
             <arg value="run"/>
             <arg value="-v"/>
             <arg value="-c"/>
@@ -44,7 +44,7 @@
     </target>
 
     <target name="phpunit" description="">
-        <exec executable="bin/phpunit" failonerror="false" resultproperty="phpunitresult" outputproperty="phpunitout">
+        <exec executable="vendor/bin/phpunit" failonerror="false" resultproperty="phpunitresult" outputproperty="phpunitout">
             <arg value="--fail-on-warning"/>
         </exec>
         <fail message="${phpunitout}">
@@ -76,27 +76,27 @@
 
     <target name="php-cs-fixer-fix" description="">
         <retry retrycount="3">
-            <exec executable="bin/php-cs-fixer" failOnError="true">
+            <exec executable="vendor/bin/php-cs-fixer" failOnError="true">
                 <arg value="fix"/>
             </exec>
         </retry>
     </target>
     <target name="php-cs-fixer-check" description="">
-        <exec executable="bin/php-cs-fixer" failOnError="true">
+        <exec executable="vendor/bin/php-cs-fixer" failOnError="true">
             <arg value="fix"/>
             <arg value="--dry-run"/>
             <arg value="--diff"/>
         </exec>
     </target>
     <target name="phpmd" description="">
-        <exec executable="bin/phpmd" failOnError="true">
+        <exec executable="vendor/bin/phpmd" failOnError="true">
             <arg path="${basedir}/${path}"/>
             <arg value="text"/>
             <arg value="phpmd.xml"/>
         </exec>
     </target>
     <target name="phpcs" description="">
-        <exec executable="bin/phpcs" failonerror="true">
+        <exec executable="vendor/bin/phpcs" failonerror="true">
             <arg value="--standard=phpcs.xml" />
             <arg path="${basedir}/${path}" />
             <arg value="-n" />
