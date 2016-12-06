@@ -43,6 +43,7 @@
     },
     "scripts": {
     },
+    "bin": ["bin/skeleton"],
     "extra": {
     }
 }
