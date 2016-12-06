@@ -1,0 +1,16 @@
+
+nulldev_skeleton:
+    code:
+      path: "src/"
+      prefix: ""
+      autoload_type: "psr4"
+    phpspec:
+      path: "spec/"
+      prefix: "spec\\"
+      autoload_type: "psr4"
+      enabled: true
+    phpunit:
+      path: "tests/"
+      prefix: "tests\\"
+      autoload_type: "psr4"
+      enabled: true
