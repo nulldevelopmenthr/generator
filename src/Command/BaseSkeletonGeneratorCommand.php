@@ -199,7 +199,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
 
     private function getConfig()
     {
-        $path = __DIR__.'/../../skeleton.ym1l';
+        $path = getcwd().'/skeleton.yml';
 
         if (!is_file($path)) {
             return $this->getDefaultConfig();
