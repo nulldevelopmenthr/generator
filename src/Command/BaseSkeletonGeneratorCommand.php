@@ -250,4 +250,8 @@ abstract class BaseSkeletonGeneratorCommand extends Command
 
         return $question;
     }
+
+    abstract protected function getSectionMessage();
+
+    abstract protected function getIntroductionMessage();
 }
