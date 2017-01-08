@@ -6,8 +6,6 @@ namespace spec\NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm;
 
 use NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
-use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -27,11 +25,8 @@ class ReadRepositorySourceFactorySpec extends ObjectBehavior
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(
         ClassSourceFactory $sourceFactory,
-        DefinitionFactory $definitionFactory,
         ClassType $classType,
-        Parameter $parameter,
-        ImprovedClassSource $classSource,
-        ConstructorMethod $constructorMethod
+        ImprovedClassSource $classSource
     ) {
         $sourceFactory
             ->create($classType)
