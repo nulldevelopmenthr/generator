@@ -68,6 +68,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
 
         $this->output->writeln($this->getIntroductionMessage());
 
+        $className= null;
         while (true) {
             $className = $this->askForClassName();
 
