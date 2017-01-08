@@ -19,9 +19,9 @@
     },
     "require": {
         "php":                                      ">=7.0.0",
-        "nikic/php-parser":                         "^2.1",
+        "nikic/php-parser":                         "^3.0",
         "symfony/finder":                           "~3",
-        "hanneskod/classtools":                     "~1.0",
+        "hanneskod/classtools":                     "^1.1",
         "sensio/generator-bundle":                   "~3"
     },
     "require-dev": {
