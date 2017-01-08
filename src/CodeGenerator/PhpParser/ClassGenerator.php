@@ -22,7 +22,6 @@ class ClassGenerator
 
     public function generate(ImprovedClassSource $classSource)
     {
-
         //Building class.
         $classCode = $this->builderFactory->class($classSource->getName());
 

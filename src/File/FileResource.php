@@ -23,12 +23,12 @@ class FileResource
     /**
      * @return ImprovedClassSource
      */
-    public function getClassSource() : ImprovedClassSource
+    public function getClassSource(): ImprovedClassSource
     {
         return $this->classSource;
     }
 
-    public function getFileName() : string
+    public function getFileName(): string
     {
         return $this->path->getFileNameFor($this->classSource->getFullName());
     }

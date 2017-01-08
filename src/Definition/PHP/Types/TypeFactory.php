@@ -12,7 +12,7 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 
 class TypeFactory
 {
-    public static function createFromName(string $name) : Type
+    public static function createFromName(string $name): Type
     {
         $name = str_replace('/', '\\', $name);
 

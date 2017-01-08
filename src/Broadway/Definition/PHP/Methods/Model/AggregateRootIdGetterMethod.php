@@ -21,32 +21,32 @@ class AggregateRootIdGetterMethod implements Method
         return $this->parameter->getName();
     }
 
-    public function getVisibility() : string
+    public function getVisibility(): string
     {
         return 'public';
     }
 
-    public function isStatic() : bool
+    public function isStatic(): bool
     {
         return false;
     }
 
-    public function getMethodName() : string
+    public function getMethodName(): string
     {
         return 'getAggregateRootId';
     }
 
-    public function getMethodParameters() : array
+    public function getMethodParameters(): array
     {
         return [];
     }
 
-    public function hasMethodReturnType() : bool
+    public function hasMethodReturnType(): bool
     {
         return $this->parameter->hasClass();
     }
 
-    public function getMethodReturnType() : string
+    public function getMethodReturnType(): string
     {
         return $this->parameter->getClassShortName();
     }

@@ -98,7 +98,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
         }
     }
 
-    private function getModelIdSource(ClassType $modelIdClassType) : ImprovedClassSource
+    private function getModelIdSource(ClassType $modelIdClassType): ImprovedClassSource
     {
         $factory = new UuidIdentitySourceFactory(
             new ClassSourceFactory(),
@@ -108,7 +108,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($modelIdClassType);
     }
 
-    private function getModelSource(ClassType $modelClassType, ClassType $modelIdClassType) : ImprovedClassSource
+    private function getModelSource(ClassType $modelClassType, ClassType $modelIdClassType): ImprovedClassSource
     {
         $factory = new EventSourcedAggregateRootSourceFactory(
             new ClassSourceFactory(),
@@ -123,7 +123,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
     private function getModelRepositorySource(
         ClassType $repositoryClassType,
         ClassType $modelClassType
-    ) : ImprovedClassSource {
+    ): ImprovedClassSource {
         $factory = new EventSourcingRepositorySourceFactory(
             new ClassSourceFactory(),
             new DefinitionFactory()

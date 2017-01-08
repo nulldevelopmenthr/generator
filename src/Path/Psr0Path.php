@@ -23,17 +23,17 @@ class Psr0Path implements Path
         $this->classBase = $classBase;
     }
 
-    public function isSourceCode() : bool
+    public function isSourceCode(): bool
     {
         return true;
     }
 
-    public function isSpecCode() : bool
+    public function isSpecCode(): bool
     {
         return false;
     }
 
-    public function isTestsCode() : bool
+    public function isTestsCode(): bool
     {
         return false;
     }
@@ -41,7 +41,7 @@ class Psr0Path implements Path
     /**
      * @return string
      */
-    public function getPathBase() : string
+    public function getPathBase(): string
     {
         return $this->pathBase;
     }
@@ -49,12 +49,12 @@ class Psr0Path implements Path
     /**
      * @return string
      */
-    public function getClassBase() : string
+    public function getClassBase(): string
     {
         return $this->classBase;
     }
 
-    public function belongsTo(string $className) : bool
+    public function belongsTo(string $className): bool
     {
         if ($this->classBase === '') {
             return true;
@@ -67,7 +67,7 @@ class Psr0Path implements Path
         return false;
     }
 
-    public function getFileNameFor(string $className) : string
+    public function getFileNameFor(string $className): string
     {
         if (!$this->belongsTo($className)) {
             throw new Exception('Err 54533234: Class name "'.$className.'" doesnt belong to this path!');

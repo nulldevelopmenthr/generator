@@ -27,7 +27,7 @@ use PhpParser\PrettyPrinter;
  */
 class PhpParserGeneratorFactory
 {
-    public static function create() : PhpParserGenerator
+    public static function create(): PhpParserGenerator
     {
         $generator = new PhpParserGenerator(
             new BuilderFactory(),

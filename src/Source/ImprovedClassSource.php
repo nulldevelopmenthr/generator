@@ -43,27 +43,27 @@ class ImprovedClassSource
     /**
      * @return ClassType
      */
-    public function getClassType() : ClassType
+    public function getClassType(): ClassType
     {
         return $this->classType;
     }
 
-    public function hasNamespace() : bool
+    public function hasNamespace(): bool
     {
         return $this->classType->hasNamespace();
     }
 
-    public function getNamespace() : string
+    public function getNamespace(): string
     {
         return $this->classType->getNamespace();
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->classType->getName();
     }
 
-    public function getFullName() : string
+    public function getFullName(): string
     {
         return $this->classType->getFullName();
     }
@@ -83,7 +83,7 @@ class ImprovedClassSource
         return $this;
     }
 
-    public function hasParent() : bool
+    public function hasParent(): bool
     {
         if (null === $this->parent) {
             return false;
@@ -92,12 +92,12 @@ class ImprovedClassSource
         return true;
     }
 
-    public function getParent() : ClassType
+    public function getParent(): ClassType
     {
         return $this->parent;
     }
 
-    public function getParentName() : string
+    public function getParentName(): string
     {
         return $this->getParent()->getName();
     }
@@ -121,7 +121,7 @@ class ImprovedClassSource
         return true;
     }
 
-    public function getInterfaces() : array
+    public function getInterfaces(): array
     {
         return $this->interfaces;
     }
@@ -145,7 +145,7 @@ class ImprovedClassSource
         return true;
     }
 
-    public function getTraits() : array
+    public function getTraits(): array
     {
         return $this->traits;
     }
@@ -185,12 +185,12 @@ class ImprovedClassSource
         return $this;
     }
 
-    public function getConstructorMethod() : ConstructorMethod
+    public function getConstructorMethod(): ConstructorMethod
     {
         return $this->constructor;
     }
 
-    public function getConstructorParameters() : array
+    public function getConstructorParameters(): array
     {
         if (false === $this->hasConstructorMethod()) {
             return [];
@@ -206,7 +206,7 @@ class ImprovedClassSource
         $this->properties[] = $property;
     }
 
-    public function getProperties() : array
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -223,7 +223,7 @@ class ImprovedClassSource
         $this->methods[] = $method;
     }
 
-    public function getMethods() : array
+    public function getMethods(): array
     {
         return $this->methods;
     }

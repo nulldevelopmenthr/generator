@@ -25,54 +25,54 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
  */
 class DefinitionFactory
 {
-    public function createParameter(string $name, Type $type) : Parameter
+    public function createParameter(string $name, Type $type): Parameter
     {
         return new Parameter($name, $type);
     }
 
-    public function createConstructorMethod(array $params) : ConstructorMethod
+    public function createConstructorMethod(array $params): ConstructorMethod
     {
         return new ConstructorMethod($params);
     }
 
-    public function createDeserializeMethod(ImprovedClassSource $classSource) : DeserializeMethod
+    public function createDeserializeMethod(ImprovedClassSource $classSource): DeserializeMethod
     {
         return new DeserializeMethod($classSource);
     }
 
-    public function createGetterMethod(Parameter $parameter) : GetterMethod
+    public function createGetterMethod(Parameter $parameter): GetterMethod
     {
         return new GetterMethod($parameter);
     }
 
-    public function createSerializeMethod(ImprovedClassSource $classSource) : SerializeMethod
+    public function createSerializeMethod(ImprovedClassSource $classSource): SerializeMethod
     {
         return new SerializeMethod($classSource);
     }
 
-    public function createToStringMethod(Parameter $parameter) : ToStringMethod
+    public function createToStringMethod(Parameter $parameter): ToStringMethod
     {
         return new ToStringMethod($parameter);
     }
 
-    public function createUuidCreateMethod(ClassType $classType) : UuidCreateMethod
+    public function createUuidCreateMethod(ClassType $classType): UuidCreateMethod
     {
         return new UuidCreateMethod($classType);
     }
 
-    public function createBroadwayModelCreateMethod(ClassType $classType, array  $parameters) : CreateMethod
+    public function createBroadwayModelCreateMethod(ClassType $classType, array  $parameters): CreateMethod
     {
         return new CreateMethod($classType, $parameters);
     }
 
-    public function createBroadwayModelAggregateRootIdGetterMethod(Parameter $parameter) : AggregateRootIdGetterMethod
+    public function createBroadwayModelAggregateRootIdGetterMethod(Parameter $parameter): AggregateRootIdGetterMethod
     {
         return new AggregateRootIdGetterMethod($parameter);
     }
 
     public function createBroadwayModelRepositoryConstructorMethod(
         ClassType $classType
-    ) : RepositoryConstructorMethod {
+    ): RepositoryConstructorMethod {
         return new RepositoryConstructorMethod($classType);
     }
 

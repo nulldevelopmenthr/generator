@@ -40,7 +40,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
     private $existingNamespaces;
     private $existingClasses;
 
-    protected function getConstuctorParameters() : array
+    protected function getConstuctorParameters(): array
     {
         $fields = [];
 
@@ -91,7 +91,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         }
     }
 
-    protected function fileNotExistsOrShouldBeOwerwritten(FileResource $fileResource) : bool
+    protected function fileNotExistsOrShouldBeOwerwritten(FileResource $fileResource): bool
     {
         if (false === file_exists($fileResource->getFileName())) {
             return true;
@@ -138,14 +138,14 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         return $this->getQuestionHelper()->ask($this->input, $this->output, $question);
     }
 
-    protected function createSpecSource(ImprovedClassSource $classSource) : ImprovedClassSource
+    protected function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
     {
         $generator = new SpecGenerator(new ClassSourceFactory());
 
         return $generator->generate($classSource);
     }
 
-    protected function getFileResource(ImprovedClassSource $classSource) : FileResource
+    protected function getFileResource(ImprovedClassSource $classSource): FileResource
     {
         $factory = new FileFactory($this->getPaths());
 
@@ -159,12 +159,12 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         $fileGenerator->create($fileResource);
     }
 
-    protected function createClassFromParameterClassName(string $name) : Type
+    protected function createClassFromParameterClassName(string $name): Type
     {
         return TypeFactory::createFromName($name);
     }
 
-    protected function getExistingNamespaces() : array
+    protected function getExistingNamespaces(): array
     {
         if (null === $this->existingNamespaces) {
             $sourceCodePathReader = new SourceCodePathReader();
@@ -175,7 +175,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         return $this->existingNamespaces;
     }
 
-    protected function getExistingClasses() : array
+    protected function getExistingClasses(): array
     {
         if (null === $this->existingClasses) {
             $sourceCodePathReader = new SourceCodePathReader();

@@ -9,7 +9,7 @@ use Symfony\Component\Finder\Finder;
 
 class SourceCodePathReader
 {
-    public function getExistingPaths(array $paths) : array
+    public function getExistingPaths(array $paths): array
     {
         $existingPaths = [];
 
@@ -37,7 +37,7 @@ class SourceCodePathReader
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
-    public function getExistingClasses(array $paths) : array
+    public function getExistingClasses(array $paths): array
     {
         $namespaceList = [];
         $classList     = [];

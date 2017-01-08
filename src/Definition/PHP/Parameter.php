@@ -22,7 +22,7 @@ class Parameter
     /**
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -30,7 +30,7 @@ class Parameter
     /**
      * @return Type
      */
-    public function getClassType() : Type
+    public function getClassType(): Type
     {
         return $this->classType;
     }
@@ -38,7 +38,7 @@ class Parameter
     /**
      * @return string
      */
-    public function getClassShortName() : string
+    public function getClassShortName(): string
     {
         return $this->getClassType()->getName();
     }

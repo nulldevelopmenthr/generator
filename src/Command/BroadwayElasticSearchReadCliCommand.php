@@ -98,7 +98,7 @@ class BroadwayElasticSearchReadCliCommand extends BaseSkeletonGeneratorCommand
         }
     }
 
-    private function getReadEntitySource(ClassType $readEntityClassType, array $parameters) : ImprovedClassSource
+    private function getReadEntitySource(ClassType $readEntityClassType, array $parameters): ImprovedClassSource
     {
         $factory = new ReadEntitySourceFactory(
             new ClassSourceFactory(),
@@ -108,7 +108,7 @@ class BroadwayElasticSearchReadCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($readEntityClassType, $parameters);
     }
 
-    private function getReadRepositorySource(ClassType $repositoryClassType) : ImprovedClassSource
+    private function getReadRepositorySource(ClassType $repositoryClassType): ImprovedClassSource
     {
         $factory = new ReadRepositorySourceFactory(
             new ClassSourceFactory(),
@@ -121,7 +121,7 @@ class BroadwayElasticSearchReadCliCommand extends BaseSkeletonGeneratorCommand
     private function getReadProjectorSource(
         ClassType $projectorClassType,
         ClassType $repositoryClassType
-    ) : ImprovedClassSource {
+    ): ImprovedClassSource {
         $factory = new ReadProjectorSourceFactory(
             new ClassSourceFactory(),
             new DefinitionFactory()

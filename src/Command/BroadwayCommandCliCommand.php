@@ -56,7 +56,7 @@ class BroadwayCommandCliCommand extends BaseSkeletonGeneratorCommand
         }
     }
 
-    private function getSource(ClassType $classType, array $fields) : ImprovedClassSource
+    private function getSource(ClassType $classType, array $fields): ImprovedClassSource
     {
         $factory = new CommandSourceFactory(
             new ClassSourceFactory(),

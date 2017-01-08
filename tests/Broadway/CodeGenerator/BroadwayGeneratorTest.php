@@ -39,7 +39,6 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
             [$this->provideBroadwayDoctrineOrmReadFactory(), 'code/read/doctrine-orm/factory'],
             [$this->provideBroadwayDoctrineOrmReadRepository(), 'code/read/doctrine-orm/repository'],
             [$this->provideBroadwayDoctrineOrmReadProjector(), 'code/read/doctrine-orm/projector'],
-
         ];
     }
 }

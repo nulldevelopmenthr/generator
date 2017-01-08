@@ -6,17 +6,17 @@ namespace NullDev\Skeleton\Path;
 
 class TestPsr0Path extends Psr0Path
 {
-    public function isSourceCode() : bool
+    public function isSourceCode(): bool
     {
         return false;
     }
 
-    public function isSpecCode() : bool
+    public function isSpecCode(): bool
     {
         return false;
     }
 
-    public function isTestsCode() : bool
+    public function isTestsCode(): bool
     {
         return true;
     }

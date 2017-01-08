@@ -28,7 +28,7 @@ use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
  */
 abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-    protected function provideUuidIdentifier() : ImprovedClassSource
+    protected function provideUuidIdentifier(): ImprovedClassSource
     {
         $classType = new ClassType('SomeClass', 'SomeNamespace');
 
@@ -37,7 +37,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideBroadwayCommand() : ImprovedClassSource
+    protected function provideBroadwayCommand(): ImprovedClassSource
     {
         $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
         $parameters = [
@@ -50,7 +50,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideBroadwayEvent() : ImprovedClassSource
+    protected function provideBroadwayEvent(): ImprovedClassSource
     {
         $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
         $parameters = [
@@ -66,7 +66,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideBroadwayModel() : ImprovedClassSource
+    protected function provideBroadwayModel(): ImprovedClassSource
     {
         $classType = new ClassType('ProductModel', 'MyShop\\Model');
         $parameter = new Parameter('productId', ClassType::create('MyShop\\Model\\ProductUuid'));
@@ -76,7 +76,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameter);
     }
 
-    protected function provideBroadwayModelRepository() : ImprovedClassSource
+    protected function provideBroadwayModelRepository(): ImprovedClassSource
     {
         $classType      = ClassType::create('MyShop\\Model\\ProductModelRepository');
         $modelClassType = ClassType::create('MyShop\\Model\\ProductModel');
@@ -86,7 +86,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $modelClassType);
     }
 
-    protected function provideBroadwayElasticSearchReadEntity() : ImprovedClassSource
+    protected function provideBroadwayElasticSearchReadEntity(): ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
@@ -102,7 +102,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideBroadwayElasticSearchReadRepository() : ImprovedClassSource
+    protected function provideBroadwayElasticSearchReadRepository(): ImprovedClassSource
     {
         $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
 
@@ -111,7 +111,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideBroadwayElasticSearchReadProjector() : ImprovedClassSource
+    protected function provideBroadwayElasticSearchReadProjector(): ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
         $parameters = [
@@ -126,7 +126,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     ///--------------------------------------------------------------------------------------------------------------------
     ///
 
-    protected function provideBroadwayDoctrineOrmReadEntity() : ImprovedClassSource
+    protected function provideBroadwayDoctrineOrmReadEntity(): ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
@@ -142,7 +142,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType, $parameters);
     }
 
-    protected function provideBroadwayDoctrineOrmReadFactory() : ImprovedClassSource
+    protected function provideBroadwayDoctrineOrmReadFactory(): ImprovedClassSource
     {
         $classType = new ClassType('ProductReadFactory', 'MyShop\\ReadModel\\Product');
         $factory   = new DoctrineOrm\ReadFactorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -150,7 +150,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideBroadwayDoctrineOrmReadRepository() : ImprovedClassSource
+    protected function provideBroadwayDoctrineOrmReadRepository(): ImprovedClassSource
     {
         $classType = new ClassType('ProductReadRepository', 'MyShop\\ReadModel\\Product');
 
@@ -159,7 +159,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
         return $factory->create($classType);
     }
 
-    protected function provideBroadwayDoctrineOrmReadProjector() : ImprovedClassSource
+    protected function provideBroadwayDoctrineOrmReadProjector(): ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
         $parameters = [
@@ -175,37 +175,37 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     ///--------------------------------------------------------------------------------------------------------------------
     ///
 
-    protected function provideClassType() : ClassType
+    protected function provideClassType(): ClassType
     {
         return new ClassType('Senior', 'Developer');
     }
 
-    protected function provideParentClassType() : ClassType
+    protected function provideParentClassType(): ClassType
     {
         return new ClassType('Person', 'Human');
     }
 
-    protected function provideInterfaceType1() : InterfaceType
+    protected function provideInterfaceType1(): InterfaceType
     {
         return new InterfaceType('Coder');
     }
 
-    protected function provideInterfaceType2() : InterfaceType
+    protected function provideInterfaceType2(): InterfaceType
     {
         return new InterfaceType('Coder2');
     }
 
-    protected function provideTraitType1() : TraitType
+    protected function provideTraitType1(): TraitType
     {
         return new TraitType('SomeTrait');
     }
 
-    protected function provideTraitType2() : TraitType
+    protected function provideTraitType2(): TraitType
     {
         return new TraitType('SomeTrait2');
     }
 
-    protected function getFileContent(string $fileName) : string
+    protected function getFileContent(string $fileName): string
     {
         return file_get_contents(__DIR__.'/sample-files/'.$fileName.'.output');
     }

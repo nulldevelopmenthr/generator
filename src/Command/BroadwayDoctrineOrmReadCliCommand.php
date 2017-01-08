@@ -118,7 +118,7 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         }
     }
 
-    private function getReadEntitySource(ClassType $readEntityClassType, array $parameters) : ImprovedClassSource
+    private function getReadEntitySource(ClassType $readEntityClassType, array $parameters): ImprovedClassSource
     {
         $factory = new ReadEntitySourceFactory(
             new ClassSourceFactory(),
@@ -128,7 +128,7 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($readEntityClassType, $parameters);
     }
 
-    private function getReadRepositorySource(ClassType $repositoryClassType) : ImprovedClassSource
+    private function getReadRepositorySource(ClassType $repositoryClassType): ImprovedClassSource
     {
         $factory = new ReadRepositorySourceFactory(
             new ClassSourceFactory(),
@@ -142,7 +142,7 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         ClassType $projectorClassType,
         ClassType $repositoryClassType,
         ClassType $factoryClassType
-    ) : ImprovedClassSource {
+    ): ImprovedClassSource {
         $factory = new ReadProjectorSourceFactory(
             new ClassSourceFactory(),
             new DefinitionFactory()
@@ -157,7 +157,7 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($projectorClassType, $parameters);
     }
 
-    private function getReadFactorySource(ClassType $factoryClassType) : ImprovedClassSource
+    private function getReadFactorySource(ClassType $factoryClassType): ImprovedClassSource
     {
         $factory = new ReadFactorySourceFactory(
             new ClassSourceFactory(),

@@ -52,7 +52,7 @@ class UuidIdentityCommand extends BaseSkeletonGeneratorCommand
         }
     }
 
-    protected function getSource(ClassType $classType) : ImprovedClassSource
+    protected function getSource(ClassType $classType): ImprovedClassSource
     {
         $factory = new UuidIdentitySourceFactory(
             new ClassSourceFactory(),

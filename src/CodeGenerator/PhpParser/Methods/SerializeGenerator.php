@@ -54,7 +54,6 @@ class SerializeGenerator
         }
 
         $return = new Node\Stmt\Return_(
-
             new Node\Expr\Array_(
                 $zz,
                 ['kind' => Node\Expr\Array_::KIND_SHORT]

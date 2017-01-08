@@ -18,32 +18,32 @@ class CreateMethod implements Method
         $this->params       = $params;
     }
 
-    public function getVisibility() : string
+    public function getVisibility(): string
     {
         return 'public';
     }
 
-    public function isStatic() : bool
+    public function isStatic(): bool
     {
         return true;
     }
 
-    public function getMethodName() : string
+    public function getMethodName(): string
     {
         return 'create';
     }
 
-    public function getMethodParameters() : array
+    public function getMethodParameters(): array
     {
         return $this->params;
     }
 
-    public function hasMethodReturnType() : bool
+    public function hasMethodReturnType(): bool
     {
         return true;
     }
 
-    public function getMethodReturnType() : string
+    public function getMethodReturnType(): string
     {
         return $this->classToBuild->getName();
     }

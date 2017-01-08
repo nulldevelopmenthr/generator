@@ -13,7 +13,7 @@ class ConstructorMethod implements Method
         $this->params = $params;
     }
 
-    public function getParamsAsClassTypes() : array
+    public function getParamsAsClassTypes(): array
     {
         $result = [];
         foreach ($this->params as $param) {
@@ -25,32 +25,32 @@ class ConstructorMethod implements Method
         return $result;
     }
 
-    public function getVisibility() : string
+    public function getVisibility(): string
     {
         return 'public';
     }
 
-    public function isStatic() : bool
+    public function isStatic(): bool
     {
         return false;
     }
 
-    public function getMethodName() : string
+    public function getMethodName(): string
     {
         return '__constructor';
     }
 
-    public function getMethodParameters() : array
+    public function getMethodParameters(): array
     {
         return $this->params;
     }
 
-    public function hasMethodReturnType() : bool
+    public function hasMethodReturnType(): bool
     {
         return false;
     }
 
-    public function getMethodReturnType() : string
+    public function getMethodReturnType(): string
     {
         throw new \Exception('Err 3221103: Method return type not supported on constructor.');
     }

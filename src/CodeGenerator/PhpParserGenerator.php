@@ -61,7 +61,7 @@ class PhpParserGenerator
         return $code->getNode();
     }
 
-    public function getOutput(ImprovedClassSource $classSource) : string
+    public function getOutput(ImprovedClassSource $classSource): string
     {
         return $this->printer->prettyPrintFile([$this->getNode($classSource)]);
     }

@@ -6,17 +6,17 @@ namespace NullDev\Skeleton\Path;
 
 class SpecPsr4Path extends Psr4Path
 {
-    public function isSourceCode() : bool
+    public function isSourceCode(): bool
     {
         return false;
     }
 
-    public function isSpecCode() : bool
+    public function isSpecCode(): bool
     {
         return true;
     }
 
-    public function isTestsCode() : bool
+    public function isTestsCode(): bool
     {
         return false;
     }

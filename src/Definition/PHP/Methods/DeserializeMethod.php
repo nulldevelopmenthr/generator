@@ -17,37 +17,37 @@ class DeserializeMethod implements Method
         $this->classSource = $classSource;
     }
 
-    public function getProperties() : array
+    public function getProperties(): array
     {
         return $this->classSource->getProperties();
     }
 
-    public function getVisibility() : string
+    public function getVisibility(): string
     {
         return 'public';
     }
 
-    public function isStatic() : bool
+    public function isStatic(): bool
     {
         return true;
     }
 
-    public function getMethodName() : string
+    public function getMethodName(): string
     {
         return 'deserialize';
     }
 
-    public function getMethodParameters() : array
+    public function getMethodParameters(): array
     {
         return [new Parameter('data', new ArrayType())];
     }
 
-    public function hasMethodReturnType() : bool
+    public function hasMethodReturnType(): bool
     {
         return true;
     }
 
-    public function getMethodReturnType() : string
+    public function getMethodReturnType(): string
     {
         return $this->classSource->getName();
     }

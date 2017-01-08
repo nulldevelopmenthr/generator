@@ -32,7 +32,6 @@ class ReadModelIdGetterGenerator
             new String_(
                 new Node\Expr\Variable('this->'.$method->getPropertyName())
             )
-
         );
         $getterMethod->addStmt($return);
 

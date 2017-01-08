@@ -6,12 +6,12 @@ namespace NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 class IntType implements TypeDeclaration
 {
-    public function getName() : string
+    public function getName(): string
     {
         return 'int';
     }
 
-    public function getFullName() : string
+    public function getFullName(): string
     {
         return 'int';
     }

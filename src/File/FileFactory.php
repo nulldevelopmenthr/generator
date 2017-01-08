@@ -16,7 +16,7 @@ class FileFactory
         $this->paths = $paths;
     }
 
-    public function create(ImprovedClassSource $classSource) : FileResource
+    public function create(ImprovedClassSource $classSource): FileResource
     {
         return new FileResource($this->getPathItBelongsTo($classSource), $classSource);
     }

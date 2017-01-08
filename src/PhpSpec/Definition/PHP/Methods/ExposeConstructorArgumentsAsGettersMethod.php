@@ -15,7 +15,7 @@ class ExposeConstructorArgumentsAsGettersMethod implements Method
         $this->params = $params;
     }
 
-    public function getParamsAsClassTypes() : array
+    public function getParamsAsClassTypes(): array
     {
         $result = [];
         foreach ($this->params as $param) {
@@ -27,32 +27,32 @@ class ExposeConstructorArgumentsAsGettersMethod implements Method
         return $result;
     }
 
-    public function getVisibility() : string
+    public function getVisibility(): string
     {
         return 'public';
     }
 
-    public function isStatic() : bool
+    public function isStatic(): bool
     {
         return false;
     }
 
-    public function getMethodName() : string
+    public function getMethodName(): string
     {
         return 'it_should_expose_constructor_arguments_via_getters';
     }
 
-    public function getMethodParameters() : array
+    public function getMethodParameters(): array
     {
         return $this->params;
     }
 
-    public function hasMethodReturnType() : bool
+    public function hasMethodReturnType(): bool
     {
         return false;
     }
 
-    public function getMethodReturnType() : string
+    public function getMethodReturnType(): string
     {
         throw new \Exception('Err 2342341: PhpSpec expose doesnt use return types.');
     }
