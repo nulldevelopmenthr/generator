@@ -62,12 +62,12 @@ class UuidIdentityCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($classType);
     }
 
-    protected function getSectionMessage()
+    protected function getSectionMessage(): string
     {
         return 'Generate UUID identity value object';
     }
 
-    protected function getIntroductionMessage()
+    protected function getIntroductionMessage(): array
     {
         return [
             '',

@@ -66,12 +66,12 @@ class BroadwayEventCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($classType, $fields);
     }
 
-    protected function getSectionMessage()
+    protected function getSectionMessage(): string
     {
         return 'Generate Broadway event';
     }
 
-    protected function getIntroductionMessage()
+    protected function getIntroductionMessage(): array
     {
         return [
             '',

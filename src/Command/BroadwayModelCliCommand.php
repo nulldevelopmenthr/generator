@@ -132,12 +132,12 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($repositoryClassType, $modelClassType);
     }
 
-    protected function getSectionMessage()
+    protected function getSectionMessage(): string
     {
         return 'Generate Broadway model';
     }
 
-    protected function getIntroductionMessage()
+    protected function getIntroductionMessage(): array
     {
         return [
             '',

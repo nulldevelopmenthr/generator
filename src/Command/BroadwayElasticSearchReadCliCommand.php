@@ -132,12 +132,12 @@ class BroadwayElasticSearchReadCliCommand extends BaseSkeletonGeneratorCommand
         return $factory->create($projectorClassType, [$parameter]);
     }
 
-    protected function getSectionMessage()
+    protected function getSectionMessage(): string
     {
         return 'Generate Broadway read models';
     }
 
-    protected function getIntroductionMessage()
+    protected function getIntroductionMessage(): array
     {
         return [
             '',
