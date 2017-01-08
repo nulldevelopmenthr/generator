@@ -14,6 +14,7 @@ test:
   override:
     - ./vendor/bin/phpunit --fail-on-warning
     - ./vendor/bin/phpspec run --no-interaction
+    - ./vendor/bin/phpstan analyse -l 4 -c phpstan.neon src tests
     - ant php-cs-fixer-check
     - ant phpcs-task
     - ant phpmd-task
