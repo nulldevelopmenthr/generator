@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "498c0d89824ab6e4f10beae4dd0a9005",
+    "content-hash": "2b6dd7d44918341a5c568b6c78b34e4b",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -78,22 +78,22 @@
         },
         {
             "name": "hanneskod/classtools",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hanneskod/classtools.git",
-                "reference": "3a1574b2f882a90488fea2c0a8fb4d45a97171df"
+                "reference": "639caf8f48de38aaa7b68ca786ac6bd0aa6ffcc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hanneskod/classtools/zipball/3a1574b2f882a90488fea2c0a8fb4d45a97171df",
-                "reference": "3a1574b2f882a90488fea2c0a8fb4d45a97171df",
+                "url": "https://api.github.com/repos/hanneskod/classtools/zipball/639caf8f48de38aaa7b68ca786ac6bd0aa6ffcc6",
+                "reference": "639caf8f48de38aaa7b68ca786ac6bd0aa6ffcc6",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "~2.0",
+                "nikic/php-parser": "^3.0",
                 "php": ">=5.5.0",
-                "symfony/finder": "~2.7|~3.0"
+                "symfony/finder": "^2.7|^3.0"
             },
             "require-dev": {
                 "hanneskod/readme-tester": "dev-master"
@@ -122,28 +122,28 @@
                 "metaprogramming",
                 "minimizer"
             ],
-            "time": "2016-03-18T17:26:18+00:00"
+            "time": "2016-12-28T19:35:55+00:00"
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.1.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0"
+                "reference": "adf44419c0fc014a0f191db6f89d3e55d4211744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4dd659edadffdc2143e4753df655d866dbfeedf0",
-                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/adf44419c0fc014a0f191db6f89d3e55d4211744",
+                "reference": "adf44419c0fc014a0f191db6f89d3e55d4211744",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": ">=5.4"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.0|~5.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -151,7 +151,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -173,7 +173,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-09-16T12:04:44+00:00"
+            "time": "2016-12-06T11:30:35+00:00"
         },
         {
             "name": "psr/cache",
