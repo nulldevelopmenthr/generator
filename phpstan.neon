@@ -1,4 +1,2 @@
 parameters:
 	ignoreErrors:
-		- '#Call to an undefined static method Money\\Money::EUR#'
-		- '#Call to an undefined static method Money\\Money::HRK#'
