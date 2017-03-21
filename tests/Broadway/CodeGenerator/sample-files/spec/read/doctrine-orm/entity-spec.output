@@ -2,8 +2,8 @@
 
 namespace spec\MyShop\ReadModel\Product;
 
-use Broadway\ReadModel\ReadModelInterface;
-use Broadway\Serializer\SerializableInterface;
+use Broadway\ReadModel\Identifiable;
+use Broadway\Serializer\Serializable;
 use DateTime;
 use MyShop\ReadModel\Product\ProductReadEntity;
 use PhpSpec\ObjectBehavior;
@@ -18,8 +18,8 @@ class ProductReadEntitySpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(ProductReadEntity::class);
-        $this->shouldHaveType(ReadModelInterface::class);
-        $this->shouldHaveType(SerializableInterface::class);
+        $this->shouldHaveType(Identifiable::class);
+        $this->shouldHaveType(Serializable::class);
     }
     public function it_should_expose_constructor_arguments_via_getters($productId, $createdAt)
     {

@@ -31,10 +31,10 @@ class EventSourcingRepositorySourceFactory
             ClassType::create('Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory')
         );
         $source->addImport(
-            ClassType::create('Broadway\EventHandling\EventBusInterface')
+            ClassType::create('Broadway\EventHandling\EventBus')
         );
         $source->addImport(
-            ClassType::create('Broadway\EventStore\EventStoreInterface')
+            ClassType::create('Broadway\EventStore\EventStore')
         );
 
         //Add aggregate root id as property.

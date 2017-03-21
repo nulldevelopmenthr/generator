@@ -29,8 +29,8 @@ class EventSourceFactory implements SourceFactory
 
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
-        //Adds Broadway SerializableInterface.
-        $source->addInterface(InterfaceType::create('Broadway\Serializer\SerializableInterface'));
+        //Adds Broadway Serializable.
+        $source->addInterface(InterfaceType::create('Broadway\Serializer\Serializable'));
         //Adds serialize() method.
         $source->addMethod($this->definitionFactory->createSerializeMethod($source));
         //Adds static deserialize() method.

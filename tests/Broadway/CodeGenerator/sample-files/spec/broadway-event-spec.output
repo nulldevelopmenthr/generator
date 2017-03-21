@@ -2,7 +2,7 @@
 
 namespace spec\MyShop\Event;
 
-use Broadway\Serializer\SerializableInterface;
+use Broadway\Serializer\Serializable;
 use DateTime;
 use MyShop\Event\ProductCreated;
 use PhpSpec\ObjectBehavior;
@@ -17,7 +17,7 @@ class ProductCreatedSpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(ProductCreated::class);
-        $this->shouldHaveType(SerializableInterface::class);
+        $this->shouldHaveType(Serializable::class);
     }
     public function it_should_expose_constructor_arguments_via_getters($productId, $createdAt)
     {

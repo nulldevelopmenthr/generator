@@ -71,8 +71,8 @@ class SpecGenerator
         //@TODO:
         foreach ($improvedClassSource->getMethods() as $method) {
             if ($method instanceof RepositoryConstructorMethod) {
-                $lets[] = new Parameter('eventStore', InterfaceType::create('Broadway\EventStore\EventStoreInterface'));
-                $lets[] = new Parameter('eventBus', InterfaceType::create('Broadway\EventHandling\EventBusInterface'));
+                $lets[] = new Parameter('eventStore', InterfaceType::create('Broadway\EventStore\EventStore'));
+                $lets[] = new Parameter('eventBus', InterfaceType::create('Broadway\EventHandling\EventBus'));
                 $lets[] = new Parameter('eventStreamDecorators', new ArrayType());
             }
         }

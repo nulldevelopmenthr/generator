@@ -29,13 +29,13 @@ class RepositoryConstructorGenerator
 
         $constructor->addParam(
             $this->createMethodParam(
-                new Parameter('eventStore', InterfaceType::create('Broadway\EventStore\EventStoreInterface'))
+                new Parameter('eventStore', InterfaceType::create('Broadway\EventStore\EventStore'))
             )
         );
 
         $constructor->addParam(
             $this->createMethodParam(
-                new Parameter('eventBus', InterfaceType::create('Broadway\EventHandling\EventBusInterface'))
+                new Parameter('eventBus', InterfaceType::create('Broadway\EventHandling\EventBus'))
             )
         );
         $constructor->addParam(

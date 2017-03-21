@@ -2,16 +2,16 @@
 
 namespace spec\MyShop\Model;
 
-use Broadway\EventHandling\EventBusInterface;
+use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
 use Broadway\EventSourcing\EventSourcingRepository;
-use Broadway\EventStore\EventStoreInterface;
+use Broadway\EventStore\EventStore;
 use MyShop\Model\ProductModelRepository;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 class ProductModelRepositorySpec extends ObjectBehavior
 {
-    public function let(EventStoreInterface $eventStore, EventBusInterface $eventBus)
+    public function let(EventStore $eventStore, EventBus $eventBus)
     {
         $this->beConstructedWith($eventStore, $eventBus, $eventStreamDecorators = []);
     }
