@@ -1,13 +1,11 @@
 formatter.name: progress
 extensions:
-  - Coduo\PhpSpec\DataProvider\DataProviderExtension
-  - Cjm\PhpSpec\Extension\TypeHintedMethodsExtension
-  - RMiller\ExemplifyExtension\ExemplifyExtension
-  - PhpSpec\Extension\CodeCoverageExtension
+  Cjm\PhpSpec\Extension\TypeHintedMethodsExtension: ~
+  PhpSpecCodeCoverage\CodeCoverageExtension: ~
 suites:
-  default:
-    namespace: NullDev\Skeleton
-    psr4_prefix: NullDev\Skeleton
+    acme_suite:
+        namespace: NullDev\Skeleton
+        psr4_prefix: NullDev\Skeleton
 code_coverage:
   format:
     - html
