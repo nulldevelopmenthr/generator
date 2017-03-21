@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "223d2e391edf4f5afef7404b0722ec99",
+    "content-hash": "5b1cc2624b8414c1542ccbd022e815e3",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1828,7 +1828,7 @@
         },
         {
             "name": "broadway/broadway",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/broadway/broadway.git",
@@ -1906,7 +1906,7 @@
                 "domain-driven design",
                 "event sourcing"
             ],
-            "time": "2017-03-06 11:33:17"
+            "time": "2017-03-06T11:33:17+00:00"
         },
         {
             "name": "broadway/uuid-generator",
@@ -4984,7 +4984,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "broadway/broadway": 20,
         "mattketmo/uuid-2x-bridge": 20
     },
     "prefer-stable": false,
