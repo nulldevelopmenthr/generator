@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Broadway\SourceFactory;
 
+use Broadway\EventHandling\EventBus;
+use Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory;
+use Broadway\EventSourcing\EventSourcingRepository;
+use Broadway\EventStore\EventStore;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
@@ -25,16 +29,16 @@ class EventSourcingRepositorySourceFactory
     {
         $source = $this->sourceFactory->create($classType);
 
-        $source->addParent(ClassType::create('Broadway\EventSourcing\EventSourcingRepository'));
+        $source->addParent(ClassType::create(EventSourcingRepository::class));
 
         $source->addImport(
-            ClassType::create('Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory')
+            ClassType::create(PublicConstructorAggregateFactory::class)
         );
         $source->addImport(
-            ClassType::create('Broadway\EventHandling\EventBus')
+            ClassType::create(EventBus::class)
         );
         $source->addImport(
-            ClassType::create('Broadway\EventStore\EventStore')
+            ClassType::create(EventStore::class)
         );
 
         //Add aggregate root id as property.

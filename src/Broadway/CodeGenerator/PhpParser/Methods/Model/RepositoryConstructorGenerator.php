@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model;
 
+use Broadway\EventHandling\EventBus;
+use Broadway\EventStore\EventStore;
 use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
@@ -29,13 +31,13 @@ class RepositoryConstructorGenerator
 
         $constructor->addParam(
             $this->createMethodParam(
-                new Parameter('eventStore', InterfaceType::create('Broadway\EventStore\EventStore'))
+                new Parameter('eventStore', InterfaceType::create(EventStore::class))
             )
         );
 
         $constructor->addParam(
             $this->createMethodParam(
-                new Parameter('eventBus', InterfaceType::create('Broadway\EventHandling\EventBus'))
+                new Parameter('eventBus', InterfaceType::create(EventBus::class))
             )
         );
         $constructor->addParam(

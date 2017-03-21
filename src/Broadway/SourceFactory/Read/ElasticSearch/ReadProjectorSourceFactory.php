@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch;
 
+use Broadway\ReadModel\Projector;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
@@ -27,7 +28,7 @@ class ReadProjectorSourceFactory implements SourceFactory
         $source = $this->sourceFactory->create($classType);
 
         //Adds Projector as parent.
-        $source->addParent(ClassType::create('Broadway\ReadModel\Projector'));
+        $source->addParent(ClassType::create(Projector::class));
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
 
         return $source;

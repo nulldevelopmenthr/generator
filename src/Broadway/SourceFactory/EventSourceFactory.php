@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Broadway\SourceFactory;
 
+use Broadway\Serializer\Serializable;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
@@ -30,7 +31,7 @@ class EventSourceFactory implements SourceFactory
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         //Adds Broadway Serializable.
-        $source->addInterface(InterfaceType::create('Broadway\Serializer\Serializable'));
+        $source->addInterface(InterfaceType::create(Serializable::class));
         //Adds serialize() method.
         $source->addMethod($this->definitionFactory->createSerializeMethod($source));
         //Adds static deserialize() method.

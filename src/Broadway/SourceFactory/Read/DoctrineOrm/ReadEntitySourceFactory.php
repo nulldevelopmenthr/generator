@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm;
 
+use Broadway\ReadModel\Identifiable;
+use Broadway\Serializer\Serializable;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
@@ -30,9 +32,9 @@ class ReadEntitySourceFactory implements SourceFactory
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         //Adds Broadway Identifiable.
-        $source->addInterface(InterfaceType::create('Broadway\ReadModel\Identifiable'));
+        $source->addInterface(InterfaceType::create(Identifiable::class));
         //Adds Broadway Serializable.
-        $source->addInterface(InterfaceType::create('Broadway\Serializer\Serializable'));
+        $source->addInterface(InterfaceType::create(Serializable::class));
         //Adds serialize() method.
         $source->addMethod($this->definitionFactory->createSerializeMethod($source));
         //Adds static deserialize() method.

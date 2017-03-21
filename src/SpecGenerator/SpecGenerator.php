@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\SpecGenerator;
 
+use Broadway\EventHandling\EventBus;
+use Broadway\EventSourcing\EventSourcingRepository;
+use Broadway\EventStore\EventStore;
 use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -71,8 +74,8 @@ class SpecGenerator
         //@TODO:
         foreach ($improvedClassSource->getMethods() as $method) {
             if ($method instanceof RepositoryConstructorMethod) {
-                $lets[] = new Parameter('eventStore', InterfaceType::create('Broadway\EventStore\EventStore'));
-                $lets[] = new Parameter('eventBus', InterfaceType::create('Broadway\EventHandling\EventBus'));
+                $lets[] = new Parameter('eventStore', InterfaceType::create(EventStore::class));
+                $lets[] = new Parameter('eventBus', InterfaceType::create(EventBus::class));
                 $lets[] = new Parameter('eventStreamDecorators', new ArrayType());
             }
         }
@@ -83,7 +86,7 @@ class SpecGenerator
         $skip = false;
 
         if (true === $improvedClassSource->hasParent()) {
-            if ($improvedClassSource->getParent()->getFullName() === 'Broadway\EventSourcing\EventSourcingRepository') {
+            if ($improvedClassSource->getParent()->getFullName() === EventSourcingRepository::class) {
                 $skip = true;
             }
         }
