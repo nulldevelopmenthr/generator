@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Broadway\CodeGenerator;
 
+use DateTime;
 use NullDev\Skeleton\Broadway\SourceFactory\CommandSourceFactory;
 use NullDev\Skeleton\Broadway\SourceFactory\EventSourcedAggregateRootSourceFactory;
 use NullDev\Skeleton\Broadway\SourceFactory\EventSourceFactory;
@@ -21,6 +22,7 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @group  FullCoverage
@@ -41,7 +43,7 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
         $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
+            new Parameter('productId', ClassType::create(Uuid::class)),
             new Parameter('title', new StringType()),
         ];
 
@@ -54,11 +56,11 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
         $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
+            new Parameter('productId', ClassType::create(Uuid::class)),
             new Parameter('title', new StringType()),
             new Parameter('quantity', new IntType()),
             new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::create('DateTime')),
+            new Parameter('createdAt', ClassType::create(DateTime::class)),
         ];
 
         $factory = new EventSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -90,11 +92,11 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
+            new Parameter('productId', ClassType::create(Uuid::class)),
             new Parameter('title', new StringType()),
             new Parameter('quantity', new IntType()),
             new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::create('DateTime')),
+            new Parameter('createdAt', ClassType::create(DateTime::class)),
         ];
 
         $factory = new ElasticSearch\ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -130,11 +132,11 @@ abstract class BaseCodeGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
-            new Parameter('productId', ClassType::create('Ramsey\\Uuid\\Uuid')),
+            new Parameter('productId', ClassType::create(Uuid::class)),
             new Parameter('title', new StringType()),
             new Parameter('quantity', new IntType()),
             new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::create('DateTime')),
+            new Parameter('createdAt', ClassType::create(DateTime::class)),
         ];
 
         $factory = new DoctrineOrm\ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());

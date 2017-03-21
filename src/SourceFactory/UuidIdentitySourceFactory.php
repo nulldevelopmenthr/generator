@@ -8,6 +8,7 @@ use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
+use Ramsey\Uuid\Uuid;
 
 class UuidIdentitySourceFactory implements SourceFactory
 {
@@ -34,7 +35,7 @@ class UuidIdentitySourceFactory implements SourceFactory
         //Add static create() method.
         $source->addMethod($this->definitionFactory->createUuidCreateMethod($classType));
         //Add Ramsey\Uuid\Uuid to imports.
-        $source->addImport(ClassType::create('Ramsey\Uuid\Uuid'));
+        $source->addImport(ClassType::create(Uuid::class));
 
         return $source;
     }

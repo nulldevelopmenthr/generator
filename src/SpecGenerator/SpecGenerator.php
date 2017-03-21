@@ -18,7 +18,12 @@ use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethod;
 use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class SpecGenerator
 {
     /**
@@ -48,8 +53,8 @@ class SpecGenerator
         }
 
         $specSource->addImport($improvedClassSource->getClassType());
-        $specSource->addImport(ClassType::create('Prophecy\Argument'));
-        $specSource->addParent(ClassType::create('PhpSpec\ObjectBehavior'));
+        $specSource->addImport(ClassType::create(Argument::class));
+        $specSource->addParent(ClassType::create(ObjectBehavior::class));
 
         $initializable = [
             $improvedClassSource->getClassType(),
