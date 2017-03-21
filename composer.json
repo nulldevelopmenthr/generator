@@ -37,7 +37,6 @@
         "codeclimate/php-test-reporter":            "^0.4.4",
         "broadway/broadway":                        "^1.0",
         "ramsey/uuid":                              "^3.1",
-        "mattketmo/uuid-2x-bridge":                 "*@dev",
         "phpstan/phpstan":                          "^0.6.4"
     },
     "scripts": {
