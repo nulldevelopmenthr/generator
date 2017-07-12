@@ -15,7 +15,6 @@ use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
@@ -58,9 +57,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
         $this->output->writeln('Generating Id file');
         $this->handleGeneratingFile($modelIdFileResource);
 
-        //Generating PHPSpec for Id.
-        $createSpecQuestion = new ConfirmationQuestion('Create PHPSpec file for id? (default=y)', true);
-        if ($this->askQuestion($createSpecQuestion)) {
+        if ($this->io->confirm('Create PHPSpec file for id?', true)) {
             $modelIdSpecSource   = $this->createSpecSource($modelIdClassSource);
             $modelIdSpecResource = $this->getFileResource($modelIdSpecSource);
             $this->handleGeneratingFile($modelIdSpecResource);
@@ -74,9 +71,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
         $this->output->writeln('Generating Model file');
         $this->handleGeneratingFile($modelFileResource);
 
-        //Generating PHPSpec for Entity.
-        $createSpecQuestion = new ConfirmationQuestion('Create PHPSpec file for entity? (default=y)', true);
-        if ($this->askQuestion($createSpecQuestion)) {
+        if ($this->io->confirm('Create PHPSpec file for Entity?', true)) {
             $modelSpecSource   = $this->createSpecSource($modelClassSource);
             $modelSpecResource = $this->getFileResource($modelSpecSource);
             $this->handleGeneratingFile($modelSpecResource);
@@ -90,9 +85,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
         $this->output->writeln('Generating Repository file');
         $this->handleGeneratingFile($repositoryFileResource);
 
-        //Generating PHPSpec for Repository.
-        $createSpecQuestion = new ConfirmationQuestion('Create PHPSpec file for repository? (default=y)', true);
-        if ($this->askQuestion($createSpecQuestion)) {
+        if ($this->io->confirm('Create PHPSpec file for Repository?', true)) {
             $readRepositorySpecSource   = $this->createSpecSource($repositoryClassSource);
             $readRepositorySpecResource = $this->getFileResource($readRepositorySpecSource);
             $this->handleGeneratingFile($readRepositorySpecResource);
