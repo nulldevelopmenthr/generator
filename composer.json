@@ -18,7 +18,7 @@
         }
     },
     "require": {
-        "php":                                      ">=7.0.0",
+        "php":                                      ">=7.1.0",
         "nikic/php-parser":                         "^3.0",
         "symfony/finder":                           "~3",
         "hanneskod/classtools":                     "^1.1",
@@ -41,6 +41,12 @@
         "phpstan/phpstan":                          "^0.7.0",
         "phing/phing": "^2.16",
         "humbug/humbug": "~1.0@dev"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "7.1.0"
+        }
     },
     "scripts": {
     },
