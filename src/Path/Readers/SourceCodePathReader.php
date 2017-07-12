@@ -53,7 +53,11 @@ class SourceCodePathReader
                     continue;
                 }
 
-                $reflection = new \ReflectionClass($classname);
+                try {
+                    $reflection = new \ReflectionClass($classname);
+                } catch (\Throwable $exception) {
+                    continue;
+                }
 
                 if ($reflection->isAbstract() || $reflection->isTrait() || $reflection->isInterface()) {
                     continue;
