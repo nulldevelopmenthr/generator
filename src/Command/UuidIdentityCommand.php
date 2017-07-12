@@ -13,15 +13,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class UuidIdentityCommand extends BaseSkeletonGeneratorCommand
 {
-    protected $input;
-    protected $output;
-
     protected function configure()
     {
         $this->setName('uuid')
@@ -33,6 +31,7 @@ class UuidIdentityCommand extends BaseSkeletonGeneratorCommand
     {
         $this->input  = $input;
         $this->output = $output;
+        $this->io     = new SymfonyStyle($input, $output);
 
         $className = $this->handleClassNameInput();
 
