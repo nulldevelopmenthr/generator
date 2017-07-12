@@ -23,6 +23,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 
@@ -35,6 +36,8 @@ abstract class BaseSkeletonGeneratorCommand extends Command
     protected $input;
     /** @var OutputInterface */
     protected $output;
+    /** @var SymfonyStyle */
+    protected $io;
 
     private $paths;
     private $existingNamespaces;
