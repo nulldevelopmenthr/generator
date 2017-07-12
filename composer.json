@@ -38,7 +38,9 @@
         "codeclimate/php-test-reporter":            "^0.4.4",
         "broadway/broadway":                        "^1.0",
         "ramsey/uuid":                              "^3.1",
-        "phpstan/phpstan":                          "^0.7.0"
+        "phpstan/phpstan":                          "^0.7.0",
+        "phing/phing": "^2.16",
+        "humbug/humbug": "~1.0@dev"
     },
     "scripts": {
     },
