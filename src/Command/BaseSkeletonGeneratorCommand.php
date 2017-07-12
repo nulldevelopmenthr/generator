@@ -67,9 +67,8 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         if (false === empty($this->input->getOption('className'))) {
             return str_replace('/', '\\', $this->input->getOption('className'));
         }
-        $this->getQuestionHelper()->writeSection($this->output, $this->getSectionMessage());
-
-        $this->output->writeln($this->getIntroductionMessage());
+        $this->io->section($this->getSectionMessage());
+        $this->io->writeln($this->getIntroductionMessage());
 
         $className= null;
         while (true) {
