@@ -1,20 +1,89 @@
-machine:
-  php:
-    version: 7.0.4
-  environment:
-    COMPOSER_DISCARD_CHANGES: true
-general:
-  artifacts:
-    - "build/"
-    - "tmp/"
-dependencies:
-  cache_directories:
-    - "vendor"
-test:
-  override:
-    - ./vendor/bin/phpunit --fail-on-warning
-    - ./vendor/bin/phpspec run --no-interaction
-    - ./vendor/bin/phpstan analyse -l 4 -c phpstan.neon src tests
-    - ant php-cs-fixer-check
-    - ant phpcs-task
-    - ant phpmd-task
+version: 2
+jobs:
+  build:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run:
+          name: PHPUnit
+          command: ./vendor/bin/phpunit --fail-on-warning
+      - run:
+          name: PHPSpec
+          command: ./vendor/bin/phpspec run --no-interaction
+      - run:
+          name: Check codestandards
+          command: ./vendor/bin/phing check-codestandards
+      - run:
+          name: Static analysis
+          command: ./vendor/bin/phing phpstan
+      - save_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+          paths:
+            - /var/www/vendor
+
+  humbug:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Humbug
+          command: ./vendor/bin/humbug
+      - store_artifacts:
+          path: build
+          destination: build
+
+  highest:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
+          name: Delete composer.lock
+          command: rm composer.lock
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run:
+          name: PHPUnit
+          command: ./vendor/bin/phpunit
+      - run:
+          name: PHPSpec
+          command: ./vendor/bin/phpspec run --no-interaction
+      - run:
+          name: Check codestandards
+          command: ./vendor/bin/phing check-codestandards
+      - run:
+          name: Static analysis
+          command: ./vendor/bin/phing phpstan
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - humbug:
+         requires:
+           - build
+      - highest:
+         requires:
+           - build
