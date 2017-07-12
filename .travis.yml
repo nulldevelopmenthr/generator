@@ -1,42 +1,51 @@
-language: php
-sudo: false
-env:
-  global:
-    - COMPOSER_DISCARD_CHANGES=true
-php:
-  - 7.0
-env:
-  - coverage=phpunit
-  - coverage=phpspec
-fast_finish: true
-
-cache:
-  directories:
-    - vendor
-    - bin
-
 notifications:
   email: false
+matrix:
+  include:
 
-before_script:
-  - if [[ $coverage == 'phpspec' ]]; then cp etc/ci/phpspec.yml phpspec.yml; fi;
-  - sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
-  - composer install --prefer-source
-  - mkdir build/cov -p
-  - mkdir build/logs -p
-script:
-  - if [[ $coverage == 'phpunit' ]]; then sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
-  - php -d 'xdebug.max_nesting_level=500' ./vendor/bin/phpunit --fail-on-warning
-  - if [[ $coverage == 'phpunit' ]]; then sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
-  - if [[ $coverage == 'phpspec' ]]; then sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
-  - ./vendor/bin/phpspec run --no-interaction
-  - if [[ $coverage == 'phpspec' ]]; then sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini; fi;
-  - ant php-cs-fixer-check
-  - ant phpcs-task
-  - ant phpmd-task
+    #####################################################################
+    # Job 1: PHPSpec
+    #####################################################################
+    - env: phpspec
+      sudo: false
+      language: php
+      php: 7.1
+      cache:
+        directories:
+          - vendor
+      before_install:
+        - cp etc/travis-ci/.coveralls.yml .coveralls.yml
+        - cp etc/travis-ci/phpspec.yml phpspec.yml
+        - mkdir -p build/cov build/logs build/phpspec/coverage
+      install:
+        - composer install --prefer-source
+      script:
+        - ./vendor/bin/phpspec run --no-interaction
+      after_script:
+        - export CI_BUILD_NUMBER="$TRAVIS_BUILD_NUMBER"
+        - export CI_PULL_REQUEST="$TRAVIS_PULL_REQUEST"
+        - export CI_BRANCH="$TRAVIS_BRANCH"
+        - php vendor/bin/coveralls -v
 
-after_script:
-  - if [[ $coverage == 'phpunit' ]]; then export CI_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER && php bin/coveralls -v; fi;
-  - if [[ $coverage == 'phpunit' ]]; then php ./vendor/bin/test-reporter -v; fi;
-  - if [[ $coverage == 'phpspec' ]]; then export CI_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER && php bin/coveralls -v; fi;
-  - if [[ $coverage == 'phpspec' ]]; then php ./vendor/bin/test-reporter -v; fi;
+    #####################################################################
+    # Job 2: PHPUnit
+    #####################################################################
+    - env: phpunit
+      sudo: false
+      language: php
+      php: 7.1
+      cache:
+        directories:
+          - vendor
+      before_install:
+        - cp etc/travis-ci/.coveralls.yml .coveralls.yml
+        - mkdir -p build/cov build/logs build/phpunit/coverage
+      install:
+        - composer install --prefer-source
+      script:
+        - php -d 'xdebug.max_nesting_level=500' vendor/bin/phpunit
+      after_script:
+        - export CI_BUILD_NUMBER="$TRAVIS_BUILD_NUMBER"
+        - export CI_PULL_REQUEST="$TRAVIS_PULL_REQUEST"
+        - export CI_BRANCH="$TRAVIS_BRANCH"
+        - php vendor/bin/coveralls -v
