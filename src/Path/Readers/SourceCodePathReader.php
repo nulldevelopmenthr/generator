@@ -36,6 +36,7 @@ class SourceCodePathReader
 
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function getExistingClasses(array $paths): array
     {
