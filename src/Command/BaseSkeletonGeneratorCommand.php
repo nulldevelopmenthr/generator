@@ -21,7 +21,6 @@ use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Filesystem;
@@ -70,18 +69,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         $this->io->section($this->getSectionMessage());
         $this->io->writeln($this->getIntroductionMessage());
 
-        $className= null;
-        while (true) {
-            $className = $this->askForClassName();
-
-            if (true === empty($className)) {
-                $this->output->writeln('No class name, please enter it');
-            } else {
-                break;
-            }
-        }
-
-        return str_replace('/', '\\', $className);
+        return $this->askForClassName();
     }
 
     protected function handleGeneratingFile(FileResource $fileResource)
@@ -103,42 +91,56 @@ abstract class BaseSkeletonGeneratorCommand extends Command
         return $this->askOverwriteConfirmationQuestion();
     }
 
-    protected function askForClassName()
+    protected function askForClassName(): string
     {
         $question = new Question($this->getQuestionHelper()->getQuestion('Enter class name', ''));
         $question->setAutocompleterValues($this->getExistingNamespaces());
+        $question->setValidator(
+            function ($input) {
+                if (true === empty($input)) {
+                    throw new \RuntimeException('No class name, please enter it');
+                }
 
-        return $this->askQuestion($question);
+                $className = str_replace('/', '\\', $input);
+
+                // Check there is namespace defined.
+                if (false === strpos($input, '\\')) {
+                    throw new \RuntimeException('No namespace, please enter it');
+                }
+
+                return $className;
+            }
+        );
+
+        return $this->io->askQuestion($question);
     }
 
     protected function askForParameterClassName()
     {
         $question = new Question($this->getQuestionHelper()->getQuestion('Enter parameter class name', ''));
         $question->setAutocompleterValues($this->getExistingClasses());
+        // Allow empty value so entering of parameters can end.
+        $question->setValidator(
+            function ($input) {
+                if (true === empty($input)) {
+                    return false;
+                }
 
-        return $this->askQuestion($question);
+                return $input;
+            }
+        );
+
+        return $this->io->askQuestion($question);
     }
 
     protected function askForParameterName(string $suggestedName)
     {
-        $questionName = new Question(
-            $this->getQuestionHelper()->getQuestion('Enter parameter name', $suggestedName),
-            $suggestedName
-        );
-
-        return $this->askQuestion($questionName);
+        return $this->io->ask('Enter parameter name', $suggestedName);
     }
 
     protected function askOverwriteConfirmationQuestion()
     {
-        $question = new ConfirmationQuestion('File exists, overwrite?', false);
-
-        return $this->askQuestion($question);
-    }
-
-    protected function askQuestion(Question $question)
-    {
-        return $this->getQuestionHelper()->ask($this->input, $this->output, $question);
+        return $this->io->confirm('File exists, overwrite?', false);
     }
 
     protected function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
