@@ -12,7 +12,6 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
@@ -49,9 +48,7 @@ class BroadwayEventCliCommand extends BaseSkeletonGeneratorCommand
 
         $this->handleGeneratingFile($fileResource);
 
-        //Generating PHPSpec.
-        $createSpecQuestion = new ConfirmationQuestion('Create PHPSpec file? (default=y)', true);
-        if ($this->askQuestion($createSpecQuestion)) {
+        if ($this->io->confirm('Create PHPSpec file?', true)) {
             $specSource   = $this->createSpecSource($classSource);
             $specResource = $this->getFileResource($specSource);
             $this->handleGeneratingFile($specResource);
