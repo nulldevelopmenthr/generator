@@ -12,9 +12,6 @@ use PhpParser\PrettyPrinterAbstract;
 
 /**
  * @todo: Reason this class exists
- * @SuppressWarnings(PHPMD.CyclomaticComplexity)
- * @SuppressWarnings(PHPMD.NPathComplexity)
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  *
  * @see PhpParserGeneratorSpec
  * @see PhpParserGeneratorTest
